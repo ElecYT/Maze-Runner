@@ -1,0 +1,33 @@
+name: mazeRunnerCore
+version: '1.0-SNAPSHOT'
+main: me.elec.mazerunnercore.MazeRunnerCore
+api-version: '1.20'
+load: STARTUP
+commands:
+  mazegame:
+    description: Opens the Maze Game GUI.
+    usage: /mazegame
+    aliases: game
+  tplobby:
+    description: Teleports you to the lobby.
+    usage: /tplobby
+    aliases: lby
+  leave:
+    description: Teleports you to the lobby.
+    usage: /leave
+    aliases: quit
+  rewards:
+    description: Views the level and leveling rewards.
+    usage: /rewards
+    aliases: reward
+  level:
+    description: Shows the current level
+    usage: /level
+    aliases: lvl
+  leaderboard:
+    description: View the leaderboard
+    usage: /leaderboard <mazeName>
+  reconnect:
+    description: Toggles on/off of the auto-reconnect feature
+    usage: /reconnect
+    aliases: connect
