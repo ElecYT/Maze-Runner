@@ -1,0 +1,3135 @@
+Subject: [PATCH] init commit
+---
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/.gitignore	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .idea/artifacts/mazeRunnerCore_jar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/artifacts/mazeRunnerCore_jar.xml b/.idea/artifacts/mazeRunnerCore_jar.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/artifacts/mazeRunnerCore_jar.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,8 @@
++<component name="ArtifactManager">
++  <artifact type="jar" name="mazeRunnerCore:jar">
++    <output-path>$USER_HOME$/AppData/Roaming/.feather/player-server/servers/9459af3e-2065-4a30-9343-80480bd4e6ff/plugins</output-path>
++    <root id="archive" name="mazeRunnerCore (2).jar">
++      <element id="module-output" name="mazeRunnerCore (2)" />
++    </root>
++  </artifact>
++</component>
+\ No newline at end of file
+Index: .idea/codeStyles/Project.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/codeStyles/Project.xml b/.idea/codeStyles/Project.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/codeStyles/Project.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,7 @@
++<component name="ProjectCodeStyleConfiguration">
++  <code_scheme name="Project" version="173">
++    <ScalaCodeStyleSettings>
++      <option name="MULTILINE_STRING_CLOSING_QUOTES_ON_NEW_LINE" value="true" />
++    </ScalaCodeStyleSettings>
++  </code_scheme>
++</component>
+\ No newline at end of file
+Index: .idea/codeStyles/codeStyleConfig.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/codeStyles/codeStyleConfig.xml b/.idea/codeStyles/codeStyleConfig.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/codeStyles/codeStyleConfig.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,5 @@
++<component name="ProjectCodeStyleConfiguration">
++  <state>
++    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default" />
++  </state>
++</component>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/compiler.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="mazeRunnerCore" />
++      </profile>
++    </annotationProcessing>
++    <bytecodeTargetLevel>
++      <module name="mazeRunnerCore (1)" target="1.5" />
++      <module name="mazeRunnerCore (2)" target="1.8" />
++    </bytecodeTargetLevel>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/encodings.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/jarRepositories.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,30 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
++      <option name="url" value="https://repo.maven.apache.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="sonatype" />
++      <option name="name" value="sonatype" />
++      <option name="url" value="https://oss.sonatype.org/content/groups/public/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="papermc-repo" />
++      <option name="name" value="papermc-repo" />
++      <option name="url" value="https://repo.papermc.io/repository/maven-public/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/misc.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="EntryPointsManager">
++    <list size="1">
++      <item index="0" class="java.lang.String" itemvalue="org.bukkit.event.EventHandler" />
++    </list>
++  </component>
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="temurin-17" project-jdk-type="JavaSDK">
++    <output url="file://$USER_HOME$/Documents" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/modules.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/mazeRunnerCore.iml" filepath="$PROJECT_DIR$/mazeRunnerCore.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/uiDesigner.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/.idea/vcs.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: mazeRunnerCore (2).iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/mazeRunnerCore (2).iml b/mazeRunnerCore (2).iml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/mazeRunnerCore (2).iml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,69 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="minecraft" name="Minecraft">
++      <configuration>
++        <autoDetectTypes>
++          <platformType>PAPER</platformType>
++          <platformType>ADVENTURE</platformType>
++        </autoDetectTypes>
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
++    <output url="file://$MODULE_DIR$/target/classes" />
++    <output-test url="file://$MODULE_DIR$/target/test-classes" />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
++      <excludeFolder url="file://$MODULE_DIR$/target" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.guava:guava:31.1-jre" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.guava:failureaccess:1.0.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.errorprone:error_prone_annotations:2.11.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.j2objc:j2objc-annotations:1.3" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.gson:gson:2.10" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-chat:1.20-R0.1-deprecated+build.14" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:2.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.joml:joml:1.10.5" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: it.unimi.dsi:fastutil:8.5.6" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.logging.log4j:log4j-api:2.17.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-api:1.8.0-beta4" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven:maven-resolver-provider:3.8.5" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven:maven-model:3.8.5" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven:maven-model-builder:3.8.5" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.codehaus.plexus:plexus-interpolation:1.26" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven:maven-artifact:3.8.5" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven:maven-builder-support:3.8.5" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.sisu:org.eclipse.sisu.inject:0.3.5" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven:maven-repository-metadata:3.8.5" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven.resolver:maven-resolver-api:1.6.3" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven.resolver:maven-resolver-spi:1.6.3" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven.resolver:maven-resolver-util:1.6.3" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.maven.resolver:maven-resolver-impl:1.6.3" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.commons:commons-lang3:3.8.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.codehaus.plexus:plexus-utils:3.3.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.inject:javax.inject:1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-api:4.14.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-key:4.14.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:examination-api:1.3.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:examination-string:1.3.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jetbrains:annotations:24.0.1" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-minimessage:4.14.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-serializer-gson:4.14.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-serializer-json:4.14.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-serializer-legacy:4.14.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-serializer-plain:4.14.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: net.kyori:adventure-text-logger-slf4j:4.14.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.checkerframework:checker-qual:3.21.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm:9.4" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-commons:9.4" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-tree:9.4" level="project" />
++  </component>
++</module>
+\ No newline at end of file
+Index: mazeRunnerCore.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/mazeRunnerCore.iml b/mazeRunnerCore.iml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/mazeRunnerCore.iml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module version="4">
++  <component name="FacetManager">
++    <facet type="minecraft" name="Minecraft">
++      <configuration>
++        <autoDetectTypes>
++          <platformType>PAPER</platformType>
++          <platformType>ADVENTURE</platformType>
++        </autoDetectTypes>
++      </configuration>
++    </facet>
++  </component>
++</module>
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/pom.xml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,74 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <modelVersion>4.0.0</modelVersion>
++
++    <groupId>me.elec</groupId>
++    <artifactId>mazeRunnerCore</artifactId>
++    <version>1.0-SNAPSHOT</version>
++    <packaging>jar</packaging>
++
++    <name>mazeRunnerCore</name>
++
++    <properties>
++        <java.version>1.8</java.version>
++        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
++    </properties>
++
++    <build>
++        <plugins>
++            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-compiler-plugin</artifactId>
++                <version>3.8.1</version>
++                <configuration>
++                    <source>${java.version}</source>
++                    <target>${java.version}</target>
++                </configuration>
++            </plugin>
++            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-shade-plugin</artifactId>
++                <version>3.2.4</version>
++                <executions>
++                    <execution>
++                        <phase>package</phase>
++                        <goals>
++                            <goal>shade</goal>
++                        </goals>
++                        <configuration>
++                            <createDependencyReducedPom>false</createDependencyReducedPom>
++                        </configuration>
++                    </execution>
++                </executions>
++            </plugin>
++        </plugins>
++        <resources>
++            <resource>
++                <directory>src/main/resources</directory>
++                <filtering>true</filtering>
++            </resource>
++        </resources>
++    </build>
++
++    <repositories>
++        <repository>
++            <id>papermc-repo</id>
++            <url>https://repo.papermc.io/repository/maven-public/</url>
++        </repository>
++        <repository>
++            <id>sonatype</id>
++            <url>https://oss.sonatype.org/content/groups/public/</url>
++        </repository>
++    </repositories>
++
++    <dependencies>
++        <dependency>
++            <groupId>io.papermc.paper</groupId>
++            <artifactId>paper-api</artifactId>
++            <version>1.20.1-R0.1-SNAPSHOT</version>
++            <scope>provided</scope>
++        </dependency>
++    </dependencies>
++</project>
+Index: src/main/java/me/elec/mazerunnercore/AutoReconnectManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/AutoReconnectManager.java b/src/main/java/me/elec/mazerunnercore/AutoReconnectManager.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/AutoReconnectManager.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,43 @@
++package me.elec.mazerunnercore;
++
++import org.bukkit.Sound;
++import org.bukkit.entity.Player;
++import org.bukkit.scheduler.BukkitRunnable;
++
++public class AutoReconnectManager {
++    private MazeRunnerCore plugin;
++    private boolean reconnectEnabled = true;
++
++    public AutoReconnectManager(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++    }
++
++    public void toggleReconnect(Player player) {
++        reconnectEnabled = !reconnectEnabled;
++        if (reconnectEnabled) {
++            player.sendMessage(plugin.getGradientPrefix() + "§r§aAuto-reconnect is now enabled.");
++        } else {
++            player.sendMessage(plugin.getGradientPrefix() + "§r§cAuto-reconnect is now disabled.");
++        }
++    }
++
++    public boolean isReconnectEnabled() {
++        return reconnectEnabled;
++    }
++
++    public void scheduleReconnect(Player player, String mazeName) {
++        if (reconnectEnabled) {
++            new BukkitRunnable() {
++                @Override
++                public void run() {
++                    if (player.isOnline()) {
++                        player.sendMessage(plugin.getGradientPrefix() + "§x§B§B§E§6§5§ET§x§A§8§E§9§5§Eo§x§9§6§E§B§5§Eg§x§8§3§E§E§5§Eg§x§7§0§F§0§5§El§x§5§E§F§3§5§Fe §x§4§B§F§5§5§Fu§x§3§8§F§8§5§Fs§x§2§5§F§A§5§Fi§x§1§3§F§D§5§Fn§x§0§0§F§F§5§Fg §x§1§3§F§D§5§F/§x§2§5§F§A§5§Fr§x§3§8§F§8§5§Fe§x§4§B§F§5§5§Fc§x§5§E§F§3§5§Fo§x§7§0§F§0§5§En§x§8§3§E§E§5§En§x§9§6§E§B§5§Ee§x§A§8§E§9§5§Ec§x§B§B§E§6§5§Et");
++                        player.playSound(player.getLocation(), Sound.valueOf("BLOCK_NOTE_BLOCK_BELL"), 1.0f, 0.4f);
++                        // Implement logic to teleport the player to a new game on the same map
++                        plugin.pregameProcess(player, mazeName);
++                    }
++                }
++            }.runTaskLater(plugin, 100); // 100 ticks = 5 seconds
++        }
++    }
++}
+Index: src/main/java/me/elec/mazerunnercore/CustomScoreboardManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/CustomScoreboardManager.java b/src/main/java/me/elec/mazerunnercore/CustomScoreboardManager.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/CustomScoreboardManager.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,60 @@
++package me.elec.mazerunnercore;
++
++import org.bukkit.Bukkit;
++import org.bukkit.entity.Player;
++import org.bukkit.event.EventHandler;
++import org.bukkit.event.Listener;
++import org.bukkit.event.server.PluginEnableEvent;
++import org.bukkit.scoreboard.*;
++
++public class CustomScoreboardManager implements Listener {
++
++    private final MazeRunnerCore plugin;
++    private Scoreboard gameScoreboard;
++    private Scoreboard lobbyScoreboard;
++
++    public CustomScoreboardManager(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++
++        // Register the listener for PluginEnableEvent
++        Bukkit.getPluginManager().registerEvents(this, plugin);
++
++        // Initialize and create the scoreboards when the manager is constructed
++        createScoreboards();
++    }
++
++    // This method is responsible for creating your scoreboards
++    private void createScoreboards() {
++        ScoreboardManager scoreboardManager = Bukkit.getScoreboardManager();
++        gameScoreboard = scoreboardManager.getNewScoreboard();
++        lobbyScoreboard = scoreboardManager.getNewScoreboard();
++
++        // Create objectives and add them to the scoreboards
++        Objective gameObjective = gameScoreboard.registerNewObjective("game", "dummy", "Game");
++        gameObjective.setDisplaySlot(DisplaySlot.SIDEBAR);
++
++        Objective lobbyObjective = lobbyScoreboard.registerNewObjective("lobby", "dummy", "Lobby");
++        lobbyObjective.setDisplaySlot(DisplaySlot.SIDEBAR);
++
++        // Add other scoreboard elements like teams, scores, etc.
++        // (Replace with your actual scoreboard setup logic)
++    }
++
++    // Method to set the game scoreboard for a player
++    public void setGameScoreboard(Player player) {
++        player.setScoreboard(gameScoreboard);
++    }
++
++    // Method to set the lobby scoreboard for a player
++    public void setLobbyScoreboard(Player player) {
++        player.setScoreboard(lobbyScoreboard);
++    }
++
++    @EventHandler
++    public void onPluginEnable(PluginEnableEvent event) {
++        if (event.getPlugin() == plugin) {
++            // Your plugin has been enabled; the scoreboards are already created
++        }
++    }
++}
++
+Index: src/main/java/me/elec/mazerunnercore/GameEndings.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/GameEndings.java b/src/main/java/me/elec/mazerunnercore/GameEndings.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/GameEndings.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,145 @@
++package me.elec.mazerunnercore;
++
++import net.md_5.bungee.api.chat.ClickEvent;
++import net.md_5.bungee.api.chat.ComponentBuilder;
++import org.bukkit.*;
++import org.bukkit.Note.Tone;
++import org.bukkit.block.Block;
++import org.bukkit.block.data.type.NoteBlock;
++import org.bukkit.entity.Player;
++
++
++public class GameEndings {
++    private String mapName;
++    private static MazeRunnerCore plugin = null;
++    private AutoReconnectManager reconnectManager;
++    private RewardSystem rewardSystem;
++
++    public GameEndings(MazeRunnerCore plugin, AutoReconnectManager reconnectManager) {
++        this.plugin = plugin;
++        this.reconnectManager = reconnectManager;
++        this.rewardSystem = new RewardSystem(plugin);
++    }
++
++
++    public void stopGame(Player player, Double timeInSeconds, String mazeName, String playerName) {
++        // Check if the player is a winner using isPlayerWinner method
++        MazeRunnerCore pluginInstance = MazeRunnerCore.getPlugin(MazeRunnerCore.class);
++        if (pluginInstance != null && pluginInstance.isPlayerWinner) {
++            // Player is a winner
++
++            sendTitle(player, "§x§B§E§6§C§0§9Y§x§B§8§6§4§1§Do§x§B§2§5§C§3§1u §x§A§C§5§4§4§5c§x§A§6§4§C§5§9o§x§9§F§4§5§6§Cm§x§9§9§3§D§8§0p§x§9§3§3§5§9§4l§x§8§D§2§D§A§8e§x§8§7§2§5§B§Ct§x§8§2§2§3§C§9e§x§7§D§2§7§C§Fd §x§7§8§2§B§D§5t§x§7§3§2§F§D§Bh§x§6§E§3§3§E§1e §x§6§9§3§7§E§7m§x§6§4§3§B§E§Da§x§5§F§3§F§F§3z§x§5§A§4§3§F§9e§x§5§5§4§7§F§F!", "§x§B§E§6§C§0§9N§x§A§D§5§7§3§Fi§x§9§D§4§1§7§5c§x§8§C§2§C§A§Be §x§7§D§2§6§C§EJ§x§7§0§3§1§D§Eo§x§6§2§3§C§E§Fb§x§5§5§4§7§F§F!");
++            postGame(playerName, mazeName, timeInSeconds, player);
++            pluginInstance.stopStopwatch(player);
++            scheduleReconnect(player, mazeName);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_BASS);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_BASEDRUM);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_HARP);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_HAT);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_PLING);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_SNARE);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_BASEDRUM);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_BASS);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_PLING);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_HAT);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_HARP);
++            playNote(player, Sound.BLOCK_NOTE_BLOCK_SNARE);
++        } else {
++            // Player is not a winner
++            player.sendMessage(losingMessage());
++            player.sendActionBar(losingMessage());
++            sendTitle(player, "§x§B§E§6§C§0§9Y§x§B§7§6§3§2§1o§x§B§0§5§9§3§8u §x§A§8§5§0§5§0l§x§A§1§4§7§6§8e§x§9§A§3§D§7§Ff§x§9§3§3§4§9§7t §x§8§B§2§A§A§Et§x§8§4§2§1§C§6h§x§7§E§2§6§C§De §x§7§8§2§B§D§4g§x§7§2§2§F§D§Ba§x§6§D§3§4§E§3m§x§6§7§3§9§E§Ae§x§6§1§3§E§F§1.§x§5§B§4§2§F§8.§x§5§5§4§7§F§F.", "§x§B§E§6§C§0§9N§x§B§6§6§2§2§2o §x§A§F§5§8§3§Bx§x§A§7§4§E§5§5p §x§9§F§4§4§6§Ew§x§9§7§3§A§8§7a§x§9§0§3§0§A§0s §x§8§8§2§6§B§9e§x§8§1§2§4§C§Aa§x§7§B§2§9§D§1r§x§7§4§2§E§D§9n§x§6§E§3§3§E§1e§x§6§8§3§8§E§8d§x§6§2§3§D§F§0.§x§5§B§4§2§F§7.§x§5§5§4§7§F§F.");
++            teleportPlayer(player, "game-lobby-1", 21.526, 156, 107.594, -1.3f, -90f);
++            // Stop the stopwatch
++            pluginInstance.stopStopwatch(player);
++        }
++    }
++
++    public String losingMessage() {
++        return "§x§B§E§6§C§0§9Y§x§B§A§6§7§1§5o§x§B§7§6§3§2§1u §x§B§3§5§E§2§Cl§x§B§0§5§9§3§8e§x§A§C§5§5§4§4f§x§A§8§5§0§5§0t §x§A§5§4§B§5§Ct§x§A§1§4§7§6§8h§x§9§D§4§2§7§3e §x§9§A§3§D§7§Fg§x§9§6§3§8§8§Ba§x§9§3§3§4§9§7m§x§8§F§2§F§A§3e§x§8§B§2§A§A§E.§x§8§8§2§6§B§A.§x§8§4§2§1§C§6. §x§8§1§2§3§C§AN§x§7§E§2§6§C§Do §x§7§B§2§8§D§1x§x§7§8§2§B§D§4p §x§7§5§2§D§D§8w§x§7§2§2§F§D§Ba§x§6§F§3§2§D§Fs §x§6§D§3§4§E§3e§x§6§A§3§6§E§6a§x§6§7§3§9§E§Ar§x§6§4§3§B§E§Dn§x§6§1§3§E§F§1e§x§5§E§4§0§F§4d§x§5§B§4§2§F§8.§x§5§8§4§5§F§B.§x§5§5§4§7§F§F.";
++    }
++
++    public void playNote(Player player, Sound sound) {
++        player.playSound(player.getLocation(), sound, 1, 1);
++    }
++
++    public void scheduleReconnect(Player player, String mazeName) {
++        if (reconnectManager.isReconnectEnabled()) {
++            reconnectManager.scheduleReconnect(player, mazeName);
++            player.sendMessage(plugin.getGradientPrefix() + "§x§2§6§B§E§1§AY§x§2§3§C§4§2§0o§x§1§F§C§9§2§6u §x§1§C§C§F§2§Ch§x§1§9§D§5§3§2a§x§1§5§D§A§3§8v§x§1§2§E§0§3§Ee §x§0§F§E§6§4§4r§x§0§C§E§B§4§Ae§x§0§8§F§1§5§0c§x§0§5§F§7§5§6o§x§0§2§F§C§5§Cn§x§0§8§F§E§5§Fn§x§1§8§F§C§5§Fe§x§2§9§F§A§5§Fc§x§3§9§F§7§5§Ft §x§4§9§F§5§5§Fe§x§5§9§F§3§5§Fn§x§6§A§F§1§5§Ea§x§7§A§E§F§5§Eb§x§8§A§E§D§5§El§x§9§A§E§A§5§Ee§x§A§B§E§8§5§Ed§x§B§B§E§6§5§E. §x§B§B§E§6§5§ER§x§A§B§E§8§5§Ee§x§9§A§E§A§5§Ec§x§8§A§E§D§5§Eo§x§7§A§E§F§5§En§x§6§A§F§1§5§En§x§5§9§F§3§5§Fe§x§4§9§F§5§5§Fc§x§3§9§F§7§5§Ft§x§2§9§F§A§5§Fi§x§1§8§F§C§5§Fn§x§0§8§F§E§5§Fg §x§0§8§F§E§5§Ft§x§1§8§F§C§5§Fo §x§2§9§F§A§5§Fa §x§3§9§F§7§5§Fn§x§4§9§F§5§5§Fe§x§5§9§F§3§5§Fw §x§6§A§F§1§5§Eg§x§7§A§E§F§5§Ea§x§8§A§E§D§5§Em§x§9§A§E§A§5§Ee §x§A§B§E§8§5§Eo§x§B§B§E§6§5§En " + mazeName + "...");
++            player.playSound(player.getLocation(), Sound.valueOf("BLOCK_NOTE_BLOCK_BELL"), 1.0f, 1.0f);
++        }
++    }
++
++    public void postGame(String playerName, String mazeName, double gameTimeInSeconds, Player player) {
++
++        int playerLevel = player.getLevel();
++
++        // Send a summary message to the player with the game time, etc.
++        player.sendMessage("§x§B§E§6§C§0§9-§x§B§9§6§5§1§A-§x§B§3§5§E§2§B-§x§A§E§5§8§3§D-§x§A§9§5§1§4§E-§x§A§4§4§A§5§F-§x§9§E§4§3§7§0-§x§9§9§3§C§8§1-§x§9§4§3§5§9§2-§x§8§F§2§F§A§4-§x§8§9§2§8§B§5-§x§8§4§2§1§C§6-§x§8§0§2§4§C§B-§x§7§B§2§8§D§0-§x§7§7§2§B§D§6-§x§7§3§2§F§D§B-§x§6§F§3§2§E§0-§x§6§A§3§6§E§5-§x§6§6§3§9§E§A-§x§6§2§3§D§E§F-§x§5§E§4§0§F§5-§x§5§9§4§4§F§A-§x§5§5§4§7§F§F-");
++        player.sendMessage("§x§0§0§4§A§F§F§o§nG§x§1§F§3§B§F§F§o§na§x§3§D§2§C§F§F§o§nm§x§5§C§1§E§F§F§o§ne §x§7§A§0§F§F§F§o§nS§x§9§9§0§0§F§F§o§nu§x§9§D§1§C§D§1§o§nm§x§A§1§3§8§A§3§o§nm§x§A§4§5§5§7§6§o§na§x§A§8§7§1§4§8§o§nr§x§A§C§8§D§1§A§o§ny");
++        player.sendMessage("");
++        player.sendMessage("§x§0§0§2§B§F§F§o§nT§x§0§0§4§A§F§F§o§ni§x§0§0§6§9§F§F§o§nm§x§0§0§8§8§F§F§o§ne§x§0§0§A§7§F§F§o§n: " + formatTime(gameTimeInSeconds));
++        player.sendMessage("§x§0§0§2§B§F§F§o§nM§x§0§0§4§A§F§F§o§na§x§0§0§6§9§F§F§o§nz§x§0§0§8§8§F§F§o§ne§x§0§0§A§7§F§F§o§n: " + mazeName);
++        player.sendMessage("§x§0§0§0§2§F§F§o§nL§x§0§0§2§D§F§F§o§ne§x§0§0§5§9§F§F§o§nv§x§0§0§8§4§F§F§o§ne§x§0§0§B§0§F§F§o§nl§x§0§0§A§7§F§F§o§n: " + playerLevel);
++        player.sendMessage("");
++        player.sendMessage("§x§0§0§4§A§F§F§oP§x§0§D§4§4§F§F§ol§x§1§B§3§D§F§F§oa§x§2§8§3§7§F§F§oy§x§3§5§3§0§F§F§oi§x§4§3§2§A§F§F§on§x§5§0§2§3§F§F§og §x§5§D§1§D§F§F§oo§x§6§A§1§7§F§F§on §x§7§8§1§0§F§F§oN§x§8§5§0§A§F§F§oa§x§9§2§0§3§F§F§ou§x§9§A§0§6§F§5§ot§x§9§B§1§2§E§1§oi§x§9§D§1§F§C§D§oc§x§9§F§2§B§B§9§oa§x§A§0§3§7§A§5§ol §x§A§2§4§3§9§1§oN§x§A§4§5§0§7§E§oe§x§A§5§5§C§6§A§ot§x§A§7§6§8§5§6§ow§x§A§9§7§4§4§2§oo§x§A§A§8§1§2§E§or§x§A§C§8§D§1§A§ok");
++        player.sendMessage("§x§B§E§6§C§0§9-§x§B§9§6§5§1§A-§x§B§3§5§E§2§B-§x§A§E§5§8§3§D-§x§A§9§5§1§4§E-§x§A§4§4§A§5§F-§x§9§E§4§3§7§0-§x§9§9§3§C§8§1-§x§9§4§3§5§9§2-§x§8§F§2§F§A§4-§x§8§9§2§8§B§5-§x§8§4§2§1§C§6-§x§8§0§2§4§C§B-§x§7§B§2§8§D§0-§x§7§7§2§B§D§6-§x§7§3§2§F§D§B-§x§6§F§3§2§E§0-§x§6§A§3§6§E§5-§x§6§6§3§9§E§A-§x§6§2§3§D§E§F-§x§5§E§4§0§F§5-§x§5§9§4§4§F§A-§x§5§5§4§7§F§F-");
++        mapName = mazeName;
++        player.setGameMode(GameMode.SPECTATOR);
++
++        // Create clickable text for "Play again" and "Spectate players"
++        // These should execute the respective commands when clicked
++
++        // You can use Spigot's TextComponent for clickable text
++
++        // Send the clickable summary message to the player
++        sendClickableText(player, "§c§nReturn To Lobby", "/lobby");
++        sendClickableText(player, "§a§nPlay Again", "/mazegame");
++        sendClickableText(player, "§e§nView The Leaderboard", "/leaderboard " + mapName);
++        rewardSystem.checkForRewards(player);
++    }
++
++    // Helper method to format time as "00:00.00"
++    private String formatTime(double time) {
++        // Implement your time formatting logic here
++        // Example: Convert seconds to "mm:ss.SS" format
++        int minutes = (int) (time / 60);
++        int seconds = (int) (time % 60);
++        int milliseconds = (int) ((time % 1) * 100);
++        return String.format("%02d:%02d.%02d", minutes, seconds, milliseconds);
++    }
++
++    public void sendClickableText(Player player, String text, String command) {
++        // Create a TextComponent with the text you want to display
++        ComponentBuilder componentBuilder = new ComponentBuilder(text);
++
++        // Add additional formatting if needed
++
++        // Define the action when the text is clicked (in this case, run a command)
++        componentBuilder.event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
++
++        // Create the TextComponent
++        net.md_5.bungee.api.chat.TextComponent textComponent = new net.md_5.bungee.api.chat.TextComponent(componentBuilder.create());
++
++        // Send the TextComponent to the player
++        player.spigot().sendMessage(textComponent);
++    }
++
++    public static void teleportPlayer(Player player, String worldName, double x, double y, double z, float pitch, float yaw) {
++        World world = Bukkit.getWorld(worldName);
++
++        if (world != null) {
++            Location location = new Location(world, x, y, z, yaw, pitch);
++            player.teleport(location);
++        } else {
++            player.sendMessage(plugin.getGradientPrefix() +  "§cThe specified world does not exist.");
++        }
++    }
++    public static void sendTitle(Player player, String title, String subtitle) {
++        player.sendTitle(title, subtitle, 10, 70, 20);
++
++    }
++}
++
++
+Index: src/main/java/me/elec/mazerunnercore/LeaderboardManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/LeaderboardManager.java b/src/main/java/me/elec/mazerunnercore/LeaderboardManager.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/LeaderboardManager.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,101 @@
++package me.elec.mazerunnercore;
++
++import org.bukkit.configuration.ConfigurationSection;
++import org.bukkit.configuration.file.FileConfiguration;
++import org.bukkit.configuration.file.YamlConfiguration;
++
++import java.io.File;
++import java.io.IOException;
++import java.util.ArrayList;
++import java.util.HashMap;
++import java.util.List;
++import java.util.Map;
++
++public class LeaderboardManager {
++
++    private final MazeRunnerCore plugin;
++    private FileConfiguration leaderboardConfig;
++    private Map<String, File> mazeDataFiles = new HashMap<>();
++
++    public LeaderboardManager(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++        loadConfig();
++        loadMazeDataFiles();
++    }
++
++    public void loadConfig() {
++        plugin.saveDefaultConfig(); // Copies the default config from resources if not present
++        leaderboardConfig = plugin.getConfig();
++
++        // Check if the leaderboard section exists
++        if (!leaderboardConfig.contains("leaderboards")) {
++            // Create the section if it doesn't exist
++            leaderboardConfig.createSection("leaderboards");
++            plugin.saveConfig();
++        }
++    }
++
++    private void loadMazeDataFiles() {
++        // Specify the maze names you want to support
++        String[] mazeNames = {"Nether", "Ice", "Jungle", "Desert"};
++
++        for (String mazeName : mazeNames) {
++            File mazeDataFile = new File(plugin.getDataFolder(), "leaderboard_" + mazeName + ".yml");
++            if (!mazeDataFile.exists()) {
++                plugin.saveResource("leaderboard_" + mazeName + ".yml", false);
++            }
++            mazeDataFiles.put(mazeName, mazeDataFile);
++        }
++    }
++
++    private FileConfiguration getMazeDataFile(String mazeName) {
++        return YamlConfiguration.loadConfiguration(mazeDataFiles.get(mazeName));
++    }
++
++    public void addPlayerTime(String playerName, double time, String mazeName) {
++        FileConfiguration mazeDataConfig = getMazeDataFile(mazeName);
++        ConfigurationSection leaderboardSection = mazeDataConfig.getConfigurationSection("leaderboards");
++
++
++        if (leaderboardSection == null) {
++            leaderboardSection = mazeDataConfig.createSection("leaderboards");
++        }
++
++        List<Map<?, ?>> leaderboardList = leaderboardSection.getMapList("leaderboards");
++
++        // Add the player and time to the leaderboard
++        Map<String, Object> entry = new HashMap<>();
++        entry.put("player", playerName);
++        entry.put("time", time);
++        leaderboardList.add(entry);
++
++        // Sort the leaderboard based on time (ascending order)
++        leaderboardList.sort((o1, o2) -> Double.compare((double) o1.get("time"), (double) o2.get("time")));
++
++        // Update the configuration
++        leaderboardSection.set("leaderboards", leaderboardList);
++
++        // Save the configuration to the file
++        try {
++            mazeDataConfig.save(mazeDataFiles.get(mazeName));
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++    }
++
++    public List<Map<?, ?>> getLeaderboard(String mazeName) {
++        FileConfiguration mazeDataConfig = getMazeDataFile(mazeName);
++        ConfigurationSection leaderboardSection = mazeDataConfig.getConfigurationSection("leaderboards");
++
++        if (leaderboardSection == null) {
++            leaderboardSection = mazeDataConfig.createSection("leaderboards");
++            mazeDataConfig.set("leaderboards", new ArrayList<>());
++        }
++
++        return leaderboardSection.getMapList("leaderboards");
++    }
++
++    // Your other methods and properties
++}
++
++
+Index: src/main/java/me/elec/mazerunnercore/MazeRunnerCore.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/MazeRunnerCore.java b/src/main/java/me/elec/mazerunnercore/MazeRunnerCore.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/MazeRunnerCore.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,659 @@
++package me.elec.mazerunnercore;
++
++import me.elec.mazerunnercore.commands.*;
++import me.elec.mazerunnercore.listeners.LeaveGameInventoryClick;
++import me.elec.mazerunnercore.listeners.PressurePlateListener;
++import org.bukkit.*;
++
++import org.bukkit.configuration.file.FileConfiguration;
++import org.bukkit.configuration.file.YamlConfiguration;
++import org.bukkit.entity.Player;
++import org.bukkit.event.EventHandler;
++import org.bukkit.event.Listener;
++import org.bukkit.event.inventory.InventoryClickEvent;
++import org.bukkit.inventory.Inventory;
++import org.bukkit.inventory.ItemStack;
++import org.bukkit.inventory.meta.ItemMeta;
++import org.bukkit.plugin.java.JavaPlugin;
++import org.bukkit.scheduler.BukkitRunnable;
++import org.bukkit.scheduler.BukkitTask;
++
++
++import java.io.File;
++import java.io.IOException;
++import java.util.*;
++
++public class MazeRunnerCore extends JavaPlugin implements Listener {
++
++    //ENABLE CODE
++
++    private File xpDataFile;
++    private FileConfiguration xpDataConfig;
++    private static MazeRunnerCore instance;
++    private Map<UUID, Boolean> gameWinStates = new HashMap<>();
++    // Getter method for the instance
++    public Map<UUID, Boolean> getGameWinStates() {
++        return gameWinStates;
++    }
++    private double elapsedTimeSeconds = 0;  // Define the variable
++    public boolean isPlayerWinner = false;
++    private static MazeRunnerCore plugin;
++    private boolean stopwatchRunning = false;
++    private long startTimeNano = 0;
++    private BukkitTask countdownTask = null;
++    private LeaderboardManager leaderboardManager;
++    private boolean reconnectEnabled = false;
++    private String mapName;
++    private final Set<UUID> playersInGame = new HashSet<>();
++    private GameEndings gameEndings; // Declare the variable
++    // Method to check if a player is in a game
++    public boolean isPlayerInGame(UUID playerId) {
++        return playersInGame.contains(playerId);
++    }
++    private AutoReconnectManager reconnectManager;
++    private RewardSystem rewardSystem;
++    private CustomScoreboardManager scoreboardManager;
++
++
++
++    public void onEnable() {
++        plugin = this; // Initialize the plugin instance
++
++        // Initialize leaderboard manager first
++        leaderboardManager = new LeaderboardManager(this);
++
++        // Initialize the AutoReconnectManager
++        reconnectManager = new AutoReconnectManager(this);
++
++        // Initialize the GameEndings class
++        gameEndings = new GameEndings(this, reconnectManager);
++        //Initialize the RewardSystem class
++        rewardSystem = new RewardSystem(this);
++
++        scoreboardManager = new CustomScoreboardManager(this);
++
++
++        // Register other event listeners
++        LeaveGameInventoryClick leaveGameInventoryClick = new LeaveGameInventoryClick(gameEndings, this);
++        // Declare and initialize pressurePlateListener
++        PressurePlateListener pressurePlateListener = new PressurePlateListener(this, gameEndings);
++
++
++
++        // Register the event listener
++        getServer().getPluginManager().registerEvents(this, this);
++        getServer().getPluginManager().registerEvents(pressurePlateListener, this);
++        getServer().getPluginManager().registerEvents(leaveGameInventoryClick, this);
++
++        // Register the /mazegame command (if needed)
++        getCommand("mazegame").setExecutor(new MazeGameCommand(this));
++        getCommand("tplobby").setExecutor(new TpLobbyCommand(this));
++        getCommand("leave").setExecutor(new LeaveCommand(this));
++        getCommand("level").setExecutor(new LevelCommand(this));
++        getCommand("rewards").setExecutor(new RewardsCommand(this));
++        getCommand("reconnect").setExecutor(new ReconnectCommand(reconnectManager));
++
++        // Register the leaderboard command
++        getCommand("leaderboard").setExecutor(new LeaderboardCommand(leaderboardManager, this));
++
++        // Initialize XP data file and configuration
++        setupXPData();
++
++        // Load player XP data (this should be done for each online player)
++        for (Player player : Bukkit.getOnlinePlayers()) {
++            int playerXP = getPlayerXP(player.getUniqueId());
++            player.setTotalExperience(playerXP);
++        }
++    }
++
++    //GUI CODE
++
++    public void openMazeGameGUI(Player player) {
++        // Create a new inventory with 9 slots (for simplicity)
++        Inventory gui = Bukkit.createInventory(player, 54, "ꜱᴇʟᴇᴄᴛ ᴀ ᴍᴀᴘ...");
++
++        //Jungle Mazes
++        ItemStack jungleMazeEasy = createMazeItem("Jungle Maze", "Jungle Maze", "[Beginner]", Material.valueOf("STONE_BRICKS"));
++        ItemStack jungleMazeModerate = createMazeItem("Jungle Maze", "Jungle Maze", "[Moderate]", Material.valueOf("CRACKED_STONE_BRICKS"));
++        ItemStack jungleMazeHard = createMazeItem("Jungle Maze", "Jungle Maze", "[Hard]", Material.valueOf("MOSSY_STONE_BRICKS"));
++        ItemStack jungleMazeAdventure = createMazeItem("Jungle Maze", "Jungle Maze", "[Adventure]", Material.valueOf("MOSSY_COBBLESTONE_WALL"));
++        gui.setItem(0, jungleMazeEasy);
++        gui.setItem(1, jungleMazeModerate);
++        gui.setItem(2, jungleMazeHard);
++        gui.setItem(3, jungleMazeAdventure);
++        //Nether Mazes
++        ItemStack netherMazeEasy = createMazeItem("Nether Maze Easy", "Nether Maze", "[Beginner]", Material.valueOf("NETHERRACK"));
++        ItemStack netherMazeModerate = createMazeItem("Nether Maze Moderate", "Nether Maze", "[Moderate]", Material.valueOf("CHISELED_NETHER_BRICKS"));
++        ItemStack netherMazeHard = createMazeItem("Nether Maze Hard", "Nether Maze", "[Hard]", Material.valueOf("RED_NETHER_BRICKS"));
++        ItemStack netherMazeAdventure = createMazeItem("Nether Maze Adventure", "Nether Maze", "[Adventure]", Material.valueOf("NETHERITE_BLOCK"));
++        gui.setItem(18, netherMazeEasy);
++        gui.setItem(19, netherMazeModerate);
++        gui.setItem(20, netherMazeHard);
++        gui.setItem(21, netherMazeAdventure);
++        //Spooky Mazes
++        ItemStack spookyMazeEasy = createMazeItem("Spooky Maze Easy", "Spooky Maze", "[Beginner]", Material.valueOf("DEAD_BUSH"));
++        ItemStack spookyMazeModerate = createMazeItem("Spooky Maze Moderate", "Spooky Maze", "[Moderate]", Material.valueOf("ORANGE_TERRACOTTA"));
++        ItemStack spookyMazeHard = createMazeItem("Spooky Maze Hard", "Spooky Maze", "[Hard]", Material.valueOf("BLACK_TERRACOTTA"));
++        ItemStack spookyMazeAdventure = createMazeItem("Spooky Maze Adventure", "Spooky Maze", "[Adventure]", Material.valueOf("JACK_O_LANTERN"));
++        gui.setItem(36, spookyMazeEasy);
++        gui.setItem(37, spookyMazeModerate);
++        gui.setItem(38, spookyMazeHard);
++        gui.setItem(39, spookyMazeAdventure);
++        //Desert Mazes
++        ItemStack desertMazeEasy = createMazeItem("Desert Maze Easy", "Desert Maze", "[Beginner]", Material.valueOf("SAND"));
++        ItemStack desertMazeModerate = createMazeItem("Desert Maze Moderate", "Desert Maze", "[Moderate]", Material.valueOf("SMOOTH_SANDSTONE"));
++        ItemStack desertMazeHard = createMazeItem("Desert Maze Hard", "Desert Maze", "[Hard]", Material.valueOf("STRIPPED_BIRCH_LOG"));
++        ItemStack desertMazeAdventure = createMazeItem("Desert Maze Adventure", "Desert Maze", "[Adventure]", Material.valueOf("JUNGLE_LOG"));
++        gui.setItem(5, desertMazeEasy);
++        gui.setItem(6, desertMazeModerate);
++        gui.setItem(7, desertMazeHard);
++        gui.setItem(8, desertMazeAdventure);
++        //Mangrove Mazes
++        ItemStack mangroveMazeEasy = createMazeItem("Mangrove Maze Easy", "Mangrove Maze", "[Beginner]", Material.valueOf("MANGROVE_PLANKS"));
++        ItemStack mangroveMazeModerate = createMazeItem("Mangrove Maze Moderate", "Mangrove Maze", "[Moderate]", Material.valueOf("STRIPPED_MANGROVE_WOOD"));
++        ItemStack mangroveMazeHard = createMazeItem("Mangrove Maze Hard", "Mangrove Maze", "[Hard]", Material.valueOf("MANGROVE_LOG"));
++        ItemStack mangroveMazeAdventure = createMazeItem("Mangrove Maze Adventure", "Mangrove Maze", "[Adventure]", Material.valueOf("MANGROVE_STAIRS"));
++        gui.setItem(23, mangroveMazeEasy);
++        gui.setItem(24, mangroveMazeModerate);
++        gui.setItem(25, mangroveMazeHard);
++        gui.setItem(26, mangroveMazeAdventure);
++        //Ice Mazes
++        ItemStack iceMazeEasy = createMazeItem("Ice Maze Easy", "Ice Maze", "[Beginner]", Material.valueOf("SNOW_BLOCK"));
++        ItemStack iceMazeModerate = createMazeItem("Ice Maze Moderate", "Ice Maze", "[Moderate]", Material.valueOf("ICE"));
++        ItemStack iceMazeHard = createMazeItem("Ice Maze Hard", "Ice Maze", "[Hard]", Material.valueOf("PACKED_ICE"));
++        ItemStack iceMazeAdventure = createMazeItem("Ice Maze Adventure", "Ice Maze", "[Adventure]", Material.valueOf("BLUE_ICE"));
++        gui.setItem(41, iceMazeEasy);
++        gui.setItem(42, iceMazeModerate);
++        gui.setItem(43, iceMazeHard);
++        gui.setItem(44, iceMazeAdventure);
++        //Filler Items
++        ItemStack fillerItem = createFillerItem(Material.BLACK_STAINED_GLASS_PANE, "");
++        gui.setItem(9, fillerItem);
++        gui.setItem(10, fillerItem);
++        gui.setItem(11, fillerItem);
++        gui.setItem(12, fillerItem);
++        gui.setItem(13, fillerItem);
++        gui.setItem(14, fillerItem);
++        gui.setItem(15, fillerItem);
++        gui.setItem(16, fillerItem);
++        gui.setItem(17, fillerItem);
++        gui.setItem(27, fillerItem);
++        gui.setItem(28, fillerItem);
++        gui.setItem(29, fillerItem);
++        gui.setItem(30, fillerItem);
++        gui.setItem(31, fillerItem);
++        gui.setItem(32, fillerItem);
++        gui.setItem(33, fillerItem);
++        gui.setItem(34, fillerItem);
++        gui.setItem(35, fillerItem);
++        gui.setItem(45, fillerItem);
++        gui.setItem(46, fillerItem);
++        gui.setItem(47, fillerItem);
++        gui.setItem(48, fillerItem);
++        gui.setItem(49, fillerItem);
++        gui.setItem(50, fillerItem);
++        gui.setItem(51, fillerItem);
++        gui.setItem(52, fillerItem);
++        gui.setItem(53, fillerItem);
++        gui.setItem(4, fillerItem);
++        gui.setItem(22, fillerItem);
++        gui.setItem(40, fillerItem);
++        // Open the GUI for the player
++        player.openInventory(gui);
++
++
++    }
++
++
++    public ItemStack createMazeItem(String mazeName, String mazeDisplayName, String mazeDifficulty, Material material) {
++        // Create an ItemStack for the maze item
++        ItemStack itemStack = new ItemStack(material != null ? material : Material.STONE_BRICKS);
++
++        // Create an ItemMeta to customize the item's display name and lore
++        ItemMeta itemMeta = itemStack.getItemMeta();
++
++        ChatColor mazeColor = ChatColor.WHITE; // Initialize mazeColor with a default color
++        ChatColor difficultyColor = ChatColor.WHITE; // Initialize difficultyColor with a default color
++
++        if (mazeDifficulty.equalsIgnoreCase("[Beginner]")) {
++            difficultyColor = ChatColor.GREEN;
++        } else if (mazeDifficulty.equalsIgnoreCase("[Moderate]")) {
++            difficultyColor = ChatColor.GOLD;
++        } else if (mazeDifficulty.equalsIgnoreCase("[Hard]")) {
++            difficultyColor = ChatColor.RED;
++        } else if (mazeDifficulty.equalsIgnoreCase("[Adventure]")) {
++            difficultyColor = ChatColor.DARK_GREEN;
++        } else {
++            difficultyColor = ChatColor.WHITE; // Default color for unknown difficulties
++        }
++
++        if (mazeDisplayName.equalsIgnoreCase("Jungle Maze")) {
++            mazeColor = ChatColor.DARK_GREEN;
++        } else if (mazeDisplayName.equalsIgnoreCase("Nether Maze")) {
++            mazeColor = ChatColor.RED;
++        } else if (mazeDisplayName.equalsIgnoreCase("Spooky Maze")) {
++            mazeColor = ChatColor.GOLD;
++        } else if (mazeDisplayName.equalsIgnoreCase("Desert Maze")) {
++            mazeColor = ChatColor.YELLOW;
++        } else if (mazeDisplayName.equalsIgnoreCase("Mangrove Maze")) {
++        mazeColor = ChatColor.DARK_RED;
++        } else if (mazeDisplayName.equalsIgnoreCase("Ice Maze")) {
++            mazeColor = ChatColor.AQUA;
++        } else {
++        difficultyColor = ChatColor.WHITE;
++        }
++
++
++        // Set the display name to the maze name with mazeColor
++        itemMeta.setDisplayName(mazeColor + mazeDisplayName);
++
++        // Create lore (description) for the item
++        List<String> lore = new ArrayList<>();
++        lore.add(ChatColor.GRAY + "Click to teleport to the " + mazeColor + mazeName + ChatColor.GRAY);
++        lore.add(ChatColor.GRAY + "Difficulty: " + difficultyColor + mazeDifficulty);
++
++        // You can add more lore lines if desired
++
++        // Set the lore for the item
++        itemMeta.setLore(lore);
++
++        // Apply the custom ItemMeta to the ItemStack
++        itemStack.setItemMeta(itemMeta);
++
++        return itemStack;
++    }
++
++    @EventHandler
++    public void onInventoryClick(InventoryClickEvent event) {
++        // Check if the clicked inventory is the Maze Game GUI
++        if (!event.getView().getTitle().equals("ꜱᴇʟᴇᴄᴛ ᴀ ᴍᴀᴘ...")) {
++            return;
++        }
++
++        // Prevent players from moving items in the GUI
++        event.setCancelled(true);
++
++        // Handle clicks on the items here
++        Player player = (Player) event.getWhoClicked();
++        ItemStack clickedItem = event.getCurrentItem();
++
++        if (clickedItem != null && clickedItem.getType() != Material.AIR) {
++            // Check which item was clicked and teleport the player accordingly
++            if (clickedItem.getType() == Material.STONE_BRICKS) {
++                teleportPlayer(player, "jungle-mazes", -11.692, -60, 5.016, 4.508f, 269.73f);
++                teleportPlayer(player, "jungle-mazes", -11.692, -60, 5.016, 4.508f, 269.73f);
++                pregameProcess(player, "JungleEasy");
++            } else if (clickedItem.getType() == Material.CRACKED_STONE_BRICKS) {
++                teleportPlayer(player, "jungle-mazes", -8.691, -60, 26.116, 0.41f, 268.021f);
++                teleportPlayer(player, "jungle-mazes", -8.691, -60, 26.116, 0.41f, 268.021f);
++                pregameProcess(player, "JungleModerate");
++            } else if (clickedItem.getType() == Material.MOSSY_STONE_BRICKS) {
++                teleportPlayer(player, "jungle-mazes", 19.678, -60, 3.307, 2.724f, 356.001f);
++                teleportPlayer(player, "jungle-mazes", 19.678, -60, 3.307, 2.724f, 356.001f);
++                pregameProcess(player, "JungleHard");
++            } else if (clickedItem.getType() == Material.MOSSY_COBBLESTONE_WALL) {
++                teleportPlayer(player, "jungle-mazes", 26.807, -60, 65.329, 1.591f, 359.809f);
++                teleportPlayer(player, "jungle-mazes", 26.807, -60, 65.329, 1.591f, 359.809f);
++                pregameProcess(player, "JungleAdventure");
++            } else if (clickedItem.getType() == Material.NETHERRACK) {
++                teleportPlayer(player, "nethermazes", -18.868, -60, 29.7, .4f, -179.8f);
++                teleportPlayer(player, "nethermazes", -18.868, -60, 29.7, .4f, -179.8f);
++                pregameProcess(player, "NetherEasy");
++            } else if (clickedItem.getType() == Material.CHISELED_NETHER_BRICKS) {
++                teleportPlayer(player, "nethermazes", 23.108, -60, 119.7, .9f, 180f);
++                teleportPlayer(player, "nethermazes", 23.108, -60, 119.7, .9f, 180f);
++                pregameProcess(player, "NetherModerate");
++            }  else if (clickedItem.getType() == Material.RED_NETHER_BRICKS) {
++                teleportPlayer(player, "nethermazes", 58.397, -60, -6.022, 7.4f, -1.4f);
++                teleportPlayer(player, "nethermazes", 58.397, -60, -6.022, 7.4f, -1.4f);
++                pregameProcess(player, "NetherHard");
++            }  else if (clickedItem.getType() == Material.NETHERITE_BLOCK) {
++                teleportPlayer(player, "nether-maze-new", -27.516, -60, 29.586, 3.0f, -135.1f);
++                teleportPlayer(player, "nether-maze-new", -27.516, -60, 29.586, 3.0f, -135.1f);
++                pregameProcess(player, "NetherAdventure");
++            } else if (clickedItem.getType() == Material.DEAD_BUSH) {
++                teleportPlayer(player, "spooky-mazes", 11.7, -60, 40.859, 3.155f, 89.897f);
++                teleportPlayer(player, "spooky-mazes", 11.7, -60, 40.859, 3.155f, 89.897f);
++                pregameProcess(player, "SpookyEasy");
++            } else if (clickedItem.getType() == Material.ORANGE_CONCRETE) {
++                teleportPlayer(player, "spooky-mazes", 27.964, -60, 8.598, 0.456f, -0.611f);
++                teleportPlayer(player, "spooky-mazes", 27.964, -60, 8.598, 0.456f, -0.611f);
++                pregameProcess(player, "SpookyModerate");
++            }
++        }
++    }
++
++    public void teleportPlayer(Player player, String worldName, double x, double y, double z, float pitch, float yaw) {
++        World world = Bukkit.getWorld(worldName);
++
++        if (world != null) {
++            Location location = new Location(world, x, y, z, yaw, pitch);
++            player.teleport(location);
++        } else {
++            player.sendMessage(getGradientPrefix() + "§cThe specified world does not exist");
++        }
++    }
++
++    //LEAVE GUI
++
++    public void openLeaveGameGUI(Player player) {
++        if (stopwatchRunning) {
++            // Create a list containing the player
++            List<Player> players = new ArrayList<>();
++            players.add(player);
++
++            sendElapsedTimeToActionBar(players); // Pass the list of players to the method
++            Inventory gui = Bukkit.createInventory(player, 54, "Leave the game?");
++            ItemStack redConcrete = createLeaveItem(ChatColor.RED + "Are you sure?", ChatColor.GRAY + "You will lose all XP", Material.RED_CONCRETE);
++            ItemStack greenConcrete = createLeaveItem(ChatColor.GREEN + "Return to game!", ChatColor.GRAY + "You will continue playing, and still earn XP", Material.GREEN_CONCRETE);
++
++            gui.setItem(20, redConcrete);
++            gui.setItem(24, greenConcrete);
++
++            player.openInventory(gui);
++        } else {
++            player.sendMessage(getGradientPrefix() + "§cYou are not currently in a game...");
++        }
++    }
++    public String getGradientPrefix() {
++        return "§x§F§F§A§0§0§0§l[§x§D§E§8§F§2§6§lM§x§B§E§7§D§4§C§la§x§9§D§6§C§7§1§lz§x§7§D§5§B§9§7§le §x§5§C§4§A§B§D§lR§x§4§6§4§5§C§C§lu§x§3§9§4§E§C§5§ln§x§2§D§5§6§B§D§ln§x§2§1§5§F§B§5§le§x§1§4§6§7§A§E§lr§x§0§8§7§0§A§6§l] " ;
++    }
++
++    private ItemStack createLeaveItem(String displayName, String lore, Material material) {
++        ItemStack itemStack = new ItemStack(material);
++        ItemMeta itemMeta = itemStack.getItemMeta();
++
++        itemMeta.setDisplayName(displayName);
++        itemMeta.setLore(Collections.singletonList(lore));
++
++        itemStack.setItemMeta(itemMeta);
++
++        return itemStack;
++    }
++
++
++public void openLevelingRewardsGUI(Player player) {
++        Inventory gui = Bukkit.createInventory(player, 54, "Rewards");
++
++        // Add items for each level
++        gui.setItem(0, createRewardItem(Material.LIGHT_BLUE_DYE, ChatColor.AQUA,"1", ChatColor.GOLD, "x1 Smile Emote", ChatColor.GRAY, "x1 Astronaut Suit", ChatColor.DARK_GRAY, "X1 Bat Blaster"));
++        gui.setItem(1, createRewardItem(Material.RED_DYE, ChatColor.RED,"2", ChatColor.WHITE, "x1 Astronaut Helmet", ChatColor.DARK_GREEN, "x1 Zombie Horse Mount", ChatColor.GRAY, "x1 Crit Projectile Trail"));
++        gui.setItem(2, createRewardItem(Material.YELLOW_DYE, ChatColor.GOLD,"3 ", ChatColor.GRAY, "x1 Treasure Chest Key", ChatColor.AQUA, "x1 Diamond Hat", ChatColor.GOLD, "x1 Easter Bunny Pet"));
++        gui.setItem(3, createRewardItem(Material.GREEN_DYE, ChatColor.GREEN,"Level 4 Rewards", ChatColor.GRAY, "x1 Treasure Chest Key", ChatColor.AQUA, "x1 Diamond Hat", ChatColor.GOLD, "x1 Easter Bunny Pet"));
++
++
++
++    //Create filler items
++        gui.setItem(9,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
++        gui.setItem(10,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
++        gui.setItem(11,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
++        gui.setItem(12,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
++        gui.setItem(13,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
++        gui.setItem(14,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
++        gui.setItem(15,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
++        gui.setItem(16,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
++        gui.setItem(17,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
++
++
++    player.openInventory(gui);
++    }
++
++
++    private ItemStack createRewardItem(Material material, ChatColor displayColor, String level, ChatColor loreColor1, String lore1, ChatColor loreColor2, String lore2, ChatColor loreColor3,String lore3) {
++        ItemStack item = new ItemStack(material);
++        ItemMeta meta = item.getItemMeta();
++        meta.setDisplayName(displayColor + "Level " + level + "Rewards");
++        meta.setLore(Arrays.asList(loreColor1 + lore1, loreColor2 + lore2, loreColor3 + lore3));
++        item.setItemMeta(meta);
++        return item;
++    }
++    private ItemStack createFillerItem(Material material, String displayName) {
++            ItemStack item = new ItemStack(material);
++            ItemMeta meta = item.getItemMeta();
++            meta.setDisplayName("");
++            item.setItemMeta(meta);
++            return item;
++    }
++
++    public int calculatePlayerLevel(Player player) {
++        // Implement a method to calculate the player's level based on their XP
++        int playerXP = getPlayerXP(player.getUniqueId());
++        // Your leveling logic here
++        int playerLevel = playerXP / 50; // For example, 100 XP per level
++        return playerLevel;
++    }
++
++    //GAME CODE
++
++    // Update the pregameProcess method to accept a MazeRunnerCore instance
++    public void pregameProcess(Player player, String mazeName) {
++        // Set the player to adventure mode
++        player.setGameMode(GameMode.ADVENTURE);
++
++        // Do countdown stuff
++        startCountdown(Collections.singletonList(player), mazeName, player); // Pass a list with a single player
++        //Set the mapName variable
++        mapName = mazeName;
++
++    }
++
++    public void teleportMaze(Player player, String mazeName) {
++        // Teleport the player to the specified maze location
++        if (mazeName.equalsIgnoreCase("Nether")) {
++            teleportPlayer(player, "nether-maze", 30.328, -1, 126.511, 2.2f, -90f);
++        } else if (mazeName.equalsIgnoreCase("Ice")) {
++            teleportPlayer(player, "ice-maze", 15.419, -17, 85.748, 0.7f, -135.7f);
++        } else if (mazeName.equalsIgnoreCase("Stone")) {
++            teleportPlayer(player, "ocean-maze", 25.450, -47, 3.7, .8f, 90.4f);
++        }
++    }
++
++    public void playerIsWinner() {
++        isPlayerWinner = true;
++    }
++
++    public void playerIsLoser() {
++        isPlayerWinner = false;
++    }
++
++    private void startCountdown(List<Player> players, String mazeName, Player player) {
++        final int countdownTime = 5; // Total countdown time in seconds
++
++        if (countdownTask != null) {
++            countdownTask.cancel(); // Cancel the previous countdown if it exists
++        }
++
++        countdownTask = new BukkitRunnable() {
++            int timeLeft = countdownTime;
++
++            @Override
++            public void run() {
++                if (timeLeft > 0) {
++                    // Countdown logic
++                    String title = "§x§F§F§7§6§0§0G§x§F§E§7§F§1§0a§x§F§D§8§7§2§0m§x§F§C§9§0§3§0e §x§F§B§9§8§4§0S§x§F§A§A§1§4§Ft§x§F§9§A§9§5§Fa§x§F§8§B§2§6§Fr§x§F§7§B§A§7§Ft§x§F§6§C§3§8§Fs";
++                    String subtitle = "§x§F§F§7§6§0§0I§x§F§D§8§9§2§4n " + timeLeft + "§x§F§B§9§D§4§8.§x§F§8§B§0§6§B.§x§F§6§C§3§8§F.";
++                    sendTitlesToPlayers(players, ChatColor.GOLD, title, subtitle);
++                    teleportMaze(players.get(0), mazeName); // Teleport the first player
++                    sendActionBarToPlayers(players, ChatColor.GOLD + "Game starts in " + timeLeft);
++                    player.playSound(player.getLocation(), Sound.valueOf("BLOCK_NOTE_BLOCK_HAT"), 1.0f, 1.0f);
++                    timeLeft--;
++                } else {
++                    // Countdown has finished, you can start the game here
++                    sendTitlesToPlayers(players, ChatColor.GREEN, "§x§0§0§F§F§9§2G§x§0§E§F§E§9§2a§x§1§B§F§E§9§2m§x§2§9§F§D§9§1e §x§3§7§F§C§9§1H§x§4§5§F§C§9§1a§x§5§2§F§B§9§1s §x§6§0§F§B§9§1S§x§6§E§F§A§9§0t§x§7§B§F§9§9§0a§x§8§9§F§9§9§0r§x§9§7§F§8§9§0t§x§A§5§F§7§8§Fe§x§B§2§F§7§8§Fd§x§C§0§F§6§8§F!", "§x§B§6§C§6§B§FG§x§B§0§C§4§B§3o§x§A§A§C§1§A§7o§x§A§4§B§F§9§Ad §x§9§F§B§D§8§EL§x§9§9§B§A§8§2u§x§9§3§B§8§7§6c§x§8§D§B§5§6§9k§x§8§7§B§3§5§D!");
++                    sendActionBarToPlayers(players, ChatColor.GREEN + "§x§0§F§B§E§0§9G§x§1§8§B§D§0§Fa§x§2§0§B§C§1§5m§x§2§9§B§C§1§Be §x§3§1§B§B§2§1H§x§3§A§B§A§2§7a§x§4§2§B§9§2§Ds §x§4§B§B§9§3§3S§x§5§4§B§8§3§9t§x§5§C§B§7§3§Fa§x§6§5§B§6§4§5r§x§6§D§B§5§4§Bt§x§7§6§B§5§5§1e§x§7§E§B§4§5§7d§x§8§7§B§3§5§D!");
++                    playNote(player, Sound.BLOCK_NOTE_BLOCK_BASS);
++                    playNote(player, Sound.BLOCK_NOTE_BLOCK_BASEDRUM);
++                    playNote(player, Sound.BLOCK_NOTE_BLOCK_HARP);
++                    playNote(player, Sound.BLOCK_NOTE_BLOCK_HAT);
++                    playNote(player, Sound.BLOCK_NOTE_BLOCK_PLING);
++                    playNote(player, Sound.BLOCK_NOTE_BLOCK_SNARE);
++                    for (Player p : players) {
++                        scoreboardManager.setGameScoreboard(p);
++                    }
++                    this.cancel(); // Stop the BukkitRunnable
++
++
++                    // Schedule a task to send elapsed time to the players every 20 ticks
++                    int delay = 0; // Delay before the first update
++                    int period = 1; // Period (in ticks) between updates
++                    new BukkitRunnable() {
++                        @Override
++                        public void run() {
++                            if (stopwatchRunning) {
++                                sendElapsedTimeToActionBar(players);
++                            }
++                        }
++                    }.runTaskTimer(plugin, delay, period);
++
++                    startStopwatch(players.get(0), mazeName); // Start the stopwatch for the first player
++                    setPlayerInGame(players.get(0));
++                }
++            }
++        }.runTaskTimer(plugin, 0, 20); // 20 ticks = 1 second
++    }
++
++    public void playNote(Player player, Sound sound) {
++        player.playSound(player.getLocation(), sound, 1, 1);
++    }
++
++    public void startStopwatch(Player player, String mazeName) {
++        if (!stopwatchRunning) {
++            startTimeNano = System.nanoTime();
++            stopwatchRunning = true;
++            addPlayerToGame(player.getUniqueId());
++
++            // Convert Collection to List
++            List<Player> onlinePlayers = new ArrayList<>(Bukkit.getOnlinePlayers());
++
++            // Send elapsed time to all players
++            sendElapsedTimeToActionBar(onlinePlayers);
++        }
++    }
++
++    // Stop the stopwatch
++    public void stopStopwatch(Player player) {
++        if (stopwatchRunning) {
++            String playerName = player.getName();
++            double timeInSeconds = getElapsedTimeSeconds();
++            String mazeName = mapName;
++            removePlayerFromGame(player.getUniqueId());
++            stopwatchRunning = false;
++            gameEndings.stopGame(player, timeInSeconds, mazeName, playerName);
++            leaderboardManager.addPlayerTime(playerName, timeInSeconds, mazeName);
++            setPlayerOutOfGame(player);
++            scoreboardManager.setLobbyScoreboard(player);
++        }
++    }
++
++
++
++    // Method to add a player to the game
++    public void addPlayerToGame(UUID playerId) {
++        playersInGame.add(playerId);
++    }
++
++    // Method to remove a player from the game
++    public void removePlayerFromGame(UUID playerId) {
++        playersInGame.remove(playerId);
++    }
++
++
++    //COUNTDOWN CODE
++
++    // Add a getter method for elapsed time
++    public double getElapsedTimeSeconds() {
++        if (stopwatchRunning) {
++            long elapsedTimeNano = System.nanoTime() - startTimeNano;
++            elapsedTimeSeconds = elapsedTimeNano / 1e9;
++            return elapsedTimeSeconds;
++        }
++        return elapsedTimeSeconds;
++    }
++
++    public void sendElapsedTimeToActionBar(List<Player> players) {
++        double elapsedTime = getElapsedTimeSeconds();
++        String formattedTime = formatElapsedTime(elapsedTime);
++        String actionBarMessage = formattedTime;
++        sendActionBarToPlayers(players, actionBarMessage);
++    }
++    // Method to send titles to multiple players
++    public void sendTitlesToPlayers(List<Player> players, ChatColor color, String title, String subtitle) {
++        for (Player player : players) {
++            player.sendTitle(color + title, subtitle, 10, 70, 20);
++        }
++    }
++
++    public static void sendActionBarToPlayers(List<Player> players, String message) {
++        if (message.length() > 64) {
++            message = message.substring(0, 64); // Truncate the message if it's too long
++        }
++
++        // Send the action bar message to each player in the list
++        for (Player player : players) {
++            player.sendActionBar(ChatColor.GREEN + message);
++        }
++    }
++    private String formatElapsedTime(double elapsedTime) {
++        int minutes = (int) (elapsedTime / 60);
++        int seconds = (int) (elapsedTime % 60);
++        int millis = (int) ((elapsedTime - Math.floor(elapsedTime)) * 100);
++
++        return String.format("%02d:%02d.%02d", minutes, seconds, millis);
++    }
++
++
++    //XP CODE
++
++
++    public void rewardPlayerWithXP(Player player, int xpAmount) {
++        int currentXP = getPlayerXP(player.getUniqueId());
++        int updatedXP = currentXP + xpAmount;
++        setPlayerXP(player.getUniqueId(), updatedXP);
++
++        // Give XP to the player
++        player.giveExp(xpAmount);
++    }
++
++    public int getPlayerXP(UUID playerUUID) {
++        return xpDataConfig.getInt(playerUUID.toString(), 0);
++    }
++
++    public void setPlayerXP(UUID playerUUID, int xp) {
++        xpDataConfig.set(playerUUID.toString(), xp);
++        saveXPData(); // Save the changes to the XP data file
++    }
++
++    private void setupXPData() {
++        xpDataFile = new File(getDataFolder(), "xp_data.yml");
++        if (!xpDataFile.exists()) {
++            xpDataFile.getParentFile().mkdirs();
++            saveResource("xp_data.yml", false); // Copy the default XP data file if it doesn't exist
++        }
++
++        xpDataConfig = YamlConfiguration.loadConfiguration(xpDataFile);
++    }
++
++    private void saveXPData() {
++        try {
++            xpDataConfig.save(xpDataFile);
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++        getLogger().info("Data has been saved!");
++    }
++
++    public void setPlayerInGame(Player player) {
++        // Set the player as in the game
++        // For example, change their status or teleport them to a game world
++        // Then update the in-game scoreboard
++        scoreboardManager.setGameScoreboard(player);
++    }
++
++    public void setPlayerOutOfGame(Player player) {
++        // Set the player as out of the game
++        // For example, change their status or teleport them to a lobby
++        // Then update the out-of-game scoreboard
++        scoreboardManager.setLobbyScoreboard(player);
++    }
++}
++
+Index: src/main/java/me/elec/mazerunnercore/Reward.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/Reward.java b/src/main/java/me/elec/mazerunnercore/Reward.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/Reward.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,25 @@
++package me.elec.mazerunnercore;
++
++public class Reward {
++    private int level;
++    private String permission;
++    private String cosmeticName;
++
++    public Reward(int level, String permission, String cosmeticName) {
++        this.level = level;
++        this.permission = permission;
++        this.cosmeticName = cosmeticName;
++    }
++
++    public int getLevel() {
++        return level;
++    }
++
++    public String getPermission() {
++        return permission;
++    }
++
++    public String getCosmeticName() {
++        return cosmeticName;
++    }
++}
+\ No newline at end of file
+Index: src/main/java/me/elec/mazerunnercore/RewardSystem.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/RewardSystem.java b/src/main/java/me/elec/mazerunnercore/RewardSystem.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/RewardSystem.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,55 @@
++package me.elec.mazerunnercore;
++
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.Bukkit;
++import org.bukkit.entity.Player;
++
++import java.util.ArrayList;
++import java.util.List; // Add this import
++import java.util.Map;
++
++public class RewardSystem {
++    private MazeRunnerCore plugin;
++
++    public RewardSystem(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++        initializeRewards();
++    }
++
++    private final List<Reward> rewards = new ArrayList<>();
++
++    // Initialize the rewards list with XP levels and corresponding rewards
++    private void initializeRewards() {
++        rewards.add(new Reward(1, "ultracosmetics.gadgets.batblaster", "§x§8§B§6§8§2§2§o§nB§x§9§8§7§1§1§E§o§na§x§A§5§7§9§1§A§o§nt §x§B§2§8§2§1§7§o§nB§x§B§F§8§A§1§3§o§nl§x§C§B§9§3§0§F§o§na§x§D§8§9§B§0§B§o§ns§x§E§5§A§4§0§8§o§nt§x§F§2§A§C§0§4§o§ne§x§F§F§B§5§0§0§o§nr (1 of 3)"));
++        rewards.add(new Reward(1, "ultracosmetics.suits.astronaut", "§x§E§F§E§F§E§F§o§nA§x§E§A§E§A§E§8§o§ns§x§E§6§E§4§E§1§o§nt§x§E§1§D§F§D§A§o§nr§x§D§C§D§A§D§3§o§no§x§D§8§D§4§C§C§o§nn§x§D§3§C§F§C§5§o§na§x§C§E§C§A§B§E§o§nu§x§C§A§C§4§B§7§o§nt §x§C§5§B§F§B§0§o§nS§x§C§0§B§A§A§9§o§nu§x§B§C§B§4§A§2§o§ni§x§B§7§A§F§9§B§o§nt (2 of 3)"));
++        rewards.add(new Reward(1, "ultracosmetics.emotes.smile", "§x§F§F§A§B§0§0§o§nS§x§F§7§A§B§1§1§o§nm§x§E§F§A§C§2§2§o§ni§x§E§7§A§C§3§4§o§nl§x§D§F§A§D§4§5§o§ne §x§D§7§A§D§5§6§o§nE§x§C§F§A§E§6§7§o§nm§x§C§7§A§E§7§9§o§no§x§B§F§A§F§8§A§o§nt§x§B§7§A§F§9§B§o§ne (3 of 3)"));
++        rewards.add(new Reward(2, "ultracosmetics.hats.astronaut", "§x§F§F§F§F§F§F§o§nA§x§F§8§F§8§F§6§o§ns§x§F§2§F§0§E§D§o§nt§x§E§B§E§9§E§4§o§nr§x§E§5§E§2§D§B§o§no§x§D§E§D§B§D§2§o§nn§x§D§8§D§3§C§8§o§na§x§D§1§C§C§B§F§o§nu§x§C§B§C§5§B§6§o§nt §x§C§4§B§E§A§D§o§nH§x§B§E§B§6§A§4§o§na§x§B§7§A§F§9§B§o§nt (1 of 3)"));
++        rewards.add(new Reward(2, "ultracosmetics.mounts.walkingdead", "§x§4§E§B§C§1§B§o§nZ§x§5§4§B§4§1§A§o§no§x§5§A§A§B§1§9§o§nm§x§6§0§A§3§1§8§o§nb§x§6§6§9§A§1§7§o§ni§x§6§D§9§2§1§7§o§ne §x§7§3§8§9§1§6§o§nH§x§7§9§8§1§1§5§o§no§x§7§F§7§8§1§4§o§nr§x§8§5§7§0§1§3§o§ns§x§8§B§6§7§1§2§o§ne (2 of 3)"));
++        rewards.add(new Reward(2, "ultracosmetics.projectileeffects.crit", "§x§B§C§5§F§1§B§o§nC§x§B§9§5§F§1§B§o§nr§x§B§7§6§0§1§A§o§ni§x§B§4§6§0§1§A§o§nt §x§B§2§6§1§1§9§o§nP§x§A§F§6§1§1§9§o§nr§x§A§D§6§2§1§8§o§no§x§A§A§6§2§1§8§o§nj§x§A§7§6§2§1§7§o§ne§x§A§5§6§3§1§7§o§nc§x§A§2§6§3§1§6§o§nt§x§A§0§6§4§1§6§o§ni§x§9§D§6§4§1§5§o§nl§x§9§A§6§4§1§5§o§ne §x§9§8§6§5§1§4§o§nE§x§9§5§6§5§1§4§o§nf§x§9§3§6§6§1§3§o§nf§x§9§0§6§6§1§3§o§ne§x§8§E§6§7§1§2§o§nc§x§8§B§6§7§1§2§o§nt (3 of 3)"));
++        rewards.add(new Reward(3, "ultracosmetics.hats.diamond", "§x§1§B§9§F§B§C§o§nD§x§2§7§A§6§C§0§o§ni§x§3§4§A§D§C§4§o§na§x§4§0§B§5§C§7§o§nm§x§4§C§B§C§C§B§o§no§x§5§9§C§3§C§F§o§nn§x§6§5§C§A§D§3§o§nd §x§7§1§D§2§D§6§o§nH§x§7§E§D§9§D§A§o§na§x§8§A§E§0§D§E§o§nt (1 of 2)"));
++        rewards.add(new Reward(3, "ultracosmetics.mounts.easterbunny", "§x§F§E§F§E§F§E§o§nE§x§F§C§F§6§F§8§o§na§x§F§A§E§F§F§1§o§ns§x§F§8§E§7§E§B§o§nt§x§F§6§D§F§E§4§o§ne§x§F§4§D§7§D§E§o§nr §x§F§2§D§0§D§7§o§nB§x§F§0§C§8§D§1§o§nu§x§E§E§C§0§C§A§o§nn§x§E§C§B§8§C§4§o§nn§x§E§A§B§1§B§D§o§ny §x§E§8§A§9§B§7§o§nM§x§E§6§A§1§B§0§o§no§x§E§4§9§9§A§A§o§nu§x§E§2§9§2§A§3§o§nn§x§E§0§8§A§9§D§o§nt (2 of 2)"));
++        // Add more levels and rewards as needed
++    }
++
++    public void checkForRewards(Player player) {
++        int xpLevel = player.getLevel();
++
++        for (Reward reward : rewards) {
++            int level = reward.getLevel();
++            String permission = reward.getPermission();
++            String cosmeticName = reward.getCosmeticName();
++
++            if (xpLevel >= level) {
++                giveReward(player, permission, cosmeticName);
++            }
++        }
++    }
++
++    private void giveReward(Player player, String rewardPermission, String cosmeticName) {
++        if (player.hasPermission(rewardPermission)) {
++        } else {
++            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " permission set " + rewardPermission);
++            player.sendMessage("§x§B§E§0§9§9§1C§x§B§8§1§0§9§3o§x§B§2§1§7§9§5s§x§A§C§1§E§9§7m§x§A§6§2§5§9§Ae§x§A§0§2§C§9§Ct§x§9§A§3§3§9§Ei§x§9§4§3§A§A§0c §x§8§E§4§1§A§2U§x§8§7§4§8§A§4n§x§8§1§4§F§A§6l§x§7§B§5§6§A§8o§x§7§5§5§D§A§Bc§x§6§F§6§4§A§Dk§x§6§9§6§B§A§Fe§x§6§3§7§2§B§1d§x§5§D§7§9§B§3: " + cosmeticName);
++        }
++    }
++}
+\ No newline at end of file
+Index: src/main/java/me/elec/mazerunnercore/commands/LeaderboardCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/commands/LeaderboardCommand.java b/src/main/java/me/elec/mazerunnercore/commands/LeaderboardCommand.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/commands/LeaderboardCommand.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,89 @@
++package me.elec.mazerunnercore.commands;
++
++import me.elec.mazerunnercore.LeaderboardManager;
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.ChatColor;
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandExecutor;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++
++import java.util.List;
++import java.util.Map;
++
++public class LeaderboardCommand implements CommandExecutor {
++
++    private final LeaderboardManager leaderboardManager;
++    private final MazeRunnerCore plugin;
++
++    public LeaderboardCommand(LeaderboardManager leaderboardManager, MazeRunnerCore plugin) {
++        this.leaderboardManager = leaderboardManager;
++        this.plugin = plugin;
++    }
++
++    @Override
++    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
++        if (!(sender instanceof Player)) {
++            sender.sendMessage(plugin.getGradientPrefix() + "§cThis command can only be executed by a player.");
++            return true;
++        }
++
++        Player player = (Player) sender;
++
++        if (args.length == 0) {
++            player.sendMessage(plugin.getGradientPrefix() + "§cPlease provide a Maze. Maze names are: Nether, Ice, Stone, Desert");
++            return true;
++        }
++
++        String mazeName = args[0];
++
++        // Check if the provided maze name is valid (Nether, Ice, Stone, Sand)
++        if (!isValidMazeName(mazeName)) {
++            player.sendMessage(plugin.getGradientPrefix() + "§cInvalid maze name. Supported maze names: Nether, Ice, Stone, Desert.");
++            return true;
++        }
++
++        try {
++            // Retrieve leaderboard data from the manager for the specified maze
++            List<Map<?, ?>> leaderboard = leaderboardManager.getLeaderboard(mazeName);
++
++            // Display the leaderboard to the player (e.g., send it as a chat message)
++            player.sendMessage(plugin.getGradientPrefix() + "§e=== " + mazeName + " Maze Leaderboard ===");
++            if (leaderboard.isEmpty()) {
++                player.sendMessage(plugin.getGradientPrefix() + "§eNo data available.");
++            } else {
++                int rank = 1;
++                for (Map<?, ?> entry : leaderboard) {
++                    String playerName = (String) entry.get("player");
++                    double time = (double) entry.get("time");
++                    player.sendMessage(ChatColor.GRAY + "#" + rank + ": " + ChatColor.GREEN + playerName + ChatColor.GRAY + " - " + formatTime(time));
++                    rank++;
++                }
++            }
++        } catch (Exception e) {
++            // Log any exceptions for debugging purposes
++            e.printStackTrace();
++            player.sendMessage(plugin.getGradientPrefix() +  "§cAn error occurred while processing the command.");
++        }
++
++        return true;
++    }
++
++    // Helper method to format time as "00:00.00"
++    private String formatTime(double time) {
++        // Implement your time formatting logic here
++        // Example: Convert seconds to "mm:ss.SS" format
++        int minutes = (int) (time / 60);
++        int seconds = (int) (time % 60);
++        int milliseconds = (int) ((time % 1) * 100);
++        return String.format("%02d:%02d.%02d", minutes, seconds, milliseconds);
++    }
++
++    // Helper method to check if the provided maze name is valid
++    private boolean isValidMazeName(String mazeName) {
++        return mazeName.equalsIgnoreCase("Nether")
++                || mazeName.equalsIgnoreCase("Ice")
++                || mazeName.equalsIgnoreCase("Stone")
++                || mazeName.equalsIgnoreCase("Desert");
++    }
++}
+Index: src/main/java/me/elec/mazerunnercore/commands/LeaveCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/commands/LeaveCommand.java b/src/main/java/me/elec/mazerunnercore/commands/LeaveCommand.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/commands/LeaveCommand.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,31 @@
++package me.elec.mazerunnercore.commands;
++
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.ChatColor;
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandExecutor;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++
++public class LeaveCommand implements CommandExecutor {
++    private final MazeRunnerCore plugin;
++
++    public LeaveCommand(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++    }
++
++    @Override
++    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
++        if (!(sender instanceof Player)) {
++            sender.sendMessage(plugin.getGradientPrefix() + "§cThis command can only be executed by a player.");
++            return true;
++        }
++
++        Player player = (Player) sender;
++
++        // Open the Leave Game GUI for the player
++        plugin.openLeaveGameGUI(player);
++
++        return true;
++    }
++}
+Index: src/main/java/me/elec/mazerunnercore/commands/LevelCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/commands/LevelCommand.java b/src/main/java/me/elec/mazerunnercore/commands/LevelCommand.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/commands/LevelCommand.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,26 @@
++package me.elec.mazerunnercore.commands;
++
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.ChatColor;
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandExecutor;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++
++public class LevelCommand implements CommandExecutor {
++    private final MazeRunnerCore plugin;
++
++    public LevelCommand(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++    }
++
++    @Override
++// Example command handler
++    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
++        if (sender instanceof Player) {
++            Player player = (Player) sender;
++            player.sendMessage(plugin.getGradientPrefix() + "Your level is: " + player.getLevel());
++        }
++        return false;
++    }
++}
+Index: src/main/java/me/elec/mazerunnercore/commands/MazeGameCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/commands/MazeGameCommand.java b/src/main/java/me/elec/mazerunnercore/commands/MazeGameCommand.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/commands/MazeGameCommand.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,39 @@
++package me.elec.mazerunnercore.commands;
++
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.ChatColor;
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandExecutor;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++
++public class MazeGameCommand implements CommandExecutor {
++
++    private final MazeRunnerCore plugin;
++
++    public MazeGameCommand(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++    }
++
++    @Override
++    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
++        if (!(sender instanceof Player)) {
++            sender.sendMessage(plugin.getGradientPrefix() + "§cOnly players can use this command.");
++            return true;
++        }
++
++        Player player = (Player) sender;
++
++        // Check if the player is in a game
++        if (plugin.isPlayerInGame(player.getUniqueId())) {
++            player.sendMessage(ChatColor.RED + "You are already in a game. To leave the game, type /leave");
++            return true; // Exit the command
++        }
++
++        // Open the Maze Game GUI
++        plugin.openMazeGameGUI(player);
++
++        return true;
++    }
++}
++
+Index: src/main/java/me/elec/mazerunnercore/commands/ReconnectCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/commands/ReconnectCommand.java b/src/main/java/me/elec/mazerunnercore/commands/ReconnectCommand.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/commands/ReconnectCommand.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,27 @@
++package me.elec.mazerunnercore.commands;
++
++import me.elec.mazerunnercore.AutoReconnectManager;
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandExecutor;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++
++public class ReconnectCommand implements CommandExecutor {
++    private AutoReconnectManager reconnectManager;
++
++    public ReconnectCommand(AutoReconnectManager reconnectManager) {
++        this.reconnectManager = reconnectManager;
++    }
++
++    @Override
++    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
++        if (sender instanceof Player) {
++            Player player = (Player) sender;
++            reconnectManager.toggleReconnect(player);
++            return true;
++        } else {
++            sender.sendMessage("§cThis command can only be executed by a player.");
++            return false;
++        }
++    }
++}
+Index: src/main/java/me/elec/mazerunnercore/commands/RewardsCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/commands/RewardsCommand.java b/src/main/java/me/elec/mazerunnercore/commands/RewardsCommand.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/commands/RewardsCommand.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,30 @@
++package me.elec.mazerunnercore.commands;
++
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.ChatColor;
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandExecutor;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++
++public class RewardsCommand implements CommandExecutor {
++    private final MazeRunnerCore plugin;
++
++    public RewardsCommand(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++    }
++
++    @Override
++    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
++        if (!(sender instanceof Player)) {
++            sender.sendMessage(plugin.getGradientPrefix() + "§cThis command can only be executed by a player.");
++            return true;
++        }
++
++        Player player = (Player) sender;
++        plugin.openLevelingRewardsGUI(player);
++
++        return true;
++    }
++}
++
+Index: src/main/java/me/elec/mazerunnercore/commands/TpLobbyCommand.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/commands/TpLobbyCommand.java b/src/main/java/me/elec/mazerunnercore/commands/TpLobbyCommand.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/commands/TpLobbyCommand.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,33 @@
++package me.elec.mazerunnercore.commands;
++
++
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.ChatColor;
++import org.bukkit.command.Command;
++import org.bukkit.command.CommandExecutor;
++import org.bukkit.command.CommandSender;
++import org.bukkit.entity.Player;
++
++
++public class TpLobbyCommand implements CommandExecutor {
++
++    private final MazeRunnerCore plugin;
++
++    public TpLobbyCommand(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++    }
++
++    @Override
++    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
++        if (sender instanceof Player) {
++            Player player = (Player) sender;
++
++            //Call the teleportPlayer method from the plugin instance
++            plugin.teleportPlayer(player, "game-lobby-1", 21.409, 156, 017.480, -0.4f, -89.9f);
++
++            return true;
++        }
++        return false;
++    }
++}
++
+Index: src/main/java/me/elec/mazerunnercore/listeners/LeaveGameInventoryClick.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/listeners/LeaveGameInventoryClick.java b/src/main/java/me/elec/mazerunnercore/listeners/LeaveGameInventoryClick.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/listeners/LeaveGameInventoryClick.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,56 @@
++ package me.elec.mazerunnercore.listeners;
++
++import me.elec.mazerunnercore.GameEndings;
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.ChatColor;
++import org.bukkit.entity.Player;
++import org.bukkit.event.EventHandler;
++import org.bukkit.event.Listener; // Import the Listener interface
++import org.bukkit.event.inventory.InventoryClickEvent;
++import org.bukkit.inventory.Inventory;
++import org.bukkit.inventory.InventoryHolder;
++
++public class LeaveGameInventoryClick implements Listener {
++    private final GameEndings gameEndings;
++    private final MazeRunnerCore plugin; // Add this field to store the MazeRunnerCore instance
++
++    public LeaveGameInventoryClick(GameEndings gameEndings, MazeRunnerCore plugin) {
++        this.gameEndings = gameEndings;
++        this.plugin = plugin;
++    }
++
++    @EventHandler
++    public void onInventoryClick(InventoryClickEvent event) {
++        Player player = (Player) event.getWhoClicked();
++        Inventory clickedInventory = event.getClickedInventory();
++        InventoryHolder inventoryHolder = clickedInventory.getHolder();
++
++        if (inventoryHolder instanceof Player) {
++            // Check if the player clicked on the leave game GUI
++            if (clickedInventory != null && event.getView().getTitle().equals("Leave the game?")) {
++                event.setCancelled(true); // Prevent item manipulation
++
++                // Handle clicks on specific slots
++                int slot = event.getRawSlot();
++                if (slot == 20) {
++                    // Player clicked on the red concrete (confirmation to leave)
++                    // Handle confirmation logic here, e.g., teleport to lobby, reset game state, etc.
++                    player.sendMessage(plugin.getGradientPrefix() + "§cYou have left the game.");
++                    plugin.playerIsLoser();
++                    plugin.stopStopwatch(player);
++
++                    // Close the inventory
++                    player.closeInventory();
++                } else if (slot == 24) {
++                    // Player clicked on the green concrete (return to game)
++                    // Handle return to game logic here, e.g., resume gameplay
++                    player.sendMessage(plugin.getGradientPrefix() + "§aReturning to the game!");
++
++
++                    // Close the inventory
++                    player.closeInventory();
++                }
++            }
++        }
++    }
++}
+Index: src/main/java/me/elec/mazerunnercore/listeners/OnPlayerJoin.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/listeners/OnPlayerJoin.java b/src/main/java/me/elec/mazerunnercore/listeners/OnPlayerJoin.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/listeners/OnPlayerJoin.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,27 @@
++package me.elec.mazerunnercore.listeners;
++
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.entity.Player;
++import org.bukkit.event.EventHandler;
++import org.bukkit.event.Listener;
++import org.bukkit.event.player.PlayerJoinEvent;
++
++public class OnPlayerJoin implements Listener {
++
++    private final MazeRunnerCore plugin;
++
++    public OnPlayerJoin(MazeRunnerCore plugin) {
++        this.plugin = plugin;
++    }
++
++    @EventHandler
++    public void onPlayerJoin(PlayerJoinEvent event) {
++        // Actions to execute when a player joins
++        // For example, you can set their status, teleport them, etc.
++        Player player = event.getPlayer();
++        Player player1 = player.getPlayer();
++
++        // Check your conditions and set the player status as in-game or out-of-game
++        plugin.setPlayerOutOfGame(player);
++    }
++}
+Index: src/main/java/me/elec/mazerunnercore/listeners/PressurePlateListener.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/me/elec/mazerunnercore/listeners/PressurePlateListener.java b/src/main/java/me/elec/mazerunnercore/listeners/PressurePlateListener.java
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/java/me/elec/mazerunnercore/listeners/PressurePlateListener.java	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,42 @@
++package me.elec.mazerunnercore.listeners;
++
++import me.elec.mazerunnercore.GameEndings;
++import me.elec.mazerunnercore.MazeRunnerCore;
++import org.bukkit.Material;
++import org.bukkit.entity.Player;
++import org.bukkit.event.EventHandler;
++import org.bukkit.event.Listener;
++import org.bukkit.event.player.PlayerInteractEvent;
++
++public class PressurePlateListener implements Listener {
++    private final MazeRunnerCore plugin;
++    private final GameEndings gameEndings;
++
++    public PressurePlateListener(MazeRunnerCore plugin, GameEndings gameEndings) {
++        this.plugin = plugin;
++        this.gameEndings = gameEndings;
++    }
++
++    @EventHandler
++    public void onPlayerInteract(PlayerInteractEvent event) {
++        Player player = event.getPlayer();
++
++        // Assuming you have access to mazeName here
++
++        if (event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.OAK_PRESSURE_PLATE) {
++            // Player has won, reward with XP
++            plugin.rewardPlayerWithXP(player, 5);
++
++            plugin.playerIsWinner();
++            plugin.stopStopwatch(player);
++
++
++        }
++    }
++}
++
++
++
++
++
++
+Index: src/main/resources/plugin.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/plugin.yml b/src/main/resources/plugin.yml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/src/main/resources/plugin.yml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,33 @@
++name: mazeRunnerCore
++version: '${project.version}'
++main: me.elec.mazerunnercore.MazeRunnerCore
++api-version: '1.20'
++load: STARTUP
++commands:
++  mazegame:
++    description: Opens the Maze Game GUI.
++    usage: /mazegame
++    aliases: game
++  tplobby:
++    description: Teleports you to the lobby.
++    usage: /tplobby
++    aliases: lby
++  leave:
++    description: Teleports you to the lobby.
++    usage: /leave
++    aliases: quit
++  rewards:
++    description: Views the level and leveling rewards.
++    usage: /rewards
++    aliases: reward
++  level:
++    description: Shows the current level
++    usage: /level
++    aliases: lvl
++  leaderboard:
++    description: View the leaderboard
++    usage: /leaderboard <mazeName>
++  reconnect:
++    description: Toggles on/off of the auto-reconnect feature
++    usage: /reconnect
++    aliases: connect
+\ No newline at end of file
+Index: target/classes/plugin.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/plugin.yml b/target/classes/plugin.yml
+new file mode 100644
+--- /dev/null	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
++++ b/target/classes/plugin.yml	(revision 90a5c2d077432ba27dec16e8e5dc1d2b1cc36d9a)
+@@ -0,0 +1,33 @@
++name: mazeRunnerCore
++version: '1.0-SNAPSHOT'
++main: me.elec.mazerunnercore.MazeRunnerCore
++api-version: '1.20'
++load: STARTUP
++commands:
++  mazegame:
++    description: Opens the Maze Game GUI.
++    usage: /mazegame
++    aliases: game
++  tplobby:
++    description: Teleports you to the lobby.
++    usage: /tplobby
++    aliases: lby
++  leave:
++    description: Teleports you to the lobby.
++    usage: /leave
++    aliases: quit
++  rewards:
++    description: Views the level and leveling rewards.
++    usage: /rewards
++    aliases: reward
++  level:
++    description: Shows the current level
++    usage: /level
++    aliases: lvl
++  leaderboard:
++    description: View the leaderboard
++    usage: /leaderboard <mazeName>
++  reconnect:
++    description: Toggles on/off of the auto-reconnect feature
++    usage: /reconnect
++    aliases: connect
+\ No newline at end of file
+diff --git a/src/main/resources/leaderboard_Desert.yml b/src/main/resources/leaderboard_Desert.yml
+new file mode 100644
+diff --git a/src/main/resources/leaderboard_Ice.yml b/src/main/resources/leaderboard_Ice.yml
+new file mode 100644
+diff --git a/src/main/resources/leaderboard_Jungle.yml b/src/main/resources/leaderboard_Jungle.yml
+new file mode 100644
+diff --git a/src/main/resources/leaderboard_Nether.yml b/src/main/resources/leaderboard_Nether.yml
+new file mode 100644
+diff --git a/src/main/resources/xp_data.yml b/src/main/resources/xp_data.yml
+new file mode 100644
+diff --git a/target/classes/leaderboard_Desert.yml b/target/classes/leaderboard_Desert.yml
+new file mode 100644
+diff --git a/target/classes/leaderboard_Ice.yml b/target/classes/leaderboard_Ice.yml
+new file mode 100644
+diff --git a/target/classes/leaderboard_Jungle.yml b/target/classes/leaderboard_Jungle.yml
+new file mode 100644
+diff --git a/target/classes/leaderboard_Nether.yml b/target/classes/leaderboard_Nether.yml
+new file mode 100644
+diff --git a/target/classes/xp_data.yml b/target/classes/xp_data.yml
+new file mode 100644
+diff --git a/target/classes/me/elec/mazerunnercore/AutoReconnectManager$1.class b/target/classes/me/elec/mazerunnercore/AutoReconnectManager$1.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..e1871f79dfc0e453632b63a4839781346fbac870
+GIT binary patch
+literal 2211
+zc$}40-%lGy5dIb$4Cay;hmaq%DJf238_3xKl2E6lnD~+u8&h!ICTbfU=Z(2?+*x<$
+zDCvLF=RWwkQX!$0`ryYZmHPiwsye%8DijW>mh9cxZ)fJdot>Te<DXxD2e5!=BN#v=
+zhNyx;3^B~@ag|%#Q1|p7xZAdE?i!BE)s?pIY;waP!0;=&tv9)w$}<f4JEoV)kzu(H
+z%Yyjou!0f98R9Q>E7h{}*W6{eQg+;?y4~L0HGP%azUjYKH{_nQQ52lPSq4Seh!3sn
+zdz>Lz{$78ntCnsz)h*vO?Pej41jb@WDmagEhUsH&J!6MA+7@@!q69XHtiElLpP~Dv
+zZTia$k#wd$iV0kd;gW*OxWaJhG-3?HrdPEs)8^9fSqvXATzsEVv29un?#3~Ru{b`$
+zR1DV?e2i&^nLa{C@zM>0dld8>g}t8cEAE-ov@5jSl*?6GQuMClMhrI<q>*8`{=cjk
+z#+uxJ<mwHR0<_`s7v?L5@pLBab|x{SU>0)}biLK$c7swVeNyqHZ7+_6VW^D#)$P3M
+zc8c;>>UQpQJBuXLB)Zb=+>_{1fI1Rgl3FEcA<(8oNpW7HrQ_(`ZYS66XmS*&CDBEx
+zrAZ5tH9jTb1?f_gn1I_7otM5fISSO1=<Q%3ISRp)XkMxl`Y=FkiRO+-1g^E_RH(8V
+z>evk>!9xifp{H{~BVmU|%?^z)54{Z|^yYk#7<mP^Mb-`bPH^SoB`zpf#2toFk8-6#
+z`A_-Ga3L&Z<jcLMU<sd)KBZ*YF?8Q_Y<iWHjK|*b(FP^ceR5VTS6A1buUBiO=Yd!(
+zmCJD~<3S9cDOf>~A#u!n%V~?ejZrab^XdzR8=)EezC|Ir{O;YKf@Dd7hDQt|qWtx|
+z&89;cp7f$=nYwtVPZWHPHHNb-mp7>#Zn%!94-9Jh^kNzoHimEdt0w)rkFGimy0mj;
+zDwXT)y>0H+g1Va&$F%CYYl?LbjEdGmr|5@LDqo-)OiB!AwtU^#t>~?uyEsM7HMnMq
+z#pN*LTY@yvE7^wSctpCw{T-*F;A;`yv7@%}pBc5GC$jcgy615ZQ`Ddm)Kw#igy?Jl
+z&D5>rOwE;c2IzktWiV7odQ9sm&EwgbeX#88K4RIqeT-(`;M~trd!5E1(gv=gO5=p|
+zFpdp;0Z3_3?lWwX9C-bSFk$gs_7}tsae?7S)P(#SCZE2+ha|GMxO#xp0kX+kG#nsz
+zi1`5srNHPeT}k0BK2?&dhj=)Mo=s0-^Z<_qzlh{FLEi(eLG-dbrm;pT`7LfrzDmHP
+i$9IeV#O-g|j-VzF_$BHzN2witg{LIN$zVVp4gUh8OVla=
+
+diff --git a/target/classes/me/elec/mazerunnercore/AutoReconnectManager.class b/target/classes/me/elec/mazerunnercore/AutoReconnectManager.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..8575a87c01e55601f0fb3bd230af97b18056cdbd
+GIT binary patch
+literal 1975
+zc$}40TXWM!6#mwBBF9n4r6CuJQv*)1WfFx;q0}^mggZ7c31cwB%SK*|h$49;xm^AU
+z{DHjm0cJ`vK&KBp@}p?at{f*MHbbJ!uJ-7h?|k3cv+K`aKKu*d49b0oA+8~zqX)eV
+zg*9OcM_A?>e<}Q?>k8lUd|_T{hTf8}JTh2enY+9$e1_hJ)2!Pr!|_s=xH2u5)N+xQ
+z#T1h0(~#2951nD?DgTq34tMM3ot3AAOpq6B*AC|y;<<c9k~^Sd5JTkaZ>7KD@)bwa
+z7}!G%BMjr)D9fR5yY+>p?bL*y!Z7+$IEXO~<2oiV$uRw0JQ;@TBE07Fnl0S$t}h<j
+z&lyH@`O@xGMVaJB9fy%7?!3_uE)ko_?RDH6+oD-a;wOger*;3+I+t~xX)DdxLB{o-
+zWkjTSRwg^5<ET`U47~`ZA6ZOm_*uts<QOJAzizHHS6A)OB=UCn!o2J77jnD$17cSe
+zK|s65aIh1}N)iTDNs+NSld0K3#74sjlDdzE$(~H1fLXcuCc~p#x2EY7TP$_cRqQ0A
+z2hm?mW<0G^r~ksBQ;vH)SS|5TmSaA*6EkXM!jx0-W`5_lz<MHTO-K0Vf-*>uB7@OY
+z!LGK?R~QnDUX7|gSh8JlyScU^{Cl#D3?n7a;!cJ8wp_Q2iSUUXP<8iJB0>+ndfgH2
+zFAV8i_rgh9bcCbkIMm&bVPHAr)@qqIwm93t(w^f;C-xzooULN*AYp!kM5o=O?v{FQ
+z^EFkUJsu1xZdugG*}1tnhRXgrDgT|j#t?f>=&5C|>09EeErm~ZLY$QZsl9HfP=^PB
+z2yle%t|WC}j2^mL)f-)8H1~jxBF@ryj#hV+2QX-CLNgNYFklqkfxT4$ztT8@1daVP
+z_R*u`00wZLEMrj^enU~U`k+cfw<0d!_ZIj+h%2wEVf>AO*U%E{NW^6hTE4<`;Uk8t
+zoA`m2Yy+bkI5aXv!v-?%aV&;)9PQwd-{B!?#ud#m$TK%Y&oIV`^m&Zp0a>@HR@+po
+zn8zPP@gluXB2m&1`%miC<bPJptT06mm$1-MVk%`+Jjwj8c5!-@aZ+W`BZpQNhDBU%
+z1vkhVr#T(Tp7@AD)hL|U#Eg_Rin$G(y1y+Ys(2b2rs!8AN0+;y5@aHfwv2R3hJ3q%
+qt3>Id!eEDolDLNJ9jLQ6yQphlQNN*(W4NitTPV?-qHl%hHv1opYU#oN
+
+diff --git a/target/classes/me/elec/mazerunnercore/CustomScoreboardManager.class b/target/classes/me/elec/mazerunnercore/CustomScoreboardManager.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..897e8d4e32c9505e26c492313e028d37604c8bef
+GIT binary patch
+literal 2012
+zc$}3~*-{fh6g^D>1IYj(ED{z`*|I1j;(`Vjj4Wzc6ik(mozN9Wk{N1df`uRCyH%p#
+zgCF2WS>EoX!mvc*OW$7ZJ?CzHfB*UU3&35x384i64M82PXk&<c<onzxajR%-<Ufjn
+z$I!N5TBi4eArMdGI?#>|4Iv$2=nOMuVTh6_7-jxhI2FqhPQiABk*T<zUEY%Wyv?1R
+zHE!{ua0qO#R4JMk!*sTR=^7p1s$+(Z=@7cmts$bL2T_I|+bJ6P%I>b|8PAm<pNqoV
+zRIqiL@pvNZ)2xyjr<BrR^r2tFfQ~B|WEi_dpP|bUMbq_!v$QWP&t;g8`$>enHL_BJ
+zoKH98PbYFRs39H07-8rm?=MJH>U0EdUBfu1Op#p0n1*XQuHy!!wn@8c=GMihlNW}G
+zCV11b3np|-Vv4d-<YnPUxY3+_Tt`CMcbDvZ{@~;>j1+EaxTRwT2E(8~!<J`y2b4yB
+zAieK&{h4E!j9<<yb3cna8s>EB{(B6Ga}{)jvoD-lv6d{JF9}s}hK_opF^v49!>DQ7
+z@j%DC{82pxM{v)VAy>mAhFHVSVMxZC{2YlKLoj3S2ufqtw8VO)oEOfvbeSQVwF|tI
+z<BloMwacLQ!KBW;-H4#U$4yfl?)m;{zD1?I@K(;W%IN72<S(y^jiyDl)I*K+C{RMq
+zo^B#)OWX2SkVe%7pS4k`6?v<uRz39}cGQ$x9xv>!@x5BYV^l8BEQ_4!nsl*fS+>VL
+z)3&GzW9N|-%qq8bN-DI_mR)fQV%d~XBMpi(BWE^!{dOAV3=a`NR8D7_?=A9+Dw$BS
+zmEK#Crgec%+oah-vM>1qESWllc7)Dk>KMHNd{tJDX^kRCYY(kabf6!-7{C*{8K~Og
+zDV_mpCpj72Qrp)U-qT5H#f}imO5{<7LyXsV(`RXhX&s^AIEq0E=!7O#qY07&i+E1(
+z3>mzr(PU~g;Z*V)#*dL~@%bN8Pm?64e1PG)-(f6aSplwG3^;uuV3K6&62Miwq&Erp
+zt_B!MeaCIW)V@HYtlyWY0fpK{5-`Ym7TuWhAxG-S5xl}{!p$lx){QmV$Xu_JWY|zH
+GZvF+CI0VN4
+
+diff --git a/target/classes/me/elec/mazerunnercore/GameEndings.class b/target/classes/me/elec/mazerunnercore/GameEndings.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..9d1eb88774d8a3645acb16d4e19bd07e2a6ae1f9
+GIT binary patch
+literal 11701
+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
+AV*mgE
+
+diff --git a/target/classes/me/elec/mazerunnercore/LeaderboardManager.class b/target/classes/me/elec/mazerunnercore/LeaderboardManager.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..30a3a456af066a6b80d885514ca0565ef0101354
+GIT binary patch
+literal 4958
+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
+K@GtxazW)Qr0Wp>U
+
+diff --git a/target/classes/me/elec/mazerunnercore/MazeRunnerCore$1$1.class b/target/classes/me/elec/mazerunnercore/MazeRunnerCore$1$1.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..67a2338a76c21e0e5631cdb2cab26fe46643b980
+GIT binary patch
+literal 992
+zc$|$=O>fgc5Pg%RNs~BfNJ@bMX`yKwC#7yBZlFrEDiTt{p^b9rZR4z(C5|2Wqf+@N
+z{0yY>ArAZi{tOa`D`M6T2RPZ1J@dxz?VH`5Z@<5M1@IL6MP!gIAZK6+d4f5UmUN_T
+z&BR;jN3JV<+w-N>XLuIF6NatB)*&GuPE?>1vzJo!tb}D03n&>V!ys&V{-rgFrc)JK
+zfjyDq$dSHv92c}sj2y{6&y}mfBSN-q4vVN_rGT1&Tc{IuQ#$|c_JAeny5(M1al3#u
+z19xzju$@XpC<)t^0iVkOdv)3=&CCnEv2_FY@qkdi5>9LGh->Kwgj(;7xDr+rD#z-n
+zAdEX}8rZ-lVLg!U_|y^eK#m7$CI{XNJ5-)~EPO(v{lC;4682Iy#rLJ@xf5^9`&#KK
+zSH6yBBk2#4d#U$4TR21ED~%V$oIYkkH?0Mm@WnELP&p5UJ?)G6VyV)(7x}h)sWfQ(
+zE8N%n;-*er+wlVBUiM`;@x}&r^;{XRVxA*{KnB?45ntwMr&>)9IcFJu%XkFBW6q8k
+z>q@E9{Q&BGLg9VP+2U`WIiT-oalV$Yu#Fuc&X(f;q)iuVT`-3g*y!AVZczD*#yhMo
+zKoahK#6xY6jSZ?CK|fHTpJ>vr*vLqhSQxcqE;adM#(j0r<(OmX9-eSk=UNrXlS#rK
+DKVtPr
+
+diff --git a/target/classes/me/elec/mazerunnercore/MazeRunnerCore$1.class b/target/classes/me/elec/mazerunnercore/MazeRunnerCore$1.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..bf7898b0e64157b889832144d7b066b1ac8d23af
+GIT binary patch
+literal 4371
+zc$}qIX>eOt75=W5NU>kzpsa2aY*Qz-mBg}ac@a(<Bw13N%CfOs2eYNm(zE?ySx?n_
+zN}95iC1D9WEtIwFnB^B8tR{4ZVLZdYF#G{#7`DQcogdJD3`_=wbMMuaElWu~gGSQ3
+z=X>X#{hoX8kN*3e?*a(mo4e6~Mi-hiG-DUTeXEAg$Qo(is{WW!DCTlTA#D{5-z1SU
+zf{YN^?Pu8KESq+BKTS#OXwDed<kqkoEex%f^lW!Nt6wn+HpAY;Mg5ZQD>`P@moRNd
+zuxc9a!X5^VvvSEvebr#_NZzcTTk@rxf|*+q+<P^=3?7D-O~DLzC#=GfZ=txdVmdw}
+z=a|kF-?Vr))`I;w;KD%-hj5tT-YtxFdfCVnvqr%e765laU&xZ~U8l{Q={&&D*wZ`5
+zwcf4a9voqCJLam9FcuvKHsQw08J^!*dvs$hCcYyZYr`9B{q&71G%8RU_zBe&I=-<s
+zDqai_x~kB~##&HJAEbYyQ^8>Y6Mul<ltM$|>lbLuQD{)0^gl#oMct?nG9avr6%;xm
+z(2z8+B4JqAF(@X*Y!^Bi4sB0FxM*fGMxg~AIN-*;45#V_VWQgIpfDkj>*Vu}X*iDi
+zDAIa9Z{#v0qNg_By){r-^B5P=%SCt@j`U32p3#ky4B_ffj*Fm;_Em?cU)UY)s~d<u
+zuCPyo5B<CdEUAQHe^0GyD$@ZBx)9JXgkj>@QgV@H-HBLPi)ywhK9v|}IGCvSnj9QO
+z(1llO7{h6XV>?=T4Et;f=B(*t4SUv_R?BX(XZyOVue8>cIysqZ#RE9w!mBid5N6m@
+zEt=NMl0p9ms<Se+aM4IRV=j=(hi|u7xzjNXah#=Y;E=z0tKe`K8GJprU*h$Q<oP<s
+z3*^CVrBycMP8BoB&=#j2)M-0<!Ld6{Ub3T@(lCuzQ^t6VLutpfa$&u&CCtZa!(2Cf
+z5u`NC;vwpe6sm-k*10TNXH-mEoK!E!qVrTm;lxzr!3)W$+2{p1JR6#A!8~5;!s|4=
+z9&e!bx@C6CD)MFJqBdDHrWP5F*Ii)SXN+<4E@*fdI>T<>U(13{_SChlRzNJqTjl`L
+z8Zx~6o8vRlXwr>E#u8#}^^0#z^{aunLZhl<a#S`izgU`^sO*&kf{=}c2L5ud98|ql
+zHd6mtfd*tVte{fxkdRVo34U9O7*@8G;gmw7s_F6$Et}<tvMnf4DR@-bRz_vJ4Jy+{
+zw@L^p(?(>MF$5Y`rj^l*KqJbsVTpFRvCQxTHA8l*VQEraq5T34i1DDMbcO`#m%YD&
+z2DZ2p%5*BTWh`U|k0ulvRC@=Z14V@n3RLcF!)X<cae)pA>w+r^mC+j%FUHB4i(AS=
+z>WqqUFs=$=R9Vtr+1myL5mx>TZ7q)q8s01qSxz#*<?<L5Zb)Yc9nn?M45%WY!Fahm
+z0&2c=b}*%CDWE(jH0UTaBG3_mmMtC@FJ!`aWfl}#i4qr8DX?LM4)HQqXjGuGutzfW
+zBf6VfLsr8osIeTV=^f!vD#edjHLI65y1a%*Ks%J1FaM<Fyj1(G5yBh5JRA*0uD!jU
+z_UQP`LzA5AvW7?N+jurKGtD_3({LU+K6<l;w{YHrHN4Y_iDaC!Jg(tw^;uHM&`h+2
+z&T{Y2@J@ad+?CdIX(Q{xHHO|Do`$>qEx3wz^TXtOL{Hq|Jh3B<;<|?S;r(=Y)zfLi
+zrbBf<9VdFJ?eFYh&2@iJ!-w!;+8>E+R<~DX=|D=kI#ZRPe73k`<|sk@F?Q};RiEE}
+z?B!BK-ao403BL925&K@svGSL7C%w#HeN4m0@f7Wgw&BRMPvqj_n11vQmC-xLu(-n*
+zjlJ~Vd1pmU5i3LXv?a`(ku0t*7=>ARnD_9_Dm$kaOiq`<CVr`**zY)jbgrS-w4FKp
+zbVZB9E-sXZ%^8Etpn}R91=FIv@~)Jlr&lKRd|6owEsH|hh?$(&S1r1ayGdq8bLp&Q
+zlbe%<vutHFd<|b$sff_3ax&KCoXGS487FN*sLtxPZP@6f1+kwlh|Tn)8xF8{FTc2n
+zC*8`#lkQvMN%uzLYM|dCd;$!gq|tez`P>fgiFGjV$#uBAr`FNxZEspfoA+7l^Sam3
+z{w*=_Q}oYQAlOgP&VGtd6Maw!?7(O6SwM`q8oFNLX&jbH8oCH+q*=Q6+h~6pPk4?d
+zo<qm{v*_}?qJ(aameAulLE{omO%l!M=XwVI6DLa;QFP-?+~0ujAwooJ2~m!f<q&HL
+z6Q0DTG!k?JNg~?#?<QubkmhdSHJWx4Z)}Elp4gf)<k}j3ys2=(V|bRN%1zM=T(l{T
+zlQKDX+cQ`x!P=zkD(X@db)|}WQx)}APL=TX#?wvrKZmRH6!dr9z<ckxcH~+KA2@#-
+z?>|z5m+&M{Q=>@JBHAh7KZlF`g0Atu#Bug3I?VkVN%k8&!k))<_FFv3en&mw1*+5E
+z<NNFn_!;{nUSNO1i|o(%5Bm#iWq)Pu>~HKS`#bAk|6pD0Mb^vy$pY+OEW!TG9%i>h
+z2?QwREx3-)QN7VQ6*+vKMh&ckE*M{+nq;gCXYfTD@zT-DrSc{ExzTV7Pu;=~$?7kQ
+a68j3iO3x;0S!?(PjXZ=kKz^>u$NvCpr1^sY
+
+diff --git a/target/classes/me/elec/mazerunnercore/MazeRunnerCore.class b/target/classes/me/elec/mazerunnercore/MazeRunnerCore.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..47ed510c3617067b26b842fd4021d8b0bf481950
+GIT binary patch
+literal 24814
+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
+
+diff --git a/target/classes/me/elec/mazerunnercore/Reward.class b/target/classes/me/elec/mazerunnercore/Reward.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..a4f45ba2680fbc12685ff8c113ddee9d393950af
+GIT binary patch
+literal 765
+zc$|GvT}vB56g@ZDBxc<hHBsAItG*?Rbzk~s@kI~<!IoO`K3Om6$bOW`#)7}84=or9
+zedrJ9k1D-032IF!3v=%r&d1!lzyJLF1>g-1eUwnH!3$79m9T!TZd8=0Y!tm4UUOU!
+zs&93si&H|m(;d{Yf_e>pfK>#9y_6$PIF3?v%Vv^gY~tK-^nt%9b492me8UNWdRDj=
+zpow*Y|Cvpy$77vmgw6g#<Yi%WHafA~%>XUS4dQ&9a-ri3l`^5z=`HdXk?w%to#j`e
+zX!do+7n5|z=A#-WY!mZXB?D!&z0X0f_@u{#{r-O^Iw7o#xaiNOl7;jL4FTRi8mQgr
+zE<Q-!A+)o9X7MlciHZ4K+x*p8z_C^0P!>><|5KJz_AFh=ZqC(~s~%*zXv?`Jw?uGH
+zYCHS^3U{Zdg-25~!q-!5e0QpCIk!atarRJ`&&Qg0x5Rx%&~T>5Gdu@eXLHGQHo4?F
+zn_U+41$O7jkyOj7gm<WYy^pFou<5L4HkG+G;U)H#h#TLYh+9j=ua=58o{D#tiuWDs
+F;4gK|goFS9
+
+diff --git a/target/classes/me/elec/mazerunnercore/RewardSystem.class b/target/classes/me/elec/mazerunnercore/RewardSystem.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..a7132ce51e779f035af6871fd8038258b03053e0
+GIT binary patch
+literal 6294
+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
+MWg782>HFXR7t#wi6aWAK
+
+diff --git a/target/classes/me/elec/mazerunnercore/commands/LeaderboardCommand.class b/target/classes/me/elec/mazerunnercore/commands/LeaderboardCommand.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..f7b350cb7e79a8d74180d342b21880cd5690e79d
+GIT binary patch
+literal 4049
+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
+
+diff --git a/target/classes/me/elec/mazerunnercore/commands/LeaveCommand.class b/target/classes/me/elec/mazerunnercore/commands/LeaveCommand.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..d01b4c3665a3b16b34fbdac4bed459da00b232be
+GIT binary patch
+literal 1462
+zc$|$?TT|0O6#kaBgqCtE_nQXf(hD@=4NDOfMi^&`G8Q|dK5f&b2GXRHrVRC`_y>I9
+zMMul1GmiS`k8(UoE23?Y$z-!9*>k?j+3b&>pS}RNf%O2|;E~`B!iRQ--hF<^6`dP-
+z<#Bdjs5V3Us%B{R8iOYs$@tL$zl1;#od_~46oevlp(+LbN?2vX5SD6MLQ%~^fg8D!
+zk`nw-Y}6tuRn*IQ&0v^MwMg8i@QE94P?(g^%`jqGc_mvuIM8fG7`A3tlpUQ{ge9Su
+zVfYW@v~6ide!Z;eIbj9R15W_`7?3a+#1MuVW-o-w(3cnXmc?@#!R=ULPdj252uD)?
+zLM0uL(ICb!PU3j6C>)iG;l_oHxpkV!4oosEeSf3wzSK%`-8fn0hHM&oMa~LY90|2-
+zi=3RT$XqVE(&G;D<sf87R)=lYYIb58S0u~?F^f3{`HXS(!b-gtX<{lYhRzaAwneGL
+z^Q3#Q8S{)|VmOEhqO?Cu(&#pIix<S!(}xU`;Z&;zQL=;uhUwNs9=PI6q7n^Xa8pDw
+z4BibhM}&J)njs#Q3t3_9@~lp8LMc<_dWKt?6W3pQZSs~O-U^`Uc1<$)P2+U$?)@dR
+zsh!DlRwNspebL11=d_PX_1;YXACN&(e-oTI51qlM^Q_PvgBnoDAa3Q!p#CP5+`rao
+zCc{|kMl*D!ZLS_{^J3leK-w%@s@T+=pzo})aR&oabdt1zAx3w|IZfz1a$+AAX^c~}
+zNpTxJ1JM((XzT-|x9%E+#%_3M?1GnOe)<)zQZ!UsjU`+I+?i9A(RH0px?0V5l-Ewr
+zMC=>7USlTq89mQV&=-9Vsfth)BcTZzs<`wKQ*H1b$G)O##piq;^;I$NJ*H%jOJU3{
+z)DH;*n8P5#7$JypEMwB8vsME-rIWx-+#(vzY#Fy*vI)9YTqy}8u}X5{MEVZp`f%4p
+MVqr?T=jy)y3*V=Mr~m)}
+
+diff --git a/target/classes/me/elec/mazerunnercore/commands/LevelCommand.class b/target/classes/me/elec/mazerunnercore/commands/LevelCommand.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..a72f934bf052de420be38b5c658a1e923bdc4fd1
+GIT binary patch
+literal 1389
+zc$|$?YflqF6g@*9+m<bl@<!BxB7F#}f?_GYXvB~dCDt@iKTWqoUD)n6+bseAiGRWP
+z#Y9Wc#OPOll=03|k=PbVv$J!j_ug~vnY;JruP@&KEFl*`4}1#zDgp>H4D9edu9@7b
+zXwOPJLU$R0tA=H`_ZfVNWHF2o!U`fPdZ990uL@0=Lf5MNt#BHaB^=#$gr?ioD!0mY
+zEid+jnLD;9Rn2Tv42xkd-z9L9%;%n&BQvX@k73+)Dq5+ryKA_buw27E(6&r|ARGk)
+z3}b&87hK1%Dr*hHEDI-se)u97!mxr76{8qqm^~LN!(c_YPaIx02yV*}+r~b_a3Y!i
+z7b+`3CR9w~0u{$=H6g2<PqaI>$F^u@L%7J$|I%(aaZ`#FH|i_#UPN(OMI6%%AtK|+
+z=-t4EguEgluQE&}Ho7O4j@MMo$-+afef+0PoK%rQnxVH&bT>u4&MQ>&NGH}s1@jCu
+zr!Js%vs&v;AMXpj;o1&EDsj#`O%@saIlD}l{dvO@PaD;ea9;3|Nhh(qt#h-;9Yfl!
+zL%;jRs52~d1L)XoS%$D}owVL|BHz7=0trEio#Byf7w2^cy<T}eE_;(<GT*IliCVDk
+zL6Wxrr^TS?f6ACTiz7q8<R#fCv371GBX=q!<4_0U4AFwi_1#TgYiS-SP)F)w-H^uM
+zX<-*+G^S|~^nfM+Jux{9Xq-qpfCXALvewD&p?4&82$o8JhVs$#xj}0me6&X4r(Kx(
+z^d?!O$KJSwMZnw1tc-q3xZTS6p5lV^&ZK`J`VNcf?})AhCIVmS3p&JL>JyYEVoi+4
+zrf8W69N`i}6EjWB9w9-K?gIt;JPI)a2Zlk@fryM^8RH&}`vefB59AJ=1SHf6p$zWQ
+g!@S)JvL4+GR&mcOCPR@ADCa{Dfi08cBd^}I-~LTzRsaA1
+
+diff --git a/target/classes/me/elec/mazerunnercore/commands/MazeGameCommand.class b/target/classes/me/elec/mazerunnercore/commands/MazeGameCommand.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..4dba1682ab756c56b91f6a881c05c69797fda317
+GIT binary patch
+literal 1806
+zc$|$?U31$+6g}&YD0Y;OI%(RJq$p|H%64l}2p^40fjVh0I8BIS&$JyL*7C+yBTGh>
+zIyL_U{s1q1fdO|~W*Fd+zr!oTa94IpN$k+^SlWAa@7{CH-n)PN{o)q@Yp5m>K~zCZ
+zMI2)cGmrRVZrI#u7(2B`!t@!&Zds1y-)4yF>1qPwNGM3En1IS)w1gpSVHz#|weSMR
+z5uWLK!Z6)di#zp>u}%Ih-V%krgLZ4%LBnzwu9imR%9Op(ERdO3FvW1*^%_PkI6Sm`
+zLpZ+Wca2?}cZH{5hT+`5pv%5zIgLAkW!Ht5#5AHw%wkT#Srzj*$8h<zsxq8u2!G4t
+zb&JaFdg8!(!Z4?&OUFy)WswCH7w`s=<L$PPEU)V)15f4-VCKiMM8JOk&fIbAuGS8T
+zbu^PZTF?=i-?Yf+>z9+&-c+GUD&xM}-)90VxTIiJ#bsP!&|VR1kY^0^FB3Z9F-&x5
+zu`N0s-XN}LhoP-bU=q5DG%^%VYE&HSt3VWqUFt}Oz_)CpQYmiarOMY-Tt|*!%IfqF
+zr|8I|XPDKGho>JT@D^?;cw5CgSR-j)!CYu^zu?*~;f(HWZZOQ3hJ6i{e@`m^{xQM(
+zoqMX_HyLi;cLR-kLgTh4c)hDxj>feHA<k+0u4W7VSc)$~*EP-WwuNSdUa8C_$@rFv
+z4?&YL?b5Lywfa`2$grfBMzt(StKegXmC?tv`9zq3F9pcxuQ?{^DnqQ`)=BQ^lI4hd
+zL8~UbeO|N4lPb9;x2xQ<q&;xPWMeVh7*$}@4CfgVuJdxB5B|e+Xusu8iO8R9y@x}(
+z@c|82XVAPW|6h<g$7~U}#nUP?#BE*^w$$fDMbd|R4bo?J2%PX5lV{0rVe~mOOqP9a
+z9&YpYK=NeS4LnoawWKk3OxK(&gJrs4BVhQ5{waCM(lssZI6k509kT9{9iewJ^9(GL
+z{RztVVN8LZQ;3Go7>z~(GuR+&z8{TE%0#%5yE6K1;nTsMe^TBUy_?zJF!?Q3vp-|{
+z{xh7({0OCoR1fD<i}dK>;&UuV5PO>a6_e|6`FSD!99J27$bN(6h4>)x2N*rPoBH4=
+zX<a7u!+Xfbo>Hx7i1-TO1m-|DG_B{MV*xoV68|MU#6^5bciRD0LngQT7+*4JqKMCk
+tfn0r#QpmH3ZQKi0XkrJuq(lzu_yT*RV41uLMD)L~rqBp8?1#ct{sC@I;gtXY
+
+diff --git a/target/classes/me/elec/mazerunnercore/commands/ReconnectCommand.class b/target/classes/me/elec/mazerunnercore/commands/ReconnectCommand.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..ddc25750c876406693820a2b966884ff7e913017
+GIT binary patch
+literal 1303
+zc$}3~TTc@~7(LSqOG^t_C=^6p)>|*a0`g=Hi6Qb-&`{C`eVUz)>%w-HY`4bxPmDjn
+z7hX)fL?4X$=#MgfyDX?cF=Vqd^L_ixIcLty?9X3cz5-aqY8DA3HKcM#V~AmVm%req
+z%av_DvUa5i7>4dU$_dsOlI2P(gJEPeWOEonj$x@IP3cNucK9pl_mq;p@O)_suhZeG
+z-8HwR@F**S^}`G?_(!QtuDC6IhK0rem<PSU+dffV*D%UZ@_gI0dV70LU`iD@LEn7r
+z^1k%57{?_Ig&Za@$xyohGQ(Kl*|sZ>KQLS=HwH1)E3IKnF)aUhD|VhcT|Hj3F1XS?
+z<@R+;>hh%&y+F2gtFLo?Kbp8Wf)Zvl%;s<za}4@l3^9fo+trk+9SR%i(qL0|yQGt$
+zSZ@5;re@$f$|f-yt}+;du^vWJJVIM4U&!!Eiy^h{wTXGG;V8M)>sZp?;g(C8Lc<f>
+zZE@cT<2acL$Pb2<K{Nx8N1Y+#spGTq>>u~f^rn7JMg6o*PtS1f37zr7one?AyxmmQ
+zjkm-2zbpn#94%w+JdF%#ms`>etvscTtmM8;R!*EDoFU%~xY*m|`?2rYrq}a@+;GC6
+zc+%X(5CQXagA<^WO>ZK+#q=Kt<20^Ot5dW=af146^%GdN_5s?vsAitpQ6#C&A%#3L
+z6d4pv9aiHyZUE6JL}m2c#H|?f4b==$Z`8gc{~D9EZ^++ESKmXMNq@vx>Y!FAe#SKY
+ziw>wN8F9@<GYZh?D(5jtJVm-V(}Y)wc-QEAp15wKOzH{ySb>2Gs>B?QYPb{WGq8Zg
+VNWB3QOSFRJh>4Y`a3xyc-QP_sTcrR1
+
+diff --git a/target/classes/me/elec/mazerunnercore/commands/RewardsCommand.class b/target/classes/me/elec/mazerunnercore/commands/RewardsCommand.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..d034d2f70b869712c67924ae992180048e90193d
+GIT binary patch
+literal 1474
+zc$|$?TT|0O6#kaBgqD^|%l)DOx%46pcta?n!U*F`QHEk?)TeE_)Igea(iEvb#XsN+
+zFFFdN&N%9$Kg#hWttiqWlgVaJvgdr4v)La%KYamk11kZvz$3vMgb%F@UAugrD>^p{
+z%H!OwP;G|RCC$+6Wd=_)mi40zehGmf+7V<(7KI{op(;iGN>~-c5SD6MLQ&0PksJB4
+zvL#+}D_>r%#Z;`MR|=ZJFr99ax<TQV8?I8AlF-30U|IzwSJ~UsY(*HhW>=L>omYh=
+zp^Ksa59f?+X+~kCqUm{I1<(mk01@;^=nbL|{S1>ALS^VK2z%Y)d5z#UEwQ5=F!V%Y
+z>3^Y84#;2-Ll`D;yi^j7%9-fdg=cf?G*fLDWtjW^M%{j)mF2p1vdRtFH1w*R6S6oE
+zYQ+|LIaigrTymu+9puYF$d0Tw+pN`W$2hJ?m<VDLQw;K7#?=ce^<HF%sjwK@%QV>#
+z<uWgj?%qbsvyO?;AYzC!^qHhFE%t>@-|FpMfAWxFG@5SKCMqG}D#LhlIuBflCJ~B9
+zFSs>gSqAT_nJ3zvY0VIiD#e_zws}scH{rCYay`o}&57$Ty*4?_Fxw2E$+k@~_)X(v
+z5AU23+R)b2IV)0U9e&=x^k=l6%Jm+N{~wS+QhyU1IS-w|r}Lc99gEJOl11DqkVTOO
+zl-$49X(z)_^Hwv2GB#KDHh8J-dLUy~ELE&&P7pb5ZPG!(7@aCDU`Ws%c1{*Lo1EB(
+z85)xmtx?=U&p`YbES~rP>8-m)p|JxV8bk2X%uheXEJb~_)tJLIz@0f&8C}=u)T`Be
+zM|rLETu6LF=rtx1pV9gB7~S#rkd6>O!a#V0h9g}1h_M!U4-;PzTJ$-e2YpAF_8wBQ
+z$E7gj7K%VZ52nzIC<X{(5c3#z=`7cPPUtM)CT<Z8XEu-9F4+aT7F{U|NMVWOB#HDL
+R%Jt!{i^QUoa?jO${}+HXi5LI?
+
+diff --git a/target/classes/me/elec/mazerunnercore/commands/TpLobbyCommand.class b/target/classes/me/elec/mazerunnercore/commands/TpLobbyCommand.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..bf092bfc24c03880593711e0aa4c8617af97462a
+GIT binary patch
+literal 1208
+zc$|$>T~E_c7=8}xRyH>nWAY{92O{g{R!}g}8A1Zgo1w;$#pu;(IgUctE~PVqH~tN8
+z`~}3sh?;mo)Jp?D!arhsdp1#oDQ$Y%=k5FPyw5rBw;!MO0L<WK3|$DRP~r$9!jN3&
+z&$w=Lr>5UG)`jUaMDAFQ<<BvMGFml?ZbVhY;y8miL!mBoVGC2Q^KIcZ9Y=Vk>j~X-
+z>vis|Zt5$IvTGPy3oT5^8g{d0ISiBK4x!5gA4<4Du&APkVaWAry3yR&uzX!OzU6P}
+z4{W|Aylx~J;x%3uc{`|+pN`DWuI=7>lr$pq=1T-uWPW=4``tI`7s}rL{(<uK-Tpxg
+zBRHpGG>-EaW0*J<6^0(4yc(|Ow~8~&WXheG70bVstoWYg)QXFXi=~oQRdJEw@*i<+
+zvGle`OV5Sb^j%7y&74vst;(P*xU0mmw`@7$UbAipZ-pB+SyE-!<aU*NR)E_^#b2{F
+z8KycF=&*rBhN$Zt?&i}Y{r}ZRML4U04xK$t(CEo=llE91o0j4uodqYaO<9uE{XZ=R
+z)%?}Q=)X8Jgl%pJI}q|1HxiP2H4?J_1mX;diqFlBW!`A39;>)b&lDvq0R2a$Ed=qn
+zMDx`Jh70thf*GR&9N;khp}q)}2zSvtmi-8p&Ao^ER{D(7+Jg|SNhs(;l;W=t8fbZA
+z0$1fY#AH@R_arjyoUh3ip|_U%g2XF~=RPBGJDlBxIvh^*rqP#1e;Q{~gQ=kp7*=*d
+zJLDXaB?pLFu&NkDg2rkBqm+0|mY$=eflWhJdTECwG~{rNiU(hL6eL9rI;La;8m4ib
+Qnz$jWut{>9kv-1-1bR9=R{#J2
+
+diff --git a/target/classes/me/elec/mazerunnercore/listeners/LeaveGameInventoryClick.class b/target/classes/me/elec/mazerunnercore/listeners/LeaveGameInventoryClick.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..f443480b3ed3edde7061b150e558d73be7478cac
+GIT binary patch
+literal 2471
+zc$}40%U2s!82?=eObC+#0puZ%Kq({;7_<*7=|eyYXrM?i6?}D=T#|vwOgb~+;mVy0
+zS1#GqZY*ohvFSn2@n{z={F7X$-<?oe2pC+<y>svVp1=FM-}mR=KmQ8g8ukLHLbU{+
+zj2hH3G;XTfs$!^SM!CPf$u*au_Lgqy?j45eNHkRkKk6g|WYj}uxS8V$H@K$c)UUW*
+zFimc2mdzDIcU(>jM@evXo6o8_K5uSw)3xlqX+zhx80s^$Ib)`EGvhD}B+juk`${S<
+zoL`dBfJTZcZxk}R$uM-D<^nC3z2!75;{k-wETKh4E8bujv+RtrUf9~wU4@It6#Zp@
+z%E?e?#DXE1;qHU1<!$jaLtiACc-@BS>h7L0SIDX6jQ1ax(9Y0aF0*8)d)yZBbjo-W
+zT@1}+`^fOIZ-)Mp9?pm_UXLF1N(js7Lq9{$e~UBJk)t`wNOPMZQqg=#(nD@Q#uW@Q
+zNMs<T^Bso4it0j+lp}~r7?v@D80A!1g~3lwR&>|k3@zm46(y6dO+<+MF~-o~F)Qq5
+zc~~&%ZUEzWOTybSuHxDWBA2v?GW=0NHHd7jk;G}5$D?Z^%^Nb_!A%C)p$kz>jT?rz
+zYhPq7niA&|GUB+!5TFQ`)t#hax!${&mp~7s?X=ISf-VpY;5MoQn8cKXX&LVeAg)}9
+zwG2(<Y1UTLIsvp~^9_AhSi2`<7IT!6n$L5SA{>pB!&HvkQ9K0T2MnDr4zyLP5Y7r1
+z4Zh(XV>u>VBxEdzK>e;&Qm#iE?#o!hNA!3d^18qsN6qk4c)oO=5(y_|tcbD_%zK=l
+zcM_H(@R&qO#shppCys07ll1MVu9ju!j-2tTN-u_NiWt^pd@5{S(hM?oOdUTyXXtow
+zpe}Q_V4D;}*tL#R>XYy#9hW`&#8IJQSd3hx1YNM$L{mhXX)DbIPj!<o7IN#{UQyQt
+zr$Y%#Q;n2r>tcPh>2tF>QFG!v2Nf%7oH%cpr>pGMlW<lpbfwT8kJxOUp@x^r-}wKv
+z<CSP}ZN#+muatt;$_ih&QrRO^^^--4>e0oD88I&Ds@m3qn)i^GK*<eUM3v}6H|**;
+zp3)tiR3}Z-a#dHiOuD$<a(p}-=2SCnczy#(t6*#Vo-VGt>zrF06Ay`sxu4oH!xuD$
+zM5m=*9TI(yX0cy`hcv3RS{3b^=7!<tV8bKNAPvW!A^4*wxbCU>Xl$Y}ggP|i5?Y|q
+zPPn9oG&tb>2{+996OM$N4P<C0H|!xv*V5V3ks_LYL)!w)9gCxf=qAegI()yQZ6Du`
+z{(*1k;BpZ|q0u6gee90-invaD@7}0st!Zp|f{EBKxV`!ucZYvMu!#4Hm<i3(P{fCa
+zSgb;6ds$4eB0i2CVwK?l3Td}LLF5eW&tB6miHq#3z3itv$l3|c4g}Fjt-lN1)HBD?
+zi|gp8Vt$!q1}VoOWT{i-sY~r4hOeREduk*<P&*K4-J$H`*d!U9z$YAzaeGR;TZEM#
+zk6|E3cm=T!6Bb3#itotcBf{P$$u3m=L&j?*_$7oSv`OfZK-9rs<h4K&wPa_TW`-T_
+H{&xQb;AF2S
+
+diff --git a/target/classes/me/elec/mazerunnercore/listeners/OnPlayerJoin.class b/target/classes/me/elec/mazerunnercore/listeners/OnPlayerJoin.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..42f4e8076b8779eaf2cf735f2feea5c6f4beccec
+GIT binary patch
+literal 1091
+zc$|$>TTc@~6#k~SwaY?FwUt&8Z%B7rnV9%iV`7MCOrb_i-=}4)1KU}$oh8A4Wuh2;
+z@CW##2xoUofM89t**TXv=R3DKe@}n^0q`8$Mh006IR|+Z7|Q$NNN`{15$_H5<<Kw`
+zUMQ{1ONMOI?H6$aMGLlr1vm^($C6854*6Jom0_f{42MA|xvwThk}%;t{oWVHGJF>(
+zO<0G1G>Vyx?hMZz5<ev37Kt4jODI_=J6J}A+=6h#2hqWSGF%=>ZTMk=&M$(zj@1ms
+zku<52;cnCIUUt+*nd7NTX92h32vvraSvEFqW5q(<K?8Rf*5^u{p)xs7p%<Cn=Qm<Z
+z%GKuVRNTIWRfhVtBD>ReGI-578|U^Ja$CV3g)DWImb=k-Aj3~$;K!MDgQ4*IB2=+F
+zRp!hWHDTbh0{nZX9R?@3GUN8u3jZ^uB+0x?2j<T0l{}+#vW?lzWUx}JXVg(@j8S9R
+zR})3GzS24{!l*z~y=&LwCSl$Rz2_%5_QxO!hjLrRU0S|e{ARo@ctAUm0X;MNEAd{?
+zX2o(I_vl<BX`AE>QQP|o=Cyvn`j*(-r*jEeIv0^6u80z$0kzZ`5Ag^{xEPhu_ZaJR
+z7h@`-Iil6p2^M$Szi^Xb*ZU5ueS+Erd?huaWNHLar^nt%LU>dCd59{WU?WMoj3!+2
+Wb|@W>xGY+9U!c1-QQG+gd-Dv#BOBKM
+
+diff --git a/target/classes/me/elec/mazerunnercore/listeners/PressurePlateListener.class b/target/classes/me/elec/mazerunnercore/listeners/PressurePlateListener.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..26b10d4828ebd7a1e248c258e5b2720b956ee802
+GIT binary patch
+literal 1601
+zc$}3~NmCO+6#klRAdG+@s9_U9Ndh`5xW)}J3S|N*f>BRYXVMkgOlDG(ju!q7e}i`|
+z#nOXE5B?_0@^yz&C=<oQ^y~NfZS%e5+mFv*04!oPf;O~U=&;d=E{1{U`~`PB?w6eP
+z!gJv&hOV2^m+Ce{dn}&sK{t9VL~QiJX1G!jj_`!*RQM|q)_q@uZV(E`lQkuXsX5tD
+z)N1umWIe7#dQVJFt6se%eTLa|3l|w;Hw?Q>Y*GjAv(b+MhTamdh?HNHeyPSV)5^oc
+z-&)BC1~Fven2lkKFw6yE$tl#!WvLwTLioz5dVEKOPS%iBUx|>rDy5$odP+hy9vH@A
+z@$`OUUrDvIXJ(?DuyGPmhJG?y_M}@D#d}`hmKmZ4O$%D;n73pv#xQPS!p0;{F^n`<
+zW3b5S=1x^G96#tRL+FN*dxX<zOk0?-aRz4@hMMRw46ZLd+RAREa=FJFsjX~!X*0zz
+z+|*wLF~lt-Y|LSv;mo0`MG->rl840xE>EP|ewt;Nh_!}pHJ;a@&f9QwANDosv08f~
+zwNw3c(Z(e#FdV6=pqiuaC0Fh?!}wpk#`6{~Go1XR+`l_<Eq2HbJWQL#^9&u!L6H#X
+zPfK5{)hh)NZt{YsF-Zq5_wt-@C4NuXp|&M8@wHao|1n8P8ri@<*tHB74np#e1~*xE
+zibk)W`!7o~$c@2>wypxzET_0z&hV=FYYX=oPP9^|auMoERzzObB&jd?exSILflok9
+z{+XXiWrh1i&%}!4f_mtR2U5cuZHn4?z2z`PE2RyLwqP60E$uVfh=Y2=5Y_TdT%q$S
+zanJOUB-)?&2$q=p04p*70Y}~%#cRf_LqF3wfF2x0A4#s0<W$29H;@F(O^0FTrUU6P
+zH*t%o4)dC{wf^GVE{<mCIQ|t0O+I0i;T@*lU^MX_)_nIaX7yzk=M2A#3p$r}lS>p`
+zbdFH^QH;`FnZX3j?j#m4y)UQ5UpXz}Htv|;b#NC;l*>Jmc7uJ#f`w(Ii0h*F2Sgbj
+IntxvT2_8eS&;S4c
+
