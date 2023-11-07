@@ -40,6 +40,7 @@ public class LeaderboardCommand implements CommandExecutor {
         // Check if the provided maze name is valid (Nether, Ice, Stone, Sand)
         if (!isValidMazeName(mazeName)) {
             player.sendMessage(plugin.getGradientPrefix() + "§cInvalid maze name. Supported maze names: Nether, Ice, Stone, Desert.");
+            player.sendMessage("I'm adding this in because why not");
             return true;
         }
 
