@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="mazeRunnerCore:jar">
     <output-path>$USER_HOME$/AppData/Roaming/.feather/player-server/servers/9459af3e-2065-4a30-9343-80480bd4e6ff/plugins</output-path>
-    <root id="archive" name="mazeRunnerCore (2).jar">
-      <element id="module-output" name="mazeRunnerCore (2)" />
+    <root id="archive" name="mazeRunnerCore.jar">
+      <element id="module-output" name="mazeRunnerCore" />
     </root>
   </artifact>
 </component>

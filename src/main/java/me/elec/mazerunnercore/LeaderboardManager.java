@@ -37,7 +37,7 @@ public class LeaderboardManager {
 
     private void loadMazeDataFiles() {
         // Specify the maze names you want to support
-        String[] mazeNames = {"Nether", "Ice", "Jungle", "Desert"};
+        String[] mazeNames = {"Jungle, Nether, Spooky, Desert, Mangrove, Ice"};
 
         for (String mazeName : mazeNames) {
             File mazeDataFile = new File(plugin.getDataFolder(), "leaderboard_" + mazeName + ".yml");

@@ -113,55 +113,55 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         Inventory gui = Bukkit.createInventory(player, 54, "ꜱᴇʟᴇᴄᴛ ᴀ ᴍᴀᴘ...");
 
         //Jungle Mazes
-        ItemStack jungleMazeEasy = createMazeItem("Jungle Maze", "Jungle Maze", "[Beginner]", Material.valueOf("STONE_BRICKS"));
-        ItemStack jungleMazeModerate = createMazeItem("Jungle Maze", "Jungle Maze", "[Moderate]", Material.valueOf("CRACKED_STONE_BRICKS"));
-        ItemStack jungleMazeHard = createMazeItem("Jungle Maze", "Jungle Maze", "[Hard]", Material.valueOf("MOSSY_STONE_BRICKS"));
-        ItemStack jungleMazeAdventure = createMazeItem("Jungle Maze", "Jungle Maze", "[Adventure]", Material.valueOf("MOSSY_COBBLESTONE_WALL"));
+        ItemStack jungleMazeEasy = createMazeItem("Jungle", "Beginner Jungle Maze", "[Beginner]", Material.valueOf("STONE_BRICKS"));
+        ItemStack jungleMazeModerate = createMazeItem("Jungle", "Moderate Jungle Maze", "[Moderate]", Material.valueOf("CRACKED_STONE_BRICKS"));
+        ItemStack jungleMazeHard = createMazeItem("Jungle", "Hard Jungle Maze", "[Hard]", Material.valueOf("MOSSY_STONE_BRICKS"));
+        ItemStack jungleMazeAdventure = createMazeItem("Jungle", "Adventure Jungle Maze", "[Adventure]", Material.valueOf("MOSSY_COBBLESTONE_WALL"));
         gui.setItem(0, jungleMazeEasy);
         gui.setItem(1, jungleMazeModerate);
         gui.setItem(2, jungleMazeHard);
         gui.setItem(3, jungleMazeAdventure);
         //Nether Mazes
-        ItemStack netherMazeEasy = createMazeItem("Nether Maze Easy", "Nether Maze", "[Beginner]", Material.valueOf("NETHERRACK"));
-        ItemStack netherMazeModerate = createMazeItem("Nether Maze Moderate", "Nether Maze", "[Moderate]", Material.valueOf("CHISELED_NETHER_BRICKS"));
-        ItemStack netherMazeHard = createMazeItem("Nether Maze Hard", "Nether Maze", "[Hard]", Material.valueOf("RED_NETHER_BRICKS"));
-        ItemStack netherMazeAdventure = createMazeItem("Nether Maze Adventure", "Nether Maze", "[Adventure]", Material.valueOf("NETHERITE_BLOCK"));
+        ItemStack netherMazeEasy = createMazeItem("Nether", "Beginner Nether Maze", "[Beginner]", Material.valueOf("NETHERRACK"));
+        ItemStack netherMazeModerate = createMazeItem("Nether", "Moderate Nether Maze", "[Moderate]", Material.valueOf("CHISELED_NETHER_BRICKS"));
+        ItemStack netherMazeHard = createMazeItem("Nether", "Hard Nether Maze", "[Hard]", Material.valueOf("RED_NETHER_BRICKS"));
+        ItemStack netherMazeAdventure = createMazeItem("Nether", "Adventure Nether Maze", "[Adventure]", Material.valueOf("NETHERITE_BLOCK"));
         gui.setItem(18, netherMazeEasy);
         gui.setItem(19, netherMazeModerate);
         gui.setItem(20, netherMazeHard);
         gui.setItem(21, netherMazeAdventure);
         //Spooky Mazes
-        ItemStack spookyMazeEasy = createMazeItem("Spooky Maze Easy", "Spooky Maze", "[Beginner]", Material.valueOf("DEAD_BUSH"));
-        ItemStack spookyMazeModerate = createMazeItem("Spooky Maze Moderate", "Spooky Maze", "[Moderate]", Material.valueOf("ORANGE_TERRACOTTA"));
-        ItemStack spookyMazeHard = createMazeItem("Spooky Maze Hard", "Spooky Maze", "[Hard]", Material.valueOf("BLACK_TERRACOTTA"));
-        ItemStack spookyMazeAdventure = createMazeItem("Spooky Maze Adventure", "Spooky Maze", "[Adventure]", Material.valueOf("JACK_O_LANTERN"));
+        ItemStack spookyMazeEasy = createMazeItem("Spooky", "Beginner Spooky Maze", "[Beginner]", Material.valueOf("DEAD_BUSH"));
+        ItemStack spookyMazeModerate = createMazeItem("Spooky", "Moderate Spooky Maze", "[Moderate]", Material.valueOf("ORANGE_TERRACOTTA"));
+        ItemStack spookyMazeHard = createMazeItem("Spooky", "Hard Spooky Maze", "[Hard]", Material.valueOf("BLACK_TERRACOTTA"));
+        ItemStack spookyMazeAdventure = createMazeItem("Spooky", "Adventure Spooky Maze", "[Adventure]", Material.valueOf("JACK_O_LANTERN"));
         gui.setItem(36, spookyMazeEasy);
         gui.setItem(37, spookyMazeModerate);
         gui.setItem(38, spookyMazeHard);
         gui.setItem(39, spookyMazeAdventure);
         //Desert Mazes
-        ItemStack desertMazeEasy = createMazeItem("Desert Maze Easy", "Desert Maze", "[Beginner]", Material.valueOf("SAND"));
-        ItemStack desertMazeModerate = createMazeItem("Desert Maze Moderate", "Desert Maze", "[Moderate]", Material.valueOf("SMOOTH_SANDSTONE"));
-        ItemStack desertMazeHard = createMazeItem("Desert Maze Hard", "Desert Maze", "[Hard]", Material.valueOf("STRIPPED_BIRCH_LOG"));
-        ItemStack desertMazeAdventure = createMazeItem("Desert Maze Adventure", "Desert Maze", "[Adventure]", Material.valueOf("JUNGLE_LOG"));
+        ItemStack desertMazeEasy = createMazeItem("Desert", "Beginner Desert Maze", "[Beginner]", Material.valueOf("SAND"));
+        ItemStack desertMazeModerate = createMazeItem("Desert", "Moderate Desert Maze", "[Moderate]", Material.valueOf("SMOOTH_SANDSTONE"));
+        ItemStack desertMazeHard = createMazeItem("Desert", "Hard Desert Maze", "[Hard]", Material.valueOf("STRIPPED_BIRCH_LOG"));
+        ItemStack desertMazeAdventure = createMazeItem("Desert", "Adventure Desert Maze", "[Adventure]", Material.valueOf("JUNGLE_LOG"));
         gui.setItem(5, desertMazeEasy);
         gui.setItem(6, desertMazeModerate);
         gui.setItem(7, desertMazeHard);
         gui.setItem(8, desertMazeAdventure);
         //Mangrove Mazes
-        ItemStack mangroveMazeEasy = createMazeItem("Mangrove Maze Easy", "Mangrove Maze", "[Beginner]", Material.valueOf("MANGROVE_PLANKS"));
-        ItemStack mangroveMazeModerate = createMazeItem("Mangrove Maze Moderate", "Mangrove Maze", "[Moderate]", Material.valueOf("STRIPPED_MANGROVE_WOOD"));
-        ItemStack mangroveMazeHard = createMazeItem("Mangrove Maze Hard", "Mangrove Maze", "[Hard]", Material.valueOf("MANGROVE_LOG"));
-        ItemStack mangroveMazeAdventure = createMazeItem("Mangrove Maze Adventure", "Mangrove Maze", "[Adventure]", Material.valueOf("MANGROVE_STAIRS"));
+        ItemStack mangroveMazeEasy = createMazeItem("Mangrove", "Beginner Mangrove Maze", "[Beginner]", Material.valueOf("MANGROVE_PLANKS"));
+        ItemStack mangroveMazeModerate = createMazeItem("Mangrove", "Moderate Mangrove Maze", "[Moderate]", Material.valueOf("STRIPPED_MANGROVE_WOOD"));
+        ItemStack mangroveMazeHard = createMazeItem("Mangrove", "Hard Mangrove Maze", "[Hard]", Material.valueOf("MANGROVE_LOG"));
+        ItemStack mangroveMazeAdventure = createMazeItem("Mangrove", "Adventure Mangrove Maze", "[Adventure]", Material.valueOf("MANGROVE_STAIRS"));
         gui.setItem(23, mangroveMazeEasy);
         gui.setItem(24, mangroveMazeModerate);
         gui.setItem(25, mangroveMazeHard);
         gui.setItem(26, mangroveMazeAdventure);
         //Ice Mazes
-        ItemStack iceMazeEasy = createMazeItem("Ice Maze Easy", "Ice Maze", "[Beginner]", Material.valueOf("SNOW_BLOCK"));
-        ItemStack iceMazeModerate = createMazeItem("Ice Maze Moderate", "Ice Maze", "[Moderate]", Material.valueOf("ICE"));
-        ItemStack iceMazeHard = createMazeItem("Ice Maze Hard", "Ice Maze", "[Hard]", Material.valueOf("PACKED_ICE"));
-        ItemStack iceMazeAdventure = createMazeItem("Ice Maze Adventure", "Ice Maze", "[Adventure]", Material.valueOf("BLUE_ICE"));
+        ItemStack iceMazeEasy = createMazeItem("Ice", "Beginner Ice Maze", "[Beginner]", Material.valueOf("SNOW_BLOCK"));
+        ItemStack iceMazeModerate = createMazeItem("Ice", "Moderate Ice Maze", "[Moderate]", Material.valueOf("ICE"));
+        ItemStack iceMazeHard = createMazeItem("Ice", "Hard Ice Maze", "[Hard]", Material.valueOf("PACKED_ICE"));
+        ItemStack iceMazeAdventure = createMazeItem("Ice", "Adventure Ice Maze", "[Adventure]", Material.valueOf("BLUE_ICE"));
         gui.setItem(41, iceMazeEasy);
         gui.setItem(42, iceMazeModerate);
         gui.setItem(43, iceMazeHard);
@@ -249,7 +249,7 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
 
         // Create lore (description) for the item
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GRAY + "Click to teleport to the " + mazeColor + mazeName + ChatColor.GRAY);
+        lore.add(ChatColor.GRAY + "Click to teleport to the " + mazeColor + mazeDisplayName + ChatColor.GRAY);
         lore.add(ChatColor.GRAY + "Difficulty: " + difficultyColor + mazeDifficulty);
 
         // You can add more lore lines if desired

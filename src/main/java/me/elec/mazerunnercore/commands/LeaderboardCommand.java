@@ -31,7 +31,7 @@ public class LeaderboardCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         if (args.length == 0) {
-            player.sendMessage(plugin.getGradientPrefix() + "§cPlease provide a Maze. Maze names are: Nether, Ice, Stone, Desert");
+            player.sendMessage(plugin.getGradientPrefix() + "§cPlease provide a Maze. Maze names are: Jungle, Nether, Spooky, Desert, Mangrove, and Ice.");
             return true;
         }
 
@@ -39,7 +39,7 @@ public class LeaderboardCommand implements CommandExecutor {
 
         // Check if the provided maze name is valid (Nether, Ice, Stone, Sand)
         if (!isValidMazeName(mazeName)) {
-            player.sendMessage(plugin.getGradientPrefix() + "§cInvalid maze name. Supported maze names: Nether, Ice, Stone, Desert.");
+            player.sendMessage(plugin.getGradientPrefix() + "§cInvalid maze name. Supported maze names: Jungle, Nether, Spooky, Desert, Mangrove, and Ice.");
             return true;
         }
 
@@ -81,9 +81,11 @@ public class LeaderboardCommand implements CommandExecutor {
 
     // Helper method to check if the provided maze name is valid
     private boolean isValidMazeName(String mazeName) {
-        return mazeName.equalsIgnoreCase("Nether")
-                || mazeName.equalsIgnoreCase("Ice")
-                || mazeName.equalsIgnoreCase("Stone")
-                || mazeName.equalsIgnoreCase("Desert");
+        return mazeName.equalsIgnoreCase("Jungle")
+                || mazeName.equalsIgnoreCase("Nether")
+                || mazeName.equalsIgnoreCase("Spooky")
+                || mazeName.equalsIgnoreCase("Desert")
+                || mazeName.equalsIgnoreCase("Mangrove")
+                || mazeName.equalsIgnoreCase("Ice");
     }
 }
