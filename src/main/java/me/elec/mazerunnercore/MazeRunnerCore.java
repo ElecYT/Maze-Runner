@@ -2,6 +2,7 @@ package me.elec.mazerunnercore;
 
 import me.elec.mazerunnercore.commands.*;
 import me.elec.mazerunnercore.listeners.LeaveGameInventoryClick;
+import me.elec.mazerunnercore.listeners.OnPlayerJoin;
 import me.elec.mazerunnercore.listeners.PressurePlateListener;
 import org.bukkit.*;
 
@@ -17,6 +18,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import org.bukkit.scoreboard.Scoreboard;
 
 
 import java.io.File;
@@ -53,7 +55,8 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
     private AutoReconnectManager reconnectManager;
     private RewardSystem rewardSystem;
     private CustomScoreboardManager scoreboardManager;
-
+    private Scoreboard gameScoreboard;
+    private Scoreboard lobbyScoreboard;
 
 
     public void onEnable() {
@@ -73,12 +76,14 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         scoreboardManager = new CustomScoreboardManager(this);
 
 
+
+
         // Register other event listeners
         LeaveGameInventoryClick leaveGameInventoryClick = new LeaveGameInventoryClick(gameEndings, this);
         // Declare and initialize pressurePlateListener
         PressurePlateListener pressurePlateListener = new PressurePlateListener(this, gameEndings);
 
-
+        Bukkit.getPluginManager().registerEvents(new OnPlayerJoin(plugin), plugin);
 
         // Register the event listener
         getServer().getPluginManager().registerEvents(this, this);
@@ -105,7 +110,9 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
             player.setTotalExperience(playerXP);
         }
     }
-
+    public CustomScoreboardManager getScoreboardManager() {
+        return scoreboardManager;
+    }
     //GUI CODE
 
     public void openMazeGameGUI(Player player) {
@@ -212,36 +219,33 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         // Create an ItemMeta to customize the item's display name and lore
         ItemMeta itemMeta = itemStack.getItemMeta();
 
-        ChatColor mazeColor = ChatColor.WHITE; // Initialize mazeColor with a default color
-        ChatColor difficultyColor = ChatColor.WHITE; // Initialize difficultyColor with a default color
+        String mazeColor = "§f"; // Default to white
+        String difficultyColor = "§f"; // Default to white
 
         if (mazeDifficulty.equalsIgnoreCase("[Beginner]")) {
-            difficultyColor = ChatColor.GREEN;
+            difficultyColor = "§a"; // Green
         } else if (mazeDifficulty.equalsIgnoreCase("[Moderate]")) {
-            difficultyColor = ChatColor.GOLD;
+            difficultyColor = "§6"; // Gold
         } else if (mazeDifficulty.equalsIgnoreCase("[Hard]")) {
-            difficultyColor = ChatColor.RED;
+            difficultyColor = "§c"; // Red
         } else if (mazeDifficulty.equalsIgnoreCase("[Adventure]")) {
-            difficultyColor = ChatColor.DARK_GREEN;
-        } else {
-            difficultyColor = ChatColor.WHITE; // Default color for unknown difficulties
+            difficultyColor = "§2"; // Dark Green
         }
 
-        if (mazeDisplayName.equalsIgnoreCase("Jungle Maze")) {
-            mazeColor = ChatColor.DARK_GREEN;
-        } else if (mazeDisplayName.equalsIgnoreCase("Nether Maze")) {
-            mazeColor = ChatColor.RED;
-        } else if (mazeDisplayName.equalsIgnoreCase("Spooky Maze")) {
-            mazeColor = ChatColor.GOLD;
-        } else if (mazeDisplayName.equalsIgnoreCase("Desert Maze")) {
-            mazeColor = ChatColor.YELLOW;
-        } else if (mazeDisplayName.equalsIgnoreCase("Mangrove Maze")) {
-        mazeColor = ChatColor.DARK_RED;
-        } else if (mazeDisplayName.equalsIgnoreCase("Ice Maze")) {
-            mazeColor = ChatColor.AQUA;
-        } else {
-        difficultyColor = ChatColor.WHITE;
+        if (mazeName.equalsIgnoreCase("Jungle")) {
+            mazeColor = "§2"; // Dark Green
+        } else if (mazeName.equalsIgnoreCase("Nether")) {
+            mazeColor = "§c"; // Red
+        } else if (mazeName.equalsIgnoreCase("Spooky")) {
+            mazeColor = "§6"; // Gold
+        } else if (mazeName.equalsIgnoreCase("Desert")) {
+            mazeColor = "§e"; // Yellow
+        } else if (mazeName.equalsIgnoreCase("Mangrove")) {
+            mazeColor = "§4"; // Dark Red
+        } else if (mazeName.equalsIgnoreCase("Ice")) {
+            mazeColor = "§b"; // Aqua
         }
+
 
 
         // Set the display name to the maze name with mazeColor
@@ -249,8 +253,8 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
 
         // Create lore (description) for the item
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GRAY + "Click to teleport to the " + mazeColor + mazeDisplayName + ChatColor.GRAY);
-        lore.add(ChatColor.GRAY + "Difficulty: " + difficultyColor + mazeDifficulty);
+        lore.add("§7Click to teleport to the " + mazeColor + mazeDisplayName);
+        lore.add("§7Difficulty: " + difficultyColor + mazeDifficulty);
 
         // You can add more lore lines if desired
 
@@ -262,6 +266,7 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
 
         return itemStack;
     }
+
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -280,44 +285,44 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         if (clickedItem != null && clickedItem.getType() != Material.AIR) {
             // Check which item was clicked and teleport the player accordingly
             if (clickedItem.getType() == Material.STONE_BRICKS) {
-                teleportPlayer(player, "jungle-mazes", -11.692, -60, 5.016, 4.508f, 269.73f);
-                teleportPlayer(player, "jungle-mazes", -11.692, -60, 5.016, 4.508f, 269.73f);
+                teleportPlayer(player, "Jungle", -11.692, -60, 5.016, 4.508f, 269.73f);
+                teleportPlayer(player, "Jungle", -11.692, -60, 5.016, 4.508f, 269.73f);
                 pregameProcess(player, "JungleEasy");
             } else if (clickedItem.getType() == Material.CRACKED_STONE_BRICKS) {
-                teleportPlayer(player, "jungle-mazes", -8.691, -60, 26.116, 0.41f, 268.021f);
-                teleportPlayer(player, "jungle-mazes", -8.691, -60, 26.116, 0.41f, 268.021f);
+                teleportPlayer(player, "Jungle", -8.691, -60, 26.116, 0.41f, 268.021f);
+                teleportPlayer(player, "Jungle", -8.691, -60, 26.116, 0.41f, 268.021f);
                 pregameProcess(player, "JungleModerate");
             } else if (clickedItem.getType() == Material.MOSSY_STONE_BRICKS) {
-                teleportPlayer(player, "jungle-mazes", 19.678, -60, 3.307, 2.724f, 356.001f);
-                teleportPlayer(player, "jungle-mazes", 19.678, -60, 3.307, 2.724f, 356.001f);
+                teleportPlayer(player, "Jungle", 19.678, -60, 3.307, 2.724f, 356.001f);
+                teleportPlayer(player, "Jungle", 19.678, -60, 3.307, 2.724f, 356.001f);
                 pregameProcess(player, "JungleHard");
             } else if (clickedItem.getType() == Material.MOSSY_COBBLESTONE_WALL) {
-                teleportPlayer(player, "jungle-mazes", 26.807, -60, 65.329, 1.591f, 359.809f);
-                teleportPlayer(player, "jungle-mazes", 26.807, -60, 65.329, 1.591f, 359.809f);
+                teleportPlayer(player, "Jungle", 26.807, -60, 65.329, 1.591f, 359.809f);
+                teleportPlayer(player, "Jungle", 26.807, -60, 65.329, 1.591f, 359.809f);
                 pregameProcess(player, "JungleAdventure");
             } else if (clickedItem.getType() == Material.NETHERRACK) {
-                teleportPlayer(player, "nethermazes", -18.868, -60, 29.7, .4f, -179.8f);
-                teleportPlayer(player, "nethermazes", -18.868, -60, 29.7, .4f, -179.8f);
+                teleportPlayer(player, "Nether", -18.868, -60, 29.7, .4f, -179.8f);
+                teleportPlayer(player, "Nether", -18.868, -60, 29.7, .4f, -179.8f);
                 pregameProcess(player, "NetherEasy");
             } else if (clickedItem.getType() == Material.CHISELED_NETHER_BRICKS) {
-                teleportPlayer(player, "nethermazes", 23.108, -60, 119.7, .9f, 180f);
-                teleportPlayer(player, "nethermazes", 23.108, -60, 119.7, .9f, 180f);
+                teleportPlayer(player, "Nether", 23.108, -60, 119.7, .9f, 180f);
+                teleportPlayer(player, "Nether", 23.108, -60, 119.7, .9f, 180f);
                 pregameProcess(player, "NetherModerate");
             }  else if (clickedItem.getType() == Material.RED_NETHER_BRICKS) {
-                teleportPlayer(player, "nethermazes", 58.397, -60, -6.022, 7.4f, -1.4f);
-                teleportPlayer(player, "nethermazes", 58.397, -60, -6.022, 7.4f, -1.4f);
+                teleportPlayer(player, "Nether", 58.397, -60, -6.022, 7.4f, -1.4f);
+                teleportPlayer(player, "Nether", 58.397, -60, -6.022, 7.4f, -1.4f);
                 pregameProcess(player, "NetherHard");
             }  else if (clickedItem.getType() == Material.NETHERITE_BLOCK) {
-                teleportPlayer(player, "nether-maze-new", -27.516, -60, 29.586, 3.0f, -135.1f);
-                teleportPlayer(player, "nether-maze-new", -27.516, -60, 29.586, 3.0f, -135.1f);
+                teleportPlayer(player, "NetherAdventure", -27.516, -60, 29.586, 3.0f, -135.1f);
+                teleportPlayer(player, "NetherAdventure", -27.516, -60, 29.586, 3.0f, -135.1f);
                 pregameProcess(player, "NetherAdventure");
             } else if (clickedItem.getType() == Material.DEAD_BUSH) {
-                teleportPlayer(player, "spooky-mazes", 11.7, -60, 40.859, 3.155f, 89.897f);
-                teleportPlayer(player, "spooky-mazes", 11.7, -60, 40.859, 3.155f, 89.897f);
+                teleportPlayer(player, "Spooky", 11.7, -60, 40.859, 3.155f, 89.897f);
+                teleportPlayer(player, "Spooky", 11.7, -60, 40.859, 3.155f, 89.897f);
                 pregameProcess(player, "SpookyEasy");
             } else if (clickedItem.getType() == Material.ORANGE_CONCRETE) {
-                teleportPlayer(player, "spooky-mazes", 27.964, -60, 8.598, 0.456f, -0.611f);
-                teleportPlayer(player, "spooky-mazes", 27.964, -60, 8.598, 0.456f, -0.611f);
+                teleportPlayer(player, "Spooky", 27.964, -60, 8.598, 0.456f, -0.611f);
+                teleportPlayer(player, "Spooky", 27.964, -60, 8.598, 0.456f, -0.611f);
                 pregameProcess(player, "SpookyModerate");
             }
         }
@@ -410,17 +415,9 @@ public void openLevelingRewardsGUI(Player player) {
     private ItemStack createFillerItem(Material material, String displayName) {
             ItemStack item = new ItemStack(material);
             ItemMeta meta = item.getItemMeta();
-            meta.setDisplayName("");
+            meta.setDisplayName(displayName);
             item.setItemMeta(meta);
             return item;
-    }
-
-    public int calculatePlayerLevel(Player player) {
-        // Implement a method to calculate the player's level based on their XP
-        int playerXP = getPlayerXP(player.getUniqueId());
-        // Your leveling logic here
-        int playerLevel = playerXP / 50; // For example, 100 XP per level
-        return playerLevel;
     }
 
     //GAME CODE
@@ -434,17 +431,30 @@ public void openLevelingRewardsGUI(Player player) {
         startCountdown(Collections.singletonList(player), mazeName, player); // Pass a list with a single player
         //Set the mapName variable
         mapName = mazeName;
-
     }
 
     public void teleportMaze(Player player, String mazeName) {
         // Teleport the player to the specified maze location
-        if (mazeName.equalsIgnoreCase("Nether")) {
-            teleportPlayer(player, "nether-maze", 30.328, -1, 126.511, 2.2f, -90f);
-        } else if (mazeName.equalsIgnoreCase("Ice")) {
-            teleportPlayer(player, "ice-maze", 15.419, -17, 85.748, 0.7f, -135.7f);
-        } else if (mazeName.equalsIgnoreCase("Stone")) {
-            teleportPlayer(player, "ocean-maze", 25.450, -47, 3.7, .8f, 90.4f);
+        if (mazeName.equalsIgnoreCase("JungleEasy")) {
+            teleportPlayer(player, "Jungle", -11.692, -60, 5.016, 4.508f, 269.73f);
+        } else if (mazeName.equalsIgnoreCase("JungleModerate")) {
+            teleportPlayer(player, "Jungle", -8.691, -60, 26.116, 0.41f, 268.021f);
+        } else if (mazeName.equalsIgnoreCase("JungleHard")) {
+            teleportPlayer(player, "Jungle", 19.678, -60, 3.307, 2.724f, 356.001f);
+        } else if (mazeName.equalsIgnoreCase("JungleAdventure")) {
+            teleportPlayer(player, "Jungle", 26.807, -60, 65.329, 1.591f, 359.809f);
+        } else if (mazeName.equalsIgnoreCase("NetherEasy")) {
+            teleportPlayer(player, "Nether", -18.868, -60, 29.7, .4f, -179.8f);
+        } else if (mazeName.equalsIgnoreCase("NetherModerate")) {
+            teleportPlayer(player, "Nether", 23.108, -60, 119.7, .9f, 180f);
+        } else if (mazeName.equalsIgnoreCase("NetherHard")) {
+            teleportPlayer(player, "Nether", 58.397, -60, -6.022, 7.4f, -1.4f);
+        } else if (mazeName.equalsIgnoreCase("NetherAdventure")) {
+            teleportPlayer(player, "NetherAdventure", -27.516, -60, 29.586, 3.0f, -135.1f);
+        } else if (mazeName.equalsIgnoreCase("SpookyEasy")) {
+            teleportPlayer(player, "Spooky", 11.7, -60, 40.859, 3.155f, 89.897f);
+        } else if (mazeName.equalsIgnoreCase("SpookyHard")) {
+            teleportPlayer(player, "Spooky", 27.964, -60, 8.598, 0.456f, -0.611f);
         }
     }
 
@@ -457,7 +467,7 @@ public void openLevelingRewardsGUI(Player player) {
     }
 
     private void startCountdown(List<Player> players, String mazeName, Player player) {
-        final int countdownTime = 5; // Total countdown time in seconds
+        final int countdownTime = 3; // Total countdown time in seconds
 
         if (countdownTask != null) {
             countdownTask.cancel(); // Cancel the previous countdown if it exists
@@ -506,7 +516,6 @@ public void openLevelingRewardsGUI(Player player) {
                     }.runTaskTimer(plugin, delay, period);
 
                     startStopwatch(players.get(0), mazeName); // Start the stopwatch for the first player
-                    setPlayerInGame(players.get(0));
                 }
             }
         }.runTaskTimer(plugin, 0, 20); // 20 ticks = 1 second
@@ -540,7 +549,6 @@ public void openLevelingRewardsGUI(Player player) {
             stopwatchRunning = false;
             gameEndings.stopGame(player, timeInSeconds, mazeName, playerName);
             leaderboardManager.addPlayerTime(playerName, timeInSeconds, mazeName);
-            setPlayerOutOfGame(player);
             scoreboardManager.setLobbyScoreboard(player);
         }
     }
@@ -640,20 +648,6 @@ public void openLevelingRewardsGUI(Player player) {
             e.printStackTrace();
         }
         getLogger().info("Data has been saved!");
-    }
-
-    public void setPlayerInGame(Player player) {
-        // Set the player as in the game
-        // For example, change their status or teleport them to a game world
-        // Then update the in-game scoreboard
-        scoreboardManager.setGameScoreboard(player);
-    }
-
-    public void setPlayerOutOfGame(Player player) {
-        // Set the player as out of the game
-        // For example, change their status or teleport them to a lobby
-        // Then update the out-of-game scoreboard
-        scoreboardManager.setLobbyScoreboard(player);
     }
 }
 

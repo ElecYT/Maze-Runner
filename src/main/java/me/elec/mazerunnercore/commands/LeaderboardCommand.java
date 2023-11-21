@@ -35,11 +35,22 @@ public class LeaderboardCommand implements CommandExecutor {
             return true;
         }
 
+        if (args.length == 1) {
+            player.sendMessage(plugin.getGradientPrefix() + "§cPlease provide a Difficulty. Difficulties are: Easy, Moderate, Hard, and Adventure.");
+        }
+
         String mazeName = args[0];
+
+        String difficulty = args[1];
 
         // Check if the provided maze name is valid (Nether, Ice, Stone, Sand)
         if (!isValidMazeName(mazeName)) {
             player.sendMessage(plugin.getGradientPrefix() + "§cInvalid maze name. Supported maze names: Jungle, Nether, Spooky, Desert, Mangrove, and Ice.");
+            return true;
+        }
+
+        if (!isValidDifficulty(difficulty)) {
+            player.sendMessage(plugin.getGradientPrefix() + "§cInvalid difficulty. Supported difficulties: Easy, Moderate, Hard, and Adventure.");
             return true;
         }
 
@@ -48,7 +59,7 @@ public class LeaderboardCommand implements CommandExecutor {
             List<Map<?, ?>> leaderboard = leaderboardManager.getLeaderboard(mazeName);
 
             // Display the leaderboard to the player (e.g., send it as a chat message)
-            player.sendMessage(plugin.getGradientPrefix() + "§e=== " + mazeName + " Maze Leaderboard ===");
+            player.sendMessage(plugin.getGradientPrefix() + "§e=== " + mazeName + " " + difficulty +  " Maze Leaderboard ===");
             if (leaderboard.isEmpty()) {
                 player.sendMessage(plugin.getGradientPrefix() + "§eNo data available.");
             } else {
@@ -87,5 +98,12 @@ public class LeaderboardCommand implements CommandExecutor {
                 || mazeName.equalsIgnoreCase("Desert")
                 || mazeName.equalsIgnoreCase("Mangrove")
                 || mazeName.equalsIgnoreCase("Ice");
+    }
+
+    private boolean isValidDifficulty(String difficulty) {
+        return difficulty.equalsIgnoreCase("Easy")
+                || difficulty.equalsIgnoreCase("Moderate")
+                || difficulty.equalsIgnoreCase("Hard")
+                || difficulty.equalsIgnoreCase("Adventure");
     }
 }

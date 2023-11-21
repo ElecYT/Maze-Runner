@@ -6,10 +6,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LeaderboardManager {
 
@@ -36,17 +33,24 @@ public class LeaderboardManager {
     }
 
     private void loadMazeDataFiles() {
-        // Specify the maze names you want to support
-        String[] mazeNames = {"Jungle, Nether, Spooky, Desert, Mangrove, Ice"};
+        String[] mazeNames = {"Jungle", "Nether", "Spooky", "Desert", "Mangrove", "Ice"};
+        String[] difficulties = {"Easy", "Moderate", "Hard", "Adventure"};
 
         for (String mazeName : mazeNames) {
-            File mazeDataFile = new File(plugin.getDataFolder(), "leaderboard_" + mazeName + ".yml");
-            if (!mazeDataFile.exists()) {
-                plugin.saveResource("leaderboard_" + mazeName + ".yml", false);
+            for (String difficulty : difficulties) {
+                String fileName = "leaderboard_" + mazeName + difficulty + ".yml";
+                File mazeDataFile = new File(plugin.getDataFolder(), fileName);
+
+                if (!mazeDataFile.exists()) {
+                    // Log the filename to help identify the issue
+                    plugin.getLogger().severe("Could not find resource: " + fileName);
+                }
+
+                mazeDataFiles.put(mazeName + difficulty, mazeDataFile);
             }
-            mazeDataFiles.put(mazeName, mazeDataFile);
         }
     }
+
 
     private FileConfiguration getMazeDataFile(String mazeName) {
         return YamlConfiguration.loadConfiguration(mazeDataFiles.get(mazeName));
@@ -56,7 +60,6 @@ public class LeaderboardManager {
         FileConfiguration mazeDataConfig = getMazeDataFile(mazeName);
         ConfigurationSection leaderboardSection = mazeDataConfig.getConfigurationSection("leaderboards");
 
-
         if (leaderboardSection == null) {
             leaderboardSection = mazeDataConfig.createSection("leaderboards");
         }
@@ -64,7 +67,7 @@ public class LeaderboardManager {
         List<Map<?, ?>> leaderboardList = leaderboardSection.getMapList("leaderboards");
 
         // Add the player and time to the leaderboard
-        Map<String, Object> entry = new HashMap<>();
+        Map<String, Object> entry = new LinkedHashMap<>();
         entry.put("player", playerName);
         entry.put("time", time);
         leaderboardList.add(entry);

@@ -23,7 +23,7 @@ public class TpLobbyCommand implements CommandExecutor {
             Player player = (Player) sender;
 
             //Call the teleportPlayer method from the plugin instance
-            plugin.teleportPlayer(player, "game-lobby-1", 21.409, 156, 017.480, -0.4f, -89.9f);
+            plugin.teleportPlayer(player, "Lobby", 21.520, 156, 107.512, 0.215f, 270.163f);
 
             return true;
         }

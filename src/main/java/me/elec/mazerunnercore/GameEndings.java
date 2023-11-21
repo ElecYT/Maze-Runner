@@ -46,7 +46,6 @@ public class GameEndings {
             playNote(player, Sound.BLOCK_NOTE_BLOCK_SNARE);
         } else {
             // Player is not a winner
-            player.sendMessage(losingMessage());
             player.sendActionBar(losingMessage());
             sendTitle(player, "§x§B§E§6§C§0§9Y§x§B§7§6§3§2§1o§x§B§0§5§9§3§8u §x§A§8§5§0§5§0l§x§A§1§4§7§6§8e§x§9§A§3§D§7§Ff§x§9§3§3§4§9§7t §x§8§B§2§A§A§Et§x§8§4§2§1§C§6h§x§7§E§2§6§C§De §x§7§8§2§B§D§4g§x§7§2§2§F§D§Ba§x§6§D§3§4§E§3m§x§6§7§3§9§E§Ae§x§6§1§3§E§F§1.§x§5§B§4§2§F§8.§x§5§5§4§7§F§F.", "§x§B§E§6§C§0§9N§x§B§6§6§2§2§2o §x§A§F§5§8§3§Bx§x§A§7§4§E§5§5p §x§9§F§4§4§6§Ew§x§9§7§3§A§8§7a§x§9§0§3§0§A§0s §x§8§8§2§6§B§9e§x§8§1§2§4§C§Aa§x§7§B§2§9§D§1r§x§7§4§2§E§D§9n§x§6§E§3§3§E§1e§x§6§8§3§8§E§8d§x§6§2§3§D§F§0.§x§5§B§4§2§F§7.§x§5§5§4§7§F§F.");
             teleportPlayer(player, "game-lobby-1", 21.526, 156, 107.594, -1.3f, -90f);
@@ -94,7 +93,7 @@ public class GameEndings {
         // You can use Spigot's TextComponent for clickable text
 
         // Send the clickable summary message to the player
-        sendClickableText(player, "§c§nReturn To Lobby", "/lobby");
+        sendClickableText(player, "§c§nReturn To Lobby", "/tplobby");
         sendClickableText(player, "§a§nPlay Again", "/mazegame");
         sendClickableText(player, "§e§nView The Leaderboard", "/leaderboard " + mapName);
         rewardSystem.checkForRewards(player);

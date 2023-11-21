@@ -26,7 +26,7 @@ public class MazeGameCommand implements CommandExecutor {
 
         // Check if the player is in a game
         if (plugin.isPlayerInGame(player.getUniqueId())) {
-            player.sendMessage(ChatColor.RED + "You are already in a game. To leave the game, type /leave");
+            player.sendMessage(plugin.getGradientPrefix() + ChatColor.RED + "You are already in a game. To leave the game, type /leave");
             return true; // Exit the command
         }
 

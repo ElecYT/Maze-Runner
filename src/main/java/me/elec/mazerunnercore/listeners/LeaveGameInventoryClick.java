@@ -1,5 +1,6 @@
  package me.elec.mazerunnercore.listeners;
 
+import me.elec.mazerunnercore.CustomScoreboardManager;
 import me.elec.mazerunnercore.GameEndings;
 import me.elec.mazerunnercore.MazeRunnerCore;
 import org.bukkit.ChatColor;
@@ -13,10 +14,12 @@ import org.bukkit.inventory.InventoryHolder;
 public class LeaveGameInventoryClick implements Listener {
     private final GameEndings gameEndings;
     private final MazeRunnerCore plugin; // Add this field to store the MazeRunnerCore instance
+    private CustomScoreboardManager scoreboardManager = null;
 
     public LeaveGameInventoryClick(GameEndings gameEndings, MazeRunnerCore plugin) {
         this.gameEndings = gameEndings;
         this.plugin = plugin;
+        this.scoreboardManager = plugin.getScoreboardManager(); // Use the plugin field to get the scoreboardManager
     }
 
     @EventHandler
@@ -36,6 +39,7 @@ public class LeaveGameInventoryClick implements Listener {
                     // Player clicked on the red concrete (confirmation to leave)
                     // Handle confirmation logic here, e.g., teleport to lobby, reset game state, etc.
                     player.sendMessage(plugin.getGradientPrefix() + "§cYou have left the game.");
+                    scoreboardManager.setLobbyScoreboard(player);
                     plugin.playerIsLoser();
                     plugin.stopStopwatch(player);
 
