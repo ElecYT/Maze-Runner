@@ -7,9 +7,14 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class AutoReconnectManager {
     private MazeRunnerCore plugin;
     private boolean reconnectEnabled = true;
+    private DataManager dataManager;
 
     public AutoReconnectManager(MazeRunnerCore plugin) {
         this.plugin = plugin;
+    }
+
+    public void setDataManager(DataManager dataManager) {
+        this.dataManager = dataManager;
     }
 
     public void toggleReconnect(Player player) {
@@ -19,6 +24,11 @@ public class AutoReconnectManager {
         } else {
             player.sendMessage(plugin.getGradientPrefix() + "§r§cAuto-reconnect is now disabled.");
         }
+        dataManager.savePlayerData(player.getUniqueId(), player);
+    }
+
+    public void setReconnect(Boolean reconnect) {
+        reconnectEnabled = reconnect;
     }
 
     public boolean isReconnectEnabled() {

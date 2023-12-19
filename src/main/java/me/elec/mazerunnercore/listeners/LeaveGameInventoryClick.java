@@ -1,9 +1,9 @@
  package me.elec.mazerunnercore.listeners;
 
 import me.elec.mazerunnercore.CustomScoreboardManager;
+import me.elec.mazerunnercore.DataManager;
 import me.elec.mazerunnercore.GameEndings;
 import me.elec.mazerunnercore.MazeRunnerCore;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener; // Import the Listener interface
@@ -11,15 +11,17 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
-public class LeaveGameInventoryClick implements Listener {
+ public class LeaveGameInventoryClick implements Listener {
     private final GameEndings gameEndings;
     private final MazeRunnerCore plugin; // Add this field to store the MazeRunnerCore instance
     private CustomScoreboardManager scoreboardManager = null;
+    private final DataManager dataManager;
 
-    public LeaveGameInventoryClick(GameEndings gameEndings, MazeRunnerCore plugin) {
+    public LeaveGameInventoryClick(GameEndings gameEndings, MazeRunnerCore plugin, DataManager dataManager) {
         this.gameEndings = gameEndings;
         this.plugin = plugin;
         this.scoreboardManager = plugin.getScoreboardManager(); // Use the plugin field to get the scoreboardManager
+        this.dataManager = dataManager;
     }
 
     @EventHandler

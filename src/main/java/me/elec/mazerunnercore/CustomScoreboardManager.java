@@ -1,5 +1,6 @@
 package me.elec.mazerunnercore;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -9,7 +10,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
-import org.bukkit.util.ChatPaginator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -105,14 +105,17 @@ public class CustomScoreboardManager implements Listener {
     private void updateLobbyScoreboard(Player player) {
         // Example: Set player name, level, and XP on the lobby scoreboard
         List<String> lobbyLines = Arrays.asList(
-                ChatColor.GRAY + "play.nauticalmc.net",
-                ChatColor.GRAY + "",
-                ChatColor.GREEN + "| Player " + ChatColor.BLUE + player.getName(),
-                ChatColor.GOLD + "| Online " + ChatColor.GOLD + Bukkit.getOnlinePlayers().size(),
-                ChatColor.AQUA + "| Level " + ChatColor.BLUE + getPlayerLevel(player),
-                ChatColor.GOLD + "| XP " + ChatColor.GOLD + getPlayerXP(player),
-                ""
-        );
+                "§f\uE010 §9ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ",
+                "§f",
+                "   §f\uE007 §9ᴘʟᴀʏᴇʀ " + ChatColor.GRAY + player.getName(),
+                "   §f\uE009 §9ᴏɴʟɪɴᴇ " + ChatColor.GRAY + Bukkit.getOnlinePlayers().size(),
+                " §9§l  ● ꜱᴇʀᴠᴇʀ ɪɴꜰᴏ",
+                "   §f\uE008 §6ʟᴇᴠᴇʟ " + ChatColor.GRAY + getPlayerLevel(player),
+                "   §f\uE003 §6xᴘ " + ChatColor.GRAY + getPlayerXP(player),
+                " §6§l  ● ᴇxᴘᴇʀɪᴇɴᴄᴇ",
+                "",
+                "§7⌚ " + PlaceholderAPI.setPlaceholders(player, "%localtime_time%")
+                );
         updateObjective(lobbyScoreboard, lobbyObjective, "Lobby", mazeRunner(), lobbyLines);
         player.setScoreboard(lobbyScoreboard);
     }
@@ -120,14 +123,19 @@ public class CustomScoreboardManager implements Listener {
     public void updateGameScoreboard(Player player) {
         // Example: Set player name, level, and XP on the game scoreboard
         List<String> gameLines = Arrays.asList(
-                ChatColor.GRAY + "play.nauticalmc.net",
-                ChatColor.GRAY + "",
-                ChatColor.GREEN + "| Player " + ChatColor.GOLD + player.getName(),
-                ChatColor.AQUA + "| Level " + ChatColor.BLUE + getPlayerLevel(player),
-                ChatColor.GOLD + "| XP " + ChatColor.GOLD + getPlayerXP(player),
-                ChatColor.BLUE + "| Time " + ChatColor.BLUE + formatTime(getTimer()),
-                ChatColor.BLUE + "| Map " + ChatColor.GOLD + player.getWorld().getName(),
-                ""
+                "§f\uE010 §9ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ",
+                "§f",
+                "   §f\uE007 §9ᴘʟᴀʏᴇʀ " + ChatColor.GRAY + player.getName(),
+                "   §f\uE009 §9ᴏɴʟɪɴᴇ " + ChatColor.GRAY + Bukkit.getOnlinePlayers().size(),
+                " §9§l  ● ꜱᴇʀᴠᴇʀ ɪɴꜰᴏ",
+                "   §f\uE008 §6ʟᴇᴠᴇʟ " + ChatColor.GRAY + getPlayerLevel(player),
+                "   §f\uE003 §6xᴘ " + ChatColor.GRAY + getPlayerXP(player),
+                " §6§l  ● ᴇxᴘᴇʀɪᴇɴᴄᴇ",
+                "   §f\uE021 §bᴛɪᴍᴇ " + ChatColor.GRAY + formatTime(getTimer()),
+                "   §f\uE022 §bᴍᴀᴘ " + ChatColor.GRAY + player.getWorld().getName(),
+                " §b§l  ● ɢᴀᴍᴇ",
+                "",
+                "§7⌚ " + PlaceholderAPI.setPlaceholders(player, "%localtime_time%")
                 // Add more lines for additional information as needed
                 // ChatColor.BOLD + "Timer: " + ChatColor.RESET + getTimer()
         );
@@ -136,7 +144,7 @@ public class CustomScoreboardManager implements Listener {
     }
 
     public String mazeRunner() {
-        return "   §x§3§C§0§0§F§F§lM§x§5§2§1§4§E§3§la§x§6§7§2§8§C§6§lz§x§7§D§3§C§A§A§le §x§9§3§5§0§8§E§lR§x§A§8§6§5§7§1§lu§x§B§E§7§9§5§5§ln§x§D§4§8§D§3§9§ln§x§E§9§A§1§1§C§le§x§F§F§B§5§0§0§lr";
+        return "  §f\uE001";
     }
 
 

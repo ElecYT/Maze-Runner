@@ -16,18 +16,18 @@ commands:
     description: Teleports you to the lobby.
     usage: /leave
     aliases: quit
-  rewards:
-    description: Views the level and leveling rewards.
-    usage: /rewards
-    aliases: reward
-  level:
-    description: Shows the current level
-    usage: /level
-    aliases: lvl
   leaderboard:
     description: View the leaderboard
-    usage: /leaderboard <mazeName>
+    usage: /leaderboard <mazeName> <difficulty>
   reconnect:
     description: Toggles on/off of the auto-reconnect feature
     usage: /reconnect
     aliases: connect
+  website:
+    description: Shows the website
+    usage: /website
+    aliases: wb
+  discord:
+    description: Shows the discord
+    usage: /discord
+    aliases: dsc

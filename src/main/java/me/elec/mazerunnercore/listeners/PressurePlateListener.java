@@ -1,5 +1,6 @@
 package me.elec.mazerunnercore.listeners;
 
+import me.elec.mazerunnercore.DataManager;
 import me.elec.mazerunnercore.GameEndings;
 import me.elec.mazerunnercore.MazeRunnerCore;
 import org.bukkit.Material;
@@ -11,10 +12,12 @@ import org.bukkit.event.player.PlayerInteractEvent;
 public class PressurePlateListener implements Listener {
     private final MazeRunnerCore plugin;
     private final GameEndings gameEndings;
+    private final DataManager dataManager; // Initialize DataManager
 
-    public PressurePlateListener(MazeRunnerCore plugin, GameEndings gameEndings) {
+    public PressurePlateListener(MazeRunnerCore plugin, GameEndings gameEndings, DataManager dataManager) {
         this.plugin = plugin;
         this.gameEndings = gameEndings;
+        this.dataManager = dataManager; // Initialize DataManager in the constructor
     }
 
     @EventHandler
@@ -24,19 +27,13 @@ public class PressurePlateListener implements Listener {
         // Assuming you have access to mazeName here
 
         if (event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.OAK_PRESSURE_PLATE) {
-            // Player has won, reward with XP
-            plugin.rewardPlayerWithXP(player, 5);
+            if (plugin.isPlayerInGame(player.getUniqueId())) {
+                // Player has won and is in the game, reward with XP
+                dataManager.givePlayerXP(player, plugin.difficulty);
 
-            plugin.playerIsWinner();
-            plugin.stopStopwatch(player);
-
-
+                plugin.playerIsWinner();
+                plugin.stopStopwatch(player);
+            }
         }
     }
 }
-
-
-
-
-
-

@@ -3,11 +3,11 @@ package me.elec.mazerunnercore;
 import me.elec.mazerunnercore.commands.*;
 import me.elec.mazerunnercore.listeners.LeaveGameInventoryClick;
 import me.elec.mazerunnercore.listeners.OnPlayerJoin;
+import me.elec.mazerunnercore.listeners.OnPlayerLeave;
 import me.elec.mazerunnercore.listeners.PressurePlateListener;
 import org.bukkit.*;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,7 +22,6 @@ import org.bukkit.scoreboard.Scoreboard;
 
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 public class MazeRunnerCore extends JavaPlugin implements Listener {
@@ -33,10 +32,15 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
     private FileConfiguration xpDataConfig;
     private static MazeRunnerCore instance;
     private Map<UUID, Boolean> gameWinStates = new HashMap<>();
+
+    public MazeRunnerCore() {
+    }
+
     // Getter method for the instance
     public Map<UUID, Boolean> getGameWinStates() {
         return gameWinStates;
     }
+
     private double elapsedTimeSeconds = 0;  // Define the variable
     public boolean isPlayerWinner = false;
     private static MazeRunnerCore plugin;
@@ -48,16 +52,21 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
     private String mapName;
     private final Set<UUID> playersInGame = new HashSet<>();
     private GameEndings gameEndings; // Declare the variable
+
     // Method to check if a player is in a game
     public boolean isPlayerInGame(UUID playerId) {
         return playersInGame.contains(playerId);
     }
+
     private AutoReconnectManager reconnectManager;
-    private RewardSystem rewardSystem;
     private CustomScoreboardManager scoreboardManager;
     private Scoreboard gameScoreboard;
     private Scoreboard lobbyScoreboard;
-
+    private GameBarrier gameBarrier; // Reference to the GameBarrier class
+    private final Map<UUID, DataManager> dataManagers = new HashMap<>();
+    private DataManager dataManager;
+    public String difficulty;
+    public String maze;
 
     public void onEnable() {
         plugin = this; // Initialize the plugin instance
@@ -68,22 +77,27 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         // Initialize the AutoReconnectManager
         reconnectManager = new AutoReconnectManager(this);
 
-        // Initialize the GameEndings class
-        gameEndings = new GameEndings(this, reconnectManager);
-        //Initialize the RewardSystem class
-        rewardSystem = new RewardSystem(this);
+        // Initialize the DataManager with the plugin's data folder
+        dataManager = new DataManager(getDataFolder(), this, reconnectManager);
+
+        // Set the DataManager instance in AutoReconnectManager
+        reconnectManager.setDataManager(dataManager);
 
         scoreboardManager = new CustomScoreboardManager(this);
+        // Initialize the GameBarrier class
+        gameBarrier = new GameBarrier(this);
 
-
+        gameEndings = new GameEndings(this, reconnectManager);
 
 
         // Register other event listeners
-        LeaveGameInventoryClick leaveGameInventoryClick = new LeaveGameInventoryClick(gameEndings, this);
+        LeaveGameInventoryClick leaveGameInventoryClick = new LeaveGameInventoryClick(gameEndings, this, dataManager);
         // Declare and initialize pressurePlateListener
-        PressurePlateListener pressurePlateListener = new PressurePlateListener(this, gameEndings);
+        PressurePlateListener pressurePlateListener = new PressurePlateListener(this, gameEndings, dataManager);
 
-        Bukkit.getPluginManager().registerEvents(new OnPlayerJoin(plugin), plugin);
+        Bukkit.getPluginManager().registerEvents(new OnPlayerJoin(this, scoreboardManager, gameBarrier, dataManager), plugin);
+
+        Bukkit.getPluginManager().registerEvents(new OnPlayerLeave(this, scoreboardManager, gameBarrier, dataManager), plugin);
 
         // Register the event listener
         getServer().getPluginManager().registerEvents(this, this);
@@ -94,26 +108,30 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         getCommand("mazegame").setExecutor(new MazeGameCommand(this));
         getCommand("tplobby").setExecutor(new TpLobbyCommand(this));
         getCommand("leave").setExecutor(new LeaveCommand(this));
-        getCommand("level").setExecutor(new LevelCommand(this));
-        getCommand("rewards").setExecutor(new RewardsCommand(this));
         getCommand("reconnect").setExecutor(new ReconnectCommand(reconnectManager));
+        getCommand("website").setExecutor(new WebsiteCommand());
+        getCommand("discord").setExecutor(new DiscordCommand());
 
         // Register the leaderboard command
         getCommand("leaderboard").setExecutor(new LeaderboardCommand(leaderboardManager, this));
+    }
 
-        // Initialize XP data file and configuration
-        setupXPData();
-
-        // Load player XP data (this should be done for each online player)
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            int playerXP = getPlayerXP(player.getUniqueId());
-            player.setTotalExperience(playerXP);
+    public void onDisable() {
+        for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+            dataManager.savePlayerData(player.getUniqueId(), player);
         }
     }
+
     public CustomScoreboardManager getScoreboardManager() {
         return scoreboardManager;
     }
+
+    // Getter method to retrieve the GameBarrier instance
+    public GameBarrier getGameBarrier() {
+        return gameBarrier;
+    }
     //GUI CODE
+
 
     public void openMazeGameGUI(Player player) {
         // Create a new inventory with 9 slots (for simplicity)
@@ -247,7 +265,6 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         }
 
 
-
         // Set the display name to the maze name with mazeColor
         itemMeta.setDisplayName(mazeColor + mazeDisplayName);
 
@@ -288,42 +305,122 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
                 teleportPlayer(player, "Jungle", -11.692, -60, 5.016, 4.508f, 269.73f);
                 teleportPlayer(player, "Jungle", -11.692, -60, 5.016, 4.508f, 269.73f);
                 pregameProcess(player, "JungleEasy");
+                difficulty = "Easy";
+                maze = "Jungle";
             } else if (clickedItem.getType() == Material.CRACKED_STONE_BRICKS) {
                 teleportPlayer(player, "Jungle", -8.691, -60, 26.116, 0.41f, 268.021f);
                 teleportPlayer(player, "Jungle", -8.691, -60, 26.116, 0.41f, 268.021f);
                 pregameProcess(player, "JungleModerate");
+                difficulty = "Moderate";
+                maze = "Jungle";
             } else if (clickedItem.getType() == Material.MOSSY_STONE_BRICKS) {
                 teleportPlayer(player, "Jungle", 19.678, -60, 3.307, 2.724f, 356.001f);
                 teleportPlayer(player, "Jungle", 19.678, -60, 3.307, 2.724f, 356.001f);
                 pregameProcess(player, "JungleHard");
+                difficulty = "Hard";
+                maze = "Jungle";
             } else if (clickedItem.getType() == Material.MOSSY_COBBLESTONE_WALL) {
-                teleportPlayer(player, "Jungle", 26.807, -60, 65.329, 1.591f, 359.809f);
-                teleportPlayer(player, "Jungle", 26.807, -60, 65.329, 1.591f, 359.809f);
+                teleportPlayer(player, "Jungle", -17.574, -60, 121.699, 3.953f, 180.739f);
+                teleportPlayer(player, "Jungle", -17.574, -60, 121.699, 3.953f, 180.739f);
                 pregameProcess(player, "JungleAdventure");
+                difficulty = "Adventure";
+                maze = "Jungle";
             } else if (clickedItem.getType() == Material.NETHERRACK) {
                 teleportPlayer(player, "Nether", -18.868, -60, 29.7, .4f, -179.8f);
                 teleportPlayer(player, "Nether", -18.868, -60, 29.7, .4f, -179.8f);
                 pregameProcess(player, "NetherEasy");
+                difficulty = "Easy";
+                maze = "Nether";
             } else if (clickedItem.getType() == Material.CHISELED_NETHER_BRICKS) {
                 teleportPlayer(player, "Nether", 23.108, -60, 119.7, .9f, 180f);
                 teleportPlayer(player, "Nether", 23.108, -60, 119.7, .9f, 180f);
                 pregameProcess(player, "NetherModerate");
-            }  else if (clickedItem.getType() == Material.RED_NETHER_BRICKS) {
+                difficulty = "Moderate";
+                maze = "Nether";
+            } else if (clickedItem.getType() == Material.RED_NETHER_BRICKS) {
                 teleportPlayer(player, "Nether", 58.397, -60, -6.022, 7.4f, -1.4f);
                 teleportPlayer(player, "Nether", 58.397, -60, -6.022, 7.4f, -1.4f);
                 pregameProcess(player, "NetherHard");
-            }  else if (clickedItem.getType() == Material.NETHERITE_BLOCK) {
+                difficulty = "Hard";
+                maze = "Nether";
+            } else if (clickedItem.getType() == Material.NETHERITE_BLOCK) {
                 teleportPlayer(player, "NetherAdventure", -27.516, -60, 29.586, 3.0f, -135.1f);
                 teleportPlayer(player, "NetherAdventure", -27.516, -60, 29.586, 3.0f, -135.1f);
                 pregameProcess(player, "NetherAdventure");
+                difficulty = "Adventure";
+                maze = "Nether";
             } else if (clickedItem.getType() == Material.DEAD_BUSH) {
                 teleportPlayer(player, "Spooky", 11.7, -60, 40.859, 3.155f, 89.897f);
                 teleportPlayer(player, "Spooky", 11.7, -60, 40.859, 3.155f, 89.897f);
                 pregameProcess(player, "SpookyEasy");
-            } else if (clickedItem.getType() == Material.ORANGE_CONCRETE) {
+                difficulty = "Easy";
+                maze = "Spooky";
+            } else if (clickedItem.getType() == Material.ORANGE_TERRACOTTA) {
                 teleportPlayer(player, "Spooky", 27.964, -60, 8.598, 0.456f, -0.611f);
                 teleportPlayer(player, "Spooky", 27.964, -60, 8.598, 0.456f, -0.611f);
                 pregameProcess(player, "SpookyModerate");
+                difficulty = "Moderate";
+                maze = "Spooky";
+            } else if (clickedItem.getType() == Material.BLACK_TERRACOTTA) {
+                teleportPlayer(player, "Spooky", 43.699, -60, -29.057, 3.785f, 89.104f);
+                teleportPlayer(player, "Spooky", 43.699, -60, -29.057, 3.785f, 89.104f);
+                pregameProcess(player, "SpookyHard");
+                difficulty = "Hard";
+                maze = "Spooky";
+            } else if (clickedItem.getType() == Material.SAND) {
+                teleportPlayer(player, "Desert", 7.002, -60, 22.700, 6.725f, 179.23f);
+                teleportPlayer(player, "Desert", 7.002, -60, 22.700, 6.725f, 179.23f);
+                pregameProcess(player, "DesertEasy");
+                difficulty = "Easy";
+                maze = "Desert";
+            } else if (clickedItem.getType() == Material.SMOOTH_SANDSTONE) {
+                teleportPlayer(player, "Desert", -53.007, -60, 16.7, 3.522f, 180.178f);
+                teleportPlayer(player, "Desert", -53.007, -60, 16.7, 3.522f, 180.178f);
+                pregameProcess(player, "DesertModerate");
+                difficulty = "Moderate";
+                maze = "Desert";
+            } else if (clickedItem.getType() == Material.STRIPPED_BIRCH_LOG) {
+                teleportPlayer(player, "Desert", -18.841, -60, 7.989, 2.317f, 179.969f);
+                teleportPlayer(player, "Desert", -18.841, -60, 7.989, 2.317f, 179.969f);
+                pregameProcess(player, "DesertHard");
+                difficulty = "Hard";
+                maze = "Desert";
+            } else if (clickedItem.getType() == Material.MANGROVE_PLANKS) {
+                teleportPlayer(player, "Mangrove", 12.851, -60, -58.7, 0.552f, 359.822f);
+                teleportPlayer(player, "Mangrove", 12.851, -60, -58.7, 0.552f, 359.822f);
+                pregameProcess(player, "MangroveEasy");
+                difficulty = "Easy";
+                maze = "Mangrove";
+            } else if (clickedItem.getType() == Material.STRIPPED_MANGROVE_WOOD) {
+                teleportPlayer(player, "Mangrove", 48.972, -60, -29.700, 2.317f, 1.579f);
+                teleportPlayer(player, "Mangrove", 48.972, -60, -29.700, 2.317f, 1.579f);
+                pregameProcess(player, "MangroveModerate");
+                difficulty = "Moderate";
+                maze = "Mangrove";
+            } else if (clickedItem.getType() == Material.MANGROVE_LOG) {
+                teleportPlayer(player, "Mangrove", -17.699, -60, 30.509, 0.525f, 270.376f);
+                teleportPlayer(player, "Mangrove", -17.699, -60, 30.509, 0.525f, 270.376f);
+                pregameProcess(player, "MangroveHard");
+                difficulty = "Hard";
+                maze = "Mangrove";
+            } else if (clickedItem.getType() == Material.SNOW_BLOCK) {
+                teleportPlayer(player, "Ice", -13.996, -60, 12.3, 0.506f, 0.207f);
+                teleportPlayer(player, "Ice", -13.996, -60, 12.3, 0.506f, 0.207f);
+                pregameProcess(player, "IceEasy");
+                difficulty = "Easy";
+                maze = "Ice";
+            } else if (clickedItem.getType() == Material.ICE) {
+                teleportPlayer(player, "Ice", -40.039, -60, -8.7, 1.664f, 0.267f);
+                teleportPlayer(player, "Ice", -40.039, -60, -8.7, 1.664f, 0.267f);
+                pregameProcess(player, "IceModerate");
+                difficulty = "Moderate";
+                maze = "Ice";
+            } else if (clickedItem.getType() == Material.PACKED_ICE) {
+                teleportPlayer(player, "Ice", -114.7, -60, -16.980, 2.217f, 270.325f);
+                teleportPlayer(player, "Ice", -114.7, -60, -16.980, 2.217f, 270.325f);
+                pregameProcess(player, "IceHard");
+                difficulty = "Hard";
+                maze = "Ice";
             }
         }
     }
@@ -360,8 +457,9 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
             player.sendMessage(getGradientPrefix() + "§cYou are not currently in a game...");
         }
     }
+
     public String getGradientPrefix() {
-        return "§x§F§F§A§0§0§0§l[§x§D§E§8§F§2§6§lM§x§B§E§7§D§4§C§la§x§9§D§6§C§7§1§lz§x§7§D§5§B§9§7§le §x§5§C§4§A§B§D§lR§x§4§6§4§5§C§C§lu§x§3§9§4§E§C§5§ln§x§2§D§5§6§B§D§ln§x§2§1§5§F§B§5§le§x§1§4§6§7§A§E§lr§x§0§8§7§0§A§6§l] " ;
+        return "§x§F§F§A§0§0§0§l[§x§D§E§8§F§2§6§lM§x§B§E§7§D§4§C§la§x§9§D§6§C§7§1§lz§x§7§D§5§B§9§7§le §x§5§C§4§A§B§D§lR§x§4§6§4§5§C§C§lu§x§3§9§4§E§C§5§ln§x§2§D§5§6§B§D§ln§x§2§1§5§F§B§5§le§x§1§4§6§7§A§E§lr§x§0§8§7§0§A§6§l] ";
     }
 
     private ItemStack createLeaveItem(String displayName, String lore, Material material) {
@@ -376,48 +474,12 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         return itemStack;
     }
 
-
-public void openLevelingRewardsGUI(Player player) {
-        Inventory gui = Bukkit.createInventory(player, 54, "Rewards");
-
-        // Add items for each level
-        gui.setItem(0, createRewardItem(Material.LIGHT_BLUE_DYE, ChatColor.AQUA,"1", ChatColor.GOLD, "x1 Smile Emote", ChatColor.GRAY, "x1 Astronaut Suit", ChatColor.DARK_GRAY, "X1 Bat Blaster"));
-        gui.setItem(1, createRewardItem(Material.RED_DYE, ChatColor.RED,"2", ChatColor.WHITE, "x1 Astronaut Helmet", ChatColor.DARK_GREEN, "x1 Zombie Horse Mount", ChatColor.GRAY, "x1 Crit Projectile Trail"));
-        gui.setItem(2, createRewardItem(Material.YELLOW_DYE, ChatColor.GOLD,"3 ", ChatColor.GRAY, "x1 Treasure Chest Key", ChatColor.AQUA, "x1 Diamond Hat", ChatColor.GOLD, "x1 Easter Bunny Pet"));
-        gui.setItem(3, createRewardItem(Material.GREEN_DYE, ChatColor.GREEN,"Level 4 Rewards", ChatColor.GRAY, "x1 Treasure Chest Key", ChatColor.AQUA, "x1 Diamond Hat", ChatColor.GOLD, "x1 Easter Bunny Pet"));
-
-
-
-    //Create filler items
-        gui.setItem(9,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
-        gui.setItem(10,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
-        gui.setItem(11,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
-        gui.setItem(12,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
-        gui.setItem(13,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
-        gui.setItem(14,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
-        gui.setItem(15,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
-        gui.setItem(16,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
-        gui.setItem(17,createFillerItem(Material.GRAY_STAINED_GLASS_PANE, ""));
-
-
-    player.openInventory(gui);
-    }
-
-
-    private ItemStack createRewardItem(Material material, ChatColor displayColor, String level, ChatColor loreColor1, String lore1, ChatColor loreColor2, String lore2, ChatColor loreColor3,String lore3) {
+    private ItemStack createFillerItem(Material material, String displayName) {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(displayColor + "Level " + level + "Rewards");
-        meta.setLore(Arrays.asList(loreColor1 + lore1, loreColor2 + lore2, loreColor3 + lore3));
+        meta.setDisplayName(displayName);
         item.setItemMeta(meta);
         return item;
-    }
-    private ItemStack createFillerItem(Material material, String displayName) {
-            ItemStack item = new ItemStack(material);
-            ItemMeta meta = item.getItemMeta();
-            meta.setDisplayName(displayName);
-            item.setItemMeta(meta);
-            return item;
     }
 
     //GAME CODE
@@ -442,7 +504,7 @@ public void openLevelingRewardsGUI(Player player) {
         } else if (mazeName.equalsIgnoreCase("JungleHard")) {
             teleportPlayer(player, "Jungle", 19.678, -60, 3.307, 2.724f, 356.001f);
         } else if (mazeName.equalsIgnoreCase("JungleAdventure")) {
-            teleportPlayer(player, "Jungle", 26.807, -60, 65.329, 1.591f, 359.809f);
+            teleportPlayer(player, "Jungle", -17.574, -60, 121.699, 3.953f, 180.739f);
         } else if (mazeName.equalsIgnoreCase("NetherEasy")) {
             teleportPlayer(player, "Nether", -18.868, -60, 29.7, .4f, -179.8f);
         } else if (mazeName.equalsIgnoreCase("NetherModerate")) {
@@ -453,8 +515,28 @@ public void openLevelingRewardsGUI(Player player) {
             teleportPlayer(player, "NetherAdventure", -27.516, -60, 29.586, 3.0f, -135.1f);
         } else if (mazeName.equalsIgnoreCase("SpookyEasy")) {
             teleportPlayer(player, "Spooky", 11.7, -60, 40.859, 3.155f, 89.897f);
-        } else if (mazeName.equalsIgnoreCase("SpookyHard")) {
+        } else if (mazeName.equalsIgnoreCase("SpookyModerate")) {
             teleportPlayer(player, "Spooky", 27.964, -60, 8.598, 0.456f, -0.611f);
+        } else if (mazeName.equalsIgnoreCase("SpookyHard")) {
+            teleportPlayer(player, "Spooky", 43.699, -60, -29.057, 3.785f, 89.104f);
+        } else if (mazeName.equalsIgnoreCase("DesertEasy")) {
+            teleportPlayer(player, "Desert", 6.981, -60, -22.695, 6.725f, 179.23f);
+        } else if (mazeName.equalsIgnoreCase("DesertModerate")) {
+            teleportPlayer(player, "Desert", -53.007, -60, 16.7, 3.522f, 180.178f);
+        } else if (mazeName.equalsIgnoreCase("DesertHard")) {
+            teleportPlayer(player, "Desert", -18.841, -60, 7.989, 2.317f, 179.969f);
+        } else if (mazeName.equalsIgnoreCase("MangroveEasy")) {
+            teleportPlayer(player, "Mangrove", 12.851, -60, -58.7, 0.552f, 359.822f);
+        } else if (mazeName.equalsIgnoreCase("MangroveModerate")) {
+            teleportPlayer(player, "Mangrove", 48.972, -60, -29.700, 2.317f, 1.579f);
+        } else if (mazeName.equalsIgnoreCase("MangroveHard")) {
+            teleportPlayer(player, "Mangrove", -17.699, -60, 30.509, 0.525f, 270.376f);
+        } else if (mazeName.equalsIgnoreCase("IceEasy")) {
+            teleportPlayer(player, "Ice", -13.996, -60, 12.3, 0.506f, 0.207f);
+        } else if (mazeName.equalsIgnoreCase("IceModerate")) {
+            teleportPlayer(player, "Ice", -40.039, -60, -8.7, 1.664f, 0.267f);
+        } else if (mazeName.equalsIgnoreCase("IceHard")) {
+            teleportPlayer(player, "Ice", -114.7, -60, -16.980, 2.217f, 270.325f);
         }
     }
 
@@ -468,6 +550,8 @@ public void openLevelingRewardsGUI(Player player) {
 
     private void startCountdown(List<Player> players, String mazeName, Player player) {
         final int countdownTime = 3; // Total countdown time in seconds
+        //Load player data once
+        dataManager.loadPlayerData(player.getUniqueId(), player);
 
         if (countdownTask != null) {
             countdownTask.cancel(); // Cancel the previous countdown if it exists
@@ -487,22 +571,20 @@ public void openLevelingRewardsGUI(Player player) {
                     sendActionBarToPlayers(players, ChatColor.GOLD + "Game starts in " + timeLeft);
                     player.playSound(player.getLocation(), Sound.valueOf("BLOCK_NOTE_BLOCK_HAT"), 1.0f, 1.0f);
                     timeLeft--;
+                    for (Player p : players) {
+                        scoreboardManager.setGameScoreboard(p);
+                    }
+                    addPlayerToGame(player.getUniqueId());
                 } else {
                     // Countdown has finished, you can start the game here
                     sendTitlesToPlayers(players, ChatColor.GREEN, "§x§0§0§F§F§9§2G§x§0§E§F§E§9§2a§x§1§B§F§E§9§2m§x§2§9§F§D§9§1e §x§3§7§F§C§9§1H§x§4§5§F§C§9§1a§x§5§2§F§B§9§1s §x§6§0§F§B§9§1S§x§6§E§F§A§9§0t§x§7§B§F§9§9§0a§x§8§9§F§9§9§0r§x§9§7§F§8§9§0t§x§A§5§F§7§8§Fe§x§B§2§F§7§8§Fd§x§C§0§F§6§8§F!", "§x§B§6§C§6§B§FG§x§B§0§C§4§B§3o§x§A§A§C§1§A§7o§x§A§4§B§F§9§Ad §x§9§F§B§D§8§EL§x§9§9§B§A§8§2u§x§9§3§B§8§7§6c§x§8§D§B§5§6§9k§x§8§7§B§3§5§D!");
-                    sendActionBarToPlayers(players, ChatColor.GREEN + "§x§0§F§B§E§0§9G§x§1§8§B§D§0§Fa§x§2§0§B§C§1§5m§x§2§9§B§C§1§Be §x§3§1§B§B§2§1H§x§3§A§B§A§2§7a§x§4§2§B§9§2§Ds §x§4§B§B§9§3§3S§x§5§4§B§8§3§9t§x§5§C§B§7§3§Fa§x§6§5§B§6§4§5r§x§6§D§B§5§4§Bt§x§7§6§B§5§5§1e§x§7§E§B§4§5§7d§x§8§7§B§3§5§D!");
                     playNote(player, Sound.BLOCK_NOTE_BLOCK_BASS);
                     playNote(player, Sound.BLOCK_NOTE_BLOCK_BASEDRUM);
                     playNote(player, Sound.BLOCK_NOTE_BLOCK_HARP);
                     playNote(player, Sound.BLOCK_NOTE_BLOCK_HAT);
                     playNote(player, Sound.BLOCK_NOTE_BLOCK_PLING);
                     playNote(player, Sound.BLOCK_NOTE_BLOCK_SNARE);
-                    for (Player p : players) {
-                        scoreboardManager.setGameScoreboard(p);
-                    }
                     this.cancel(); // Stop the BukkitRunnable
-
-
                     // Schedule a task to send elapsed time to the players every 20 ticks
                     int delay = 0; // Delay before the first update
                     int period = 1; // Period (in ticks) between updates
@@ -529,7 +611,8 @@ public void openLevelingRewardsGUI(Player player) {
         if (!stopwatchRunning) {
             startTimeNano = System.nanoTime();
             stopwatchRunning = true;
-            addPlayerToGame(player.getUniqueId());
+            gameBarrier.giveBarrierToPlayer(player);
+            dataManager.loadPlayerData(player.getUniqueId(), player);
 
             // Convert Collection to List
             List<Player> onlinePlayers = new ArrayList<>(Bukkit.getOnlinePlayers());
@@ -538,6 +621,7 @@ public void openLevelingRewardsGUI(Player player) {
             sendElapsedTimeToActionBar(onlinePlayers);
         }
     }
+
 
     // Stop the stopwatch
     public void stopStopwatch(Player player) {
@@ -548,11 +632,15 @@ public void openLevelingRewardsGUI(Player player) {
             removePlayerFromGame(player.getUniqueId());
             stopwatchRunning = false;
             gameEndings.stopGame(player, timeInSeconds, mazeName, playerName);
-            leaderboardManager.addPlayerTime(playerName, timeInSeconds, mazeName);
+            if (isPlayerWinner) {
+                leaderboardManager.addPlayerTime(playerName, timeInSeconds, mazeName);
+            }
             scoreboardManager.setLobbyScoreboard(player);
+            gameBarrier.removeBarrierFromPlayer(player);
+            dataManager.savePlayerData(player.getUniqueId(), player);
+            dataManager.loadPlayerData(player.getUniqueId(), player);
         }
     }
-
 
 
     // Method to add a player to the game
@@ -584,6 +672,7 @@ public void openLevelingRewardsGUI(Player player) {
         String actionBarMessage = formattedTime;
         sendActionBarToPlayers(players, actionBarMessage);
     }
+
     // Method to send titles to multiple players
     public void sendTitlesToPlayers(List<Player> players, ChatColor color, String title, String subtitle) {
         for (Player player : players) {
@@ -601,6 +690,7 @@ public void openLevelingRewardsGUI(Player player) {
             player.sendActionBar(ChatColor.GREEN + message);
         }
     }
+
     private String formatElapsedTime(double elapsedTime) {
         int minutes = (int) (elapsedTime / 60);
         int seconds = (int) (elapsedTime % 60);
@@ -609,45 +699,8 @@ public void openLevelingRewardsGUI(Player player) {
         return String.format("%02d:%02d.%02d", minutes, seconds, millis);
     }
 
-
-    //XP CODE
-
-
-    public void rewardPlayerWithXP(Player player, int xpAmount) {
-        int currentXP = getPlayerXP(player.getUniqueId());
-        int updatedXP = currentXP + xpAmount;
-        setPlayerXP(player.getUniqueId(), updatedXP);
-
-        // Give XP to the player
-        player.giveExp(xpAmount);
-    }
-
-    public int getPlayerXP(UUID playerUUID) {
-        return xpDataConfig.getInt(playerUUID.toString(), 0);
-    }
-
-    public void setPlayerXP(UUID playerUUID, int xp) {
-        xpDataConfig.set(playerUUID.toString(), xp);
-        saveXPData(); // Save the changes to the XP data file
-    }
-
-    private void setupXPData() {
-        xpDataFile = new File(getDataFolder(), "xp_data.yml");
-        if (!xpDataFile.exists()) {
-            xpDataFile.getParentFile().mkdirs();
-            saveResource("xp_data.yml", false); // Copy the default XP data file if it doesn't exist
-        }
-
-        xpDataConfig = YamlConfiguration.loadConfiguration(xpDataFile);
-    }
-
-    private void saveXPData() {
-        try {
-            xpDataConfig.save(xpDataFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        getLogger().info("Data has been saved!");
+    public Boolean isReconnectEnabled() {
+        return  reconnectManager.isReconnectEnabled();
     }
 }
 

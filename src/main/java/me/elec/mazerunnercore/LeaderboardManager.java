@@ -6,6 +6,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.*;
 
 public class LeaderboardManager {
@@ -39,21 +42,37 @@ public class LeaderboardManager {
         for (String mazeName : mazeNames) {
             for (String difficulty : difficulties) {
                 String fileName = "leaderboard_" + mazeName + difficulty + ".yml";
-                File mazeDataFile = new File(plugin.getDataFolder(), fileName);
 
-                if (!mazeDataFile.exists()) {
-                    // Log the filename to help identify the issue
-                    plugin.getLogger().severe("Could not find resource: " + fileName);
+                // Use the class loader to load the resource
+                try (InputStream resourceStream = plugin.getResource(fileName)) {
+                    if (resourceStream != null) {
+                        // Save the resource to the plugin's data folder if it doesn't exist
+                        File mazeDataFile = new File(plugin.getDataFolder(), fileName);
+
+                        if (!mazeDataFile.exists()) {
+                            Files.copy(resourceStream, mazeDataFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        }
+
+                        mazeDataFiles.put(mazeName + difficulty, mazeDataFile);
+                    } else {
+                        // Log a warning if the resource is not found
+                        plugin.getLogger().warning("Could not find resource: " + fileName);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
-                mazeDataFiles.put(mazeName + difficulty, mazeDataFile);
             }
         }
     }
 
 
     private FileConfiguration getMazeDataFile(String mazeName) {
-        return YamlConfiguration.loadConfiguration(mazeDataFiles.get(mazeName));
+        File mazeDataFile = mazeDataFiles.get(mazeName);
+
+        if (mazeDataFile == null || !mazeDataFile.exists()) {
+            throw new IllegalArgumentException("Invalid maze name: " + mazeName);
+        }
+        return YamlConfiguration.loadConfiguration(mazeDataFile);
     }
 
     public void addPlayerTime(String playerName, double time, String mazeName) {
