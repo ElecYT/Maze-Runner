@@ -9,10 +9,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import me.elec.mazerunnercore.MazeRunnerCore.PlayerData;
 import org.bukkit.scoreboard.*;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class CustomScoreboardManager implements Listener {
 
@@ -23,6 +23,7 @@ public class CustomScoreboardManager implements Listener {
     private Objective lobbyObjective;
     private boolean initialized = false;
     private boolean isInGame = false;
+    private final Map<UUID, MazeRunnerCore.PlayerData> playerDataMap = new HashMap<>();
 
     public CustomScoreboardManager(MazeRunnerCore plugin) {
         this.plugin = plugin;
@@ -83,26 +84,25 @@ public class CustomScoreboardManager implements Listener {
         if (initialized) {
             // Update lobby scoreboard information on player join
             Player player = event.getPlayer();
-            updateLobbyScoreboard(player);
-            // You might want to teleport players or perform other actions on join
-            // plugin.teleportPlayer(player, "lobby", x, y, z, yaw, pitch);
+            updateLobbyScoreboard(player, playerDataMap.get(player.getUniqueId()));
         }
     }
 
     private void updateScoreboards() {
-        // Clear scores from both lobby and game scoreboards for all online players
-
         // Update both lobby and game scoreboards for all online players
         for (Player player : Bukkit.getOnlinePlayers()) {
-            if (isInGame) {
-                updateGameScoreboard(player);
-            } else {
-                updateLobbyScoreboard(player);
+            MazeRunnerCore.PlayerData playerData = playerDataMap.get(player.getUniqueId());
+                if (plugin.isStopwatchRunning(player)) {
+                    updateGameScoreboard(player, playerData);
+                } else {
+                    updateLobbyScoreboard(player, playerData);
             }
         }
     }
 
-    private void updateLobbyScoreboard(Player player) {
+    private void updateLobbyScoreboard(Player player, PlayerData playerData) {
+        // ... existing code
+
         // Example: Set player name, level, and XP on the lobby scoreboard
         List<String> lobbyLines = Arrays.asList(
                 "§f\uE010 §9ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ",
@@ -115,12 +115,15 @@ public class CustomScoreboardManager implements Listener {
                 " §6§l  ● ᴇxᴘᴇʀɪᴇɴᴄᴇ",
                 "",
                 "§7⌚ " + PlaceholderAPI.setPlaceholders(player, "%localtime_time%")
-                );
+        );
+
         updateObjective(lobbyScoreboard, lobbyObjective, "Lobby", mazeRunner(), lobbyLines);
         player.setScoreboard(lobbyScoreboard);
     }
 
-    public void updateGameScoreboard(Player player) {
+    private void updateGameScoreboard(Player player, PlayerData playerData) {
+        // ... existing code
+
         // Example: Set player name, level, and XP on the game scoreboard
         List<String> gameLines = Arrays.asList(
                 "§f\uE010 §9ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ",
@@ -131,14 +134,12 @@ public class CustomScoreboardManager implements Listener {
                 "   §f\uE008 §6ʟᴇᴠᴇʟ " + ChatColor.GRAY + getPlayerLevel(player),
                 "   §f\uE003 §6xᴘ " + ChatColor.GRAY + getPlayerXP(player),
                 " §6§l  ● ᴇxᴘᴇʀɪᴇɴᴄᴇ",
-                "   §f\uE021 §bᴛɪᴍᴇ " + ChatColor.GRAY + formatTime(getTimer()),
+                "   §f\uE021 §bᴛɪᴍᴇ " + ChatColor.GRAY + formatTime(getTimer(player)),
                 "   §f\uE022 §bᴍᴀᴘ " + ChatColor.GRAY + player.getWorld().getName(),
                 " §b§l  ● ɢᴀᴍᴇ",
                 "",
-                "§7⌚ " + PlaceholderAPI.setPlaceholders(player, "%localtime_time%")
-                // Add more lines for additional information as needed
-                // ChatColor.BOLD + "Timer: " + ChatColor.RESET + getTimer()
-        );
+                "§7⌚ " + PlaceholderAPI.setPlaceholders(player, "%localtime_time%"));
+
         updateObjective(gameScoreboard, gameObjective, "Game", mazeRunner(), gameLines);
         player.setScoreboard(gameScoreboard);
     }
@@ -146,7 +147,6 @@ public class CustomScoreboardManager implements Listener {
     public String mazeRunner() {
         return "  §f\uE001";
     }
-
 
     private void updateObjective(Scoreboard scoreboard, Objective oldObjective, String newObjectiveName, String displayName, List<String> lines) {
         if (oldObjective != null) {
@@ -184,9 +184,9 @@ public class CustomScoreboardManager implements Listener {
         return String.format("%02d:%02d", minutes, remainingSeconds);
     }
 
-    private long getTimer() {
+    private long getTimer(Player player) {
         // Example method, replace with your logic to get time in seconds
-        return (long) plugin.getElapsedTimeSeconds();
+        return (long) ((long) plugin.getElapsedTimeSeconds(player) + 0.5);
     }
 }
 

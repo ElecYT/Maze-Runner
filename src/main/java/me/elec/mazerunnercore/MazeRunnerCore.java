@@ -19,6 +19,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
 
 
 import java.io.File;
@@ -33,7 +34,33 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
     private static MazeRunnerCore instance;
     private Map<UUID, Boolean> gameWinStates = new HashMap<>();
 
-    public MazeRunnerCore() {
+    public static class PlayerData {
+        private boolean stopwatchRunning;
+        private long startTimeNano;
+
+        public PlayerData() {
+            this.stopwatchRunning = false;
+            this.startTimeNano = 0;
+        }
+
+        public void startStopwatch() {
+            if (!stopwatchRunning) {
+                startTimeNano = 0;
+                stopwatchRunning = true;
+                // Additional setup if needed
+            }
+        }
+
+        public boolean isStopwatchRunning() {
+            return stopwatchRunning;
+        }
+
+
+        public long getStartTimeNano() {
+            return startTimeNano;
+        }
+
+        // Add any other methods or fields relevant to player data
     }
 
     // Getter method for the instance
@@ -49,9 +76,11 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
     private BukkitTask countdownTask = null;
     private LeaderboardManager leaderboardManager;
     private boolean reconnectEnabled = false;
-    private String mapName;
     private final Set<UUID> playersInGame = new HashSet<>();
     private GameEndings gameEndings; // Declare the variable
+    private Player player;
+    private String mazeName;
+    private String mapName;
 
     // Method to check if a player is in a game
     public boolean isPlayerInGame(UUID playerId) {
@@ -67,6 +96,10 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
     private DataManager dataManager;
     public String difficulty;
     public String maze;
+    private Map<UUID, Long> startTimeMap = new HashMap<>();
+    private Map<UUID, String> mazeNameMap = new HashMap<>();
+    private Map<UUID, Boolean> stopwatchRunningMap = new HashMap<>();
+    private Map<UUID, String> difficultyMap = new HashMap<>();
 
     public void onEnable() {
         plugin = this; // Initialize the plugin instance
@@ -106,7 +139,7 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
 
         // Register the /mazegame command (if needed)
         getCommand("mazegame").setExecutor(new MazeGameCommand(this));
-        getCommand("tplobby").setExecutor(new TpLobbyCommand(this));
+        getCommand("spawn").setExecutor(new TpLobbyCommand(this));
         getCommand("leave").setExecutor(new LeaveCommand(this));
         getCommand("reconnect").setExecutor(new ReconnectCommand(reconnectManager));
         getCommand("website").setExecutor(new WebsiteCommand());
@@ -120,6 +153,11 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         for (Player player : Bukkit.getServer().getOnlinePlayers()) {
             dataManager.savePlayerData(player.getUniqueId(), player);
         }
+    }
+
+    // Method to add a player to the playerDataMap
+    public void addPlayerToDataMap(UUID playerId, PlayerData playerData) {
+        playerDataMap.put(playerId, playerData);
     }
 
     public CustomScoreboardManager getScoreboardManager() {
@@ -305,122 +343,122 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
                 teleportPlayer(player, "Jungle", -11.692, -60, 5.016, 4.508f, 269.73f);
                 teleportPlayer(player, "Jungle", -11.692, -60, 5.016, 4.508f, 269.73f);
                 pregameProcess(player, "JungleEasy");
-                difficulty = "Easy";
-                maze = "Jungle";
+                difficultyMap.put(player.getUniqueId(), "Easy");
+                mazeNameMap.put(player.getUniqueId(), "Jungle");
             } else if (clickedItem.getType() == Material.CRACKED_STONE_BRICKS) {
                 teleportPlayer(player, "Jungle", -8.691, -60, 26.116, 0.41f, 268.021f);
                 teleportPlayer(player, "Jungle", -8.691, -60, 26.116, 0.41f, 268.021f);
                 pregameProcess(player, "JungleModerate");
-                difficulty = "Moderate";
-                maze = "Jungle";
+                difficultyMap.put(player.getUniqueId(), "Moderate");
+                mazeNameMap.put(player.getUniqueId(), "Jungle");
             } else if (clickedItem.getType() == Material.MOSSY_STONE_BRICKS) {
                 teleportPlayer(player, "Jungle", 19.678, -60, 3.307, 2.724f, 356.001f);
                 teleportPlayer(player, "Jungle", 19.678, -60, 3.307, 2.724f, 356.001f);
                 pregameProcess(player, "JungleHard");
-                difficulty = "Hard";
-                maze = "Jungle";
+                difficultyMap.put(player.getUniqueId(), "Hard");
+                mazeNameMap.put(player.getUniqueId(), "Jungle");
             } else if (clickedItem.getType() == Material.MOSSY_COBBLESTONE_WALL) {
                 teleportPlayer(player, "Jungle", -17.574, -60, 121.699, 3.953f, 180.739f);
                 teleportPlayer(player, "Jungle", -17.574, -60, 121.699, 3.953f, 180.739f);
                 pregameProcess(player, "JungleAdventure");
-                difficulty = "Adventure";
-                maze = "Jungle";
+                difficultyMap.put(player.getUniqueId(), "Adventure");
+                mazeNameMap.put(player.getUniqueId(), "Jungle");
             } else if (clickedItem.getType() == Material.NETHERRACK) {
                 teleportPlayer(player, "Nether", -18.868, -60, 29.7, .4f, -179.8f);
                 teleportPlayer(player, "Nether", -18.868, -60, 29.7, .4f, -179.8f);
                 pregameProcess(player, "NetherEasy");
-                difficulty = "Easy";
-                maze = "Nether";
+                difficultyMap.put(player.getUniqueId(), "Easy");
+                mazeNameMap.put(player.getUniqueId(), "Nether");
             } else if (clickedItem.getType() == Material.CHISELED_NETHER_BRICKS) {
                 teleportPlayer(player, "Nether", 23.108, -60, 119.7, .9f, 180f);
                 teleportPlayer(player, "Nether", 23.108, -60, 119.7, .9f, 180f);
                 pregameProcess(player, "NetherModerate");
-                difficulty = "Moderate";
-                maze = "Nether";
+                difficultyMap.put(player.getUniqueId(), "Moderate");
+                mazeNameMap.put(player.getUniqueId(), "Nether");
             } else if (clickedItem.getType() == Material.RED_NETHER_BRICKS) {
                 teleportPlayer(player, "Nether", 58.397, -60, -6.022, 7.4f, -1.4f);
                 teleportPlayer(player, "Nether", 58.397, -60, -6.022, 7.4f, -1.4f);
                 pregameProcess(player, "NetherHard");
-                difficulty = "Hard";
-                maze = "Nether";
+                difficultyMap.put(player.getUniqueId(), "Hard");
+                mazeNameMap.put(player.getUniqueId(), "Nether");
             } else if (clickedItem.getType() == Material.NETHERITE_BLOCK) {
                 teleportPlayer(player, "NetherAdventure", -27.516, -60, 29.586, 3.0f, -135.1f);
                 teleportPlayer(player, "NetherAdventure", -27.516, -60, 29.586, 3.0f, -135.1f);
                 pregameProcess(player, "NetherAdventure");
-                difficulty = "Adventure";
-                maze = "Nether";
+                difficultyMap.put(player.getUniqueId(), "Adventure");
+                mazeNameMap.put(player.getUniqueId(), "Nether");
             } else if (clickedItem.getType() == Material.DEAD_BUSH) {
                 teleportPlayer(player, "Spooky", 11.7, -60, 40.859, 3.155f, 89.897f);
                 teleportPlayer(player, "Spooky", 11.7, -60, 40.859, 3.155f, 89.897f);
                 pregameProcess(player, "SpookyEasy");
-                difficulty = "Easy";
-                maze = "Spooky";
+                difficultyMap.put(player.getUniqueId(), "Easy");
+                mazeNameMap.put(player.getUniqueId(), "Spooky");
             } else if (clickedItem.getType() == Material.ORANGE_TERRACOTTA) {
                 teleportPlayer(player, "Spooky", 27.964, -60, 8.598, 0.456f, -0.611f);
                 teleportPlayer(player, "Spooky", 27.964, -60, 8.598, 0.456f, -0.611f);
                 pregameProcess(player, "SpookyModerate");
-                difficulty = "Moderate";
-                maze = "Spooky";
+                difficultyMap.put(player.getUniqueId(), "Moderate");
+                mazeNameMap.put(player.getUniqueId(), "Spooky");
             } else if (clickedItem.getType() == Material.BLACK_TERRACOTTA) {
                 teleportPlayer(player, "Spooky", 43.699, -60, -29.057, 3.785f, 89.104f);
                 teleportPlayer(player, "Spooky", 43.699, -60, -29.057, 3.785f, 89.104f);
                 pregameProcess(player, "SpookyHard");
-                difficulty = "Hard";
-                maze = "Spooky";
+                difficultyMap.put(player.getUniqueId(), "Hard");
+                mazeNameMap.put(player.getUniqueId(), "Spooky");
             } else if (clickedItem.getType() == Material.SAND) {
                 teleportPlayer(player, "Desert", 7.002, -60, 22.700, 6.725f, 179.23f);
                 teleportPlayer(player, "Desert", 7.002, -60, 22.700, 6.725f, 179.23f);
                 pregameProcess(player, "DesertEasy");
-                difficulty = "Easy";
-                maze = "Desert";
+                difficultyMap.put(player.getUniqueId(), "Easy");
+                mazeNameMap.put(player.getUniqueId(), "Desert");
             } else if (clickedItem.getType() == Material.SMOOTH_SANDSTONE) {
                 teleportPlayer(player, "Desert", -53.007, -60, 16.7, 3.522f, 180.178f);
                 teleportPlayer(player, "Desert", -53.007, -60, 16.7, 3.522f, 180.178f);
                 pregameProcess(player, "DesertModerate");
-                difficulty = "Moderate";
-                maze = "Desert";
+                difficultyMap.put(player.getUniqueId(), "Moderate");
+                mazeNameMap.put(player.getUniqueId(), "Desert");
             } else if (clickedItem.getType() == Material.STRIPPED_BIRCH_LOG) {
                 teleportPlayer(player, "Desert", -18.841, -60, 7.989, 2.317f, 179.969f);
                 teleportPlayer(player, "Desert", -18.841, -60, 7.989, 2.317f, 179.969f);
                 pregameProcess(player, "DesertHard");
-                difficulty = "Hard";
-                maze = "Desert";
+                difficultyMap.put(player.getUniqueId(), "Hard");
+                mazeNameMap.put(player.getUniqueId(), "Desert");
             } else if (clickedItem.getType() == Material.MANGROVE_PLANKS) {
                 teleportPlayer(player, "Mangrove", 12.851, -60, -58.7, 0.552f, 359.822f);
                 teleportPlayer(player, "Mangrove", 12.851, -60, -58.7, 0.552f, 359.822f);
                 pregameProcess(player, "MangroveEasy");
-                difficulty = "Easy";
-                maze = "Mangrove";
+                difficultyMap.put(player.getUniqueId(), "Easy");
+                mazeNameMap.put(player.getUniqueId(), "Mangrove");
             } else if (clickedItem.getType() == Material.STRIPPED_MANGROVE_WOOD) {
                 teleportPlayer(player, "Mangrove", 48.972, -60, -29.700, 2.317f, 1.579f);
                 teleportPlayer(player, "Mangrove", 48.972, -60, -29.700, 2.317f, 1.579f);
                 pregameProcess(player, "MangroveModerate");
-                difficulty = "Moderate";
-                maze = "Mangrove";
+                difficultyMap.put(player.getUniqueId(), "Moderate");
+                mazeNameMap.put(player.getUniqueId(), "Mangrove");
             } else if (clickedItem.getType() == Material.MANGROVE_LOG) {
                 teleportPlayer(player, "Mangrove", -17.699, -60, 30.509, 0.525f, 270.376f);
                 teleportPlayer(player, "Mangrove", -17.699, -60, 30.509, 0.525f, 270.376f);
                 pregameProcess(player, "MangroveHard");
-                difficulty = "Hard";
-                maze = "Mangrove";
+                difficultyMap.put(player.getUniqueId(), "Hard");
+                mazeNameMap.put(player.getUniqueId(), "Mangrove");
             } else if (clickedItem.getType() == Material.SNOW_BLOCK) {
                 teleportPlayer(player, "Ice", -13.996, -60, 12.3, 0.506f, 0.207f);
                 teleportPlayer(player, "Ice", -13.996, -60, 12.3, 0.506f, 0.207f);
                 pregameProcess(player, "IceEasy");
-                difficulty = "Easy";
-                maze = "Ice";
+                difficultyMap.put(player.getUniqueId(), "Easy");
+                mazeNameMap.put(player.getUniqueId(), "Ice");
             } else if (clickedItem.getType() == Material.ICE) {
                 teleportPlayer(player, "Ice", -40.039, -60, -8.7, 1.664f, 0.267f);
                 teleportPlayer(player, "Ice", -40.039, -60, -8.7, 1.664f, 0.267f);
                 pregameProcess(player, "IceModerate");
-                difficulty = "Moderate";
-                maze = "Ice";
+                difficultyMap.put(player.getUniqueId(), "Moderate");
+                mazeNameMap.put(player.getUniqueId(), "Ice");
             } else if (clickedItem.getType() == Material.PACKED_ICE) {
                 teleportPlayer(player, "Ice", -114.7, -60, -16.980, 2.217f, 270.325f);
                 teleportPlayer(player, "Ice", -114.7, -60, -16.980, 2.217f, 270.325f);
                 pregameProcess(player, "IceHard");
-                difficulty = "Hard";
-                maze = "Ice";
+                difficultyMap.put(player.getUniqueId(), "Hard");
+                mazeNameMap.put(player.getUniqueId(), "Ice");
             }
         }
     }
@@ -439,12 +477,7 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
     //LEAVE GUI
 
     public void openLeaveGameGUI(Player player) {
-        if (stopwatchRunning) {
-            // Create a list containing the player
-            List<Player> players = new ArrayList<>();
-            players.add(player);
-
-            sendElapsedTimeToActionBar(players); // Pass the list of players to the method
+        if (plugin.isPlayerInGame(player.getUniqueId())) {
             Inventory gui = Bukkit.createInventory(player, 54, "Leave the game?");
             ItemStack redConcrete = createLeaveItem(ChatColor.RED + "Are you sure?", ChatColor.GRAY + "You will lose all XP", Material.RED_CONCRETE);
             ItemStack greenConcrete = createLeaveItem(ChatColor.GREEN + "Return to game!", ChatColor.GRAY + "You will continue playing, and still earn XP", Material.GREEN_CONCRETE);
@@ -490,7 +523,7 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         player.setGameMode(GameMode.ADVENTURE);
 
         // Do countdown stuff
-        startCountdown(Collections.singletonList(player), mazeName, player); // Pass a list with a single player
+        startCountdown(player, mazeName); // Pass a list with a single player
         //Set the mapName variable
         mapName = mazeName;
     }
@@ -540,6 +573,7 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         }
     }
 
+
     public void playerIsWinner() {
         isPlayerWinner = true;
     }
@@ -548,13 +582,11 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
         isPlayerWinner = false;
     }
 
-    private void startCountdown(List<Player> players, String mazeName, Player player) {
-        final int countdownTime = 3; // Total countdown time in seconds
-        //Load player data once
-        dataManager.loadPlayerData(player.getUniqueId(), player);
+    private void startCountdown(Player player, String mazeName) {
+        final int countdownTime = 3;
 
         if (countdownTask != null) {
-            countdownTask.cancel(); // Cancel the previous countdown if it exists
+            countdownTask.cancel();
         }
 
         countdownTask = new BukkitRunnable() {
@@ -563,132 +595,130 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
             @Override
             public void run() {
                 if (timeLeft > 0) {
-                    // Countdown logic
-                    String title = "§x§F§F§7§6§0§0G§x§F§E§7§F§1§0a§x§F§D§8§7§2§0m§x§F§C§9§0§3§0e §x§F§B§9§8§4§0S§x§F§A§A§1§4§Ft§x§F§9§A§9§5§Fa§x§F§8§B§2§6§Fr§x§F§7§B§A§7§Ft§x§F§6§C§3§8§Fs";
-                    String subtitle = "§x§F§F§7§6§0§0I§x§F§D§8§9§2§4n " + timeLeft + "§x§F§B§9§D§4§8.§x§F§8§B§0§6§B.§x§F§6§C§3§8§F.";
-                    sendTitlesToPlayers(players, ChatColor.GOLD, title, subtitle);
-                    teleportMaze(players.get(0), mazeName); // Teleport the first player
-                    sendActionBarToPlayers(players, ChatColor.GOLD + "Game starts in " + timeLeft);
+                    String title = "Game starting";
+                    String subtitle = "in... " + timeLeft;
+                    sendTitlesToPlayers(player, ChatColor.GOLD, title, subtitle);
+                    teleportMaze(player, mazeName);
+                    sendActionBarToPlayers(player, ChatColor.GOLD + "Game starts in " + timeLeft);
                     player.playSound(player.getLocation(), Sound.valueOf("BLOCK_NOTE_BLOCK_HAT"), 1.0f, 1.0f);
                     timeLeft--;
-                    for (Player p : players) {
-                        scoreboardManager.setGameScoreboard(p);
-                    }
-                    addPlayerToGame(player.getUniqueId());
+                    scoreboardManager.setGameScoreboard(player);
+                    startTimeMap.put(player.getUniqueId(), System.nanoTime());
                 } else {
-                    // Countdown has finished, you can start the game here
-                    sendTitlesToPlayers(players, ChatColor.GREEN, "§x§0§0§F§F§9§2G§x§0§E§F§E§9§2a§x§1§B§F§E§9§2m§x§2§9§F§D§9§1e §x§3§7§F§C§9§1H§x§4§5§F§C§9§1a§x§5§2§F§B§9§1s §x§6§0§F§B§9§1S§x§6§E§F§A§9§0t§x§7§B§F§9§9§0a§x§8§9§F§9§9§0r§x§9§7§F§8§9§0t§x§A§5§F§7§8§Fe§x§B§2§F§7§8§Fd§x§C§0§F§6§8§F!", "§x§B§6§C§6§B§FG§x§B§0§C§4§B§3o§x§A§A§C§1§A§7o§x§A§4§B§F§9§Ad §x§9§F§B§D§8§EL§x§9§9§B§A§8§2u§x§9§3§B§8§7§6c§x§8§D§B§5§6§9k§x§8§7§B§3§5§D!");
+                    sendTitlesToPlayers(player, ChatColor.GREEN, "Game Started!", "Good Luck!");
                     playNote(player, Sound.BLOCK_NOTE_BLOCK_BASS);
                     playNote(player, Sound.BLOCK_NOTE_BLOCK_BASEDRUM);
-                    playNote(player, Sound.BLOCK_NOTE_BLOCK_HARP);
-                    playNote(player, Sound.BLOCK_NOTE_BLOCK_HAT);
-                    playNote(player, Sound.BLOCK_NOTE_BLOCK_PLING);
-                    playNote(player, Sound.BLOCK_NOTE_BLOCK_SNARE);
-                    this.cancel(); // Stop the BukkitRunnable
-                    // Schedule a task to send elapsed time to the players every 20 ticks
-                    int delay = 0; // Delay before the first update
-                    int period = 1; // Period (in ticks) between updates
+                    // ... (other playNote calls)
+                    startStopwatch(player); // Move the startStopwatch call here
+
+                    this.cancel();
+
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            if (stopwatchRunning) {
-                                sendElapsedTimeToActionBar(players);
+                            if (isStopwatchRunning(player)) {
+                                sendElapsedTimeToActionBar(player);
                             }
                         }
-                    }.runTaskTimer(plugin, delay, period);
-
-                    startStopwatch(players.get(0), mazeName); // Start the stopwatch for the first player
+                    }.runTaskTimer(plugin, 0, 2);
                 }
             }
-        }.runTaskTimer(plugin, 0, 20); // 20 ticks = 1 second
+        }.runTaskTimer(this, 0, 20);
     }
 
     public void playNote(Player player, Sound sound) {
         player.playSound(player.getLocation(), sound, 1, 1);
     }
 
-    public void startStopwatch(Player player, String mazeName) {
-        if (!stopwatchRunning) {
-            startTimeNano = System.nanoTime();
-            stopwatchRunning = true;
+    public Player getPlayer() {
+        return player;
+    }
+
+    public String getDifficulty(Player player) {
+        return difficultyMap.getOrDefault(player.getUniqueId(), "easy");
+    }
+
+    public boolean isStopwatchRunning(Player player) {
+        return stopwatchRunningMap.getOrDefault(player.getUniqueId(), false);
+    }
+
+    public void startStopwatch(Player player) {
+        PlayerData playerData = playerDataMap.get(player.getUniqueId());
+
+        if (playerData != null) {
+            playerData.startStopwatch();
+        }
+
+        if (!isStopwatchRunning(player)) {
+            // Reset the start time to 0 for each new game
+
+            stopwatchRunningMap.put(player.getUniqueId(), true);
             gameBarrier.giveBarrierToPlayer(player);
             dataManager.loadPlayerData(player.getUniqueId(), player);
-
-            // Convert Collection to List
-            List<Player> onlinePlayers = new ArrayList<>(Bukkit.getOnlinePlayers());
-
-            // Send elapsed time to all players
-            sendElapsedTimeToActionBar(onlinePlayers);
+            addPlayerToGame(player.getUniqueId());
         }
     }
 
-
-    // Stop the stopwatch
     public void stopStopwatch(Player player) {
-        if (stopwatchRunning) {
+        if (isStopwatchRunning(player)) {
             String playerName = player.getName();
-            double timeInSeconds = getElapsedTimeSeconds();
-            String mazeName = mapName;
-            removePlayerFromGame(player.getUniqueId());
-            stopwatchRunning = false;
-            gameEndings.stopGame(player, timeInSeconds, mazeName, playerName);
-            if (isPlayerWinner) {
-                leaderboardManager.addPlayerTime(playerName, timeInSeconds, mazeName);
+            double timeInSeconds = getElapsedTimeSeconds(player);
+            String mazeName = mazeNameMap.getOrDefault(player.getUniqueId(), null);
+            String difficulty = difficultyMap.getOrDefault(player.getUniqueId(), "easy");
+
+            // Check if mazeName is not null before stopping the game
+            if (mazeName != null) {
+                gameEndings.stopGame(player, timeInSeconds, mazeName, playerName, difficulty);
+
+                if (isPlayerWinner) {
+                    leaderboardManager.addPlayerTime(playerName, timeInSeconds, mazeName + difficulty);
+                }
             }
+
             scoreboardManager.setLobbyScoreboard(player);
             gameBarrier.removeBarrierFromPlayer(player);
             dataManager.savePlayerData(player.getUniqueId(), player);
             dataManager.loadPlayerData(player.getUniqueId(), player);
+            stopwatchRunningMap.put(player.getUniqueId(), false);
+            removePlayerFromGame(player.getUniqueId());
         }
     }
-
-
-    // Method to add a player to the game
-    public void addPlayerToGame(UUID playerId) {
-        playersInGame.add(playerId);
-    }
-
-    // Method to remove a player from the game
-    public void removePlayerFromGame(UUID playerId) {
-        playersInGame.remove(playerId);
-    }
-
 
     //COUNTDOWN CODE
+    private final Map<UUID, PlayerData> playerDataMap = new HashMap<>();
 
-    // Add a getter method for elapsed time
-    public double getElapsedTimeSeconds() {
-        if (stopwatchRunning) {
+
+    public double getElapsedTimeSeconds(Player player) {
+        UUID playerId = player.getUniqueId();
+        if (playerDataMap.containsKey(playerId) && playerDataMap.get(playerId).isStopwatchRunning()) {
+            long startTimeNano = startTimeMap.getOrDefault(playerId, System.nanoTime());
             long elapsedTimeNano = System.nanoTime() - startTimeNano;
-            elapsedTimeSeconds = elapsedTimeNano / 1e9;
-            return elapsedTimeSeconds;
+            return elapsedTimeNano / 1e9;
         }
-        return elapsedTimeSeconds;
+        return 0;
     }
 
-    public void sendElapsedTimeToActionBar(List<Player> players) {
-        double elapsedTime = getElapsedTimeSeconds();
-        String formattedTime = formatElapsedTime(elapsedTime);
-        String actionBarMessage = formattedTime;
-        sendActionBarToPlayers(players, actionBarMessage);
+    public void sendElapsedTimeToActionBar(Player player) {
+        if(isStopwatchRunning(player)) {
+            double elapsedTime = getElapsedTimeSeconds(player);
+            String formattedTime = formatElapsedTime(elapsedTime);
+            String actionBarMessage = formattedTime;
+            sendActionBarToPlayers(player, actionBarMessage);
+        }
     }
 
     // Method to send titles to multiple players
-    public void sendTitlesToPlayers(List<Player> players, ChatColor color, String title, String subtitle) {
-        for (Player player : players) {
-            player.sendTitle(color + title, subtitle, 10, 70, 20);
-        }
+    public void sendTitlesToPlayers(Player player, ChatColor color, String title, String subtitle) {
+        player.sendTitle(color + title, subtitle, 10, 70, 20);
     }
 
-    public static void sendActionBarToPlayers(List<Player> players, String message) {
+    public static void sendActionBarToPlayers(Player player, String message) {
         if (message.length() > 64) {
             message = message.substring(0, 64); // Truncate the message if it's too long
         }
 
         // Send the action bar message to each player in the list
-        for (Player player : players) {
-            player.sendActionBar(ChatColor.GREEN + message);
-        }
+        player.sendActionBar(ChatColor.GREEN + message);
     }
 
     private String formatElapsedTime(double elapsedTime) {
@@ -701,6 +731,16 @@ public class MazeRunnerCore extends JavaPlugin implements Listener {
 
     public Boolean isReconnectEnabled() {
         return  reconnectManager.isReconnectEnabled();
+    }
+
+    // Method to add a player to the game
+    public void addPlayerToGame(UUID playerId) {
+        playersInGame.add(playerId);
+    }
+
+    // Method to remove a player from the game
+    public void removePlayerFromGame(UUID playerId) {
+        playersInGame.remove(playerId);
     }
 }
 

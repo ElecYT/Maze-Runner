@@ -4,6 +4,7 @@ import me.elec.mazerunnercore.CustomScoreboardManager;
 import me.elec.mazerunnercore.DataManager;
 import me.elec.mazerunnercore.GameEndings;
 import me.elec.mazerunnercore.MazeRunnerCore;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener; // Import the Listener interface
@@ -44,6 +45,7 @@ import org.bukkit.inventory.InventoryHolder;
                     scoreboardManager.setLobbyScoreboard(player);
                     plugin.playerIsLoser();
                     plugin.stopStopwatch(player);
+                    player.setGameMode(GameMode.ADVENTURE);
 
                     // Close the inventory
                     player.closeInventory();

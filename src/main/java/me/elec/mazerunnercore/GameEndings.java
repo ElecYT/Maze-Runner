@@ -5,11 +5,14 @@ import net.md_5.bungee.api.chat.ComponentBuilder;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 
 public class GameEndings {
     private String mapName;
     private MazeRunnerCore plugin;
     private AutoReconnectManager reconnectManager;
+
 
     public GameEndings(MazeRunnerCore plugin, AutoReconnectManager reconnectManager) {
         this.plugin = plugin;
@@ -17,27 +20,29 @@ public class GameEndings {
     }
 
 
-    public void stopGame(Player player, Double timeInSeconds, String mazeName, String playerName) {
+    public void stopGame(Player player, Double timeInSeconds, String mazeName, String playerName, String difficulty) {
         // Check if the player is a winner using isPlayerWinner method
         if (plugin.isPlayerWinner) {
             // Player is a winner
-            if (plugin.maze.equalsIgnoreCase("Jungle")) {
+            if (mazeName.equalsIgnoreCase("Jungle")) {
                 Bukkit.broadcastMessage("§a" + playerName + " §2finished the maze §6" + mazeName + " §2with a time of §b" + timeInSeconds + "§2!");
-            } else if (plugin.maze.equalsIgnoreCase("Nether")) {
+            } else if (mazeName.equalsIgnoreCase("Nether")) {
                 Bukkit.broadcastMessage("§a" + playerName + " §4finished the maze §6" + mazeName + " §4with a time of §b" + timeInSeconds + "§4!");
-            } else if (plugin.maze.equalsIgnoreCase("Spooky")) {
+            } else if (mazeName.equalsIgnoreCase("Spooky")) {
                 Bukkit.broadcastMessage("§a" + playerName + " §7finished the maze §6" + mazeName + " §7with a time of §b" + timeInSeconds + "§7!");
-            } else if (plugin.maze.equalsIgnoreCase("Desert")) {
+            } else if (mazeName.equalsIgnoreCase("Desert")) {
                 Bukkit.broadcastMessage("§a" + playerName + " §efinished the maze §6" + mazeName + " §ewith a time of §b" + timeInSeconds + "§e!");
-            } else if (plugin.maze.equalsIgnoreCase("Ice")) {
+            } else if (mazeName.equalsIgnoreCase("Ice")) {
                 Bukkit.broadcastMessage("§a" + playerName + " §9finished the maze §6" + mazeName + " §9with a time of §b" + timeInSeconds + "§9!");
-            } else if (plugin.maze.equalsIgnoreCase("Mangrove")) {
+            } else if (mazeName.equalsIgnoreCase("Mangrove")) {
+                Bukkit.broadcastMessage("§a" + playerName + " §4finished the maze §6" + mazeName + " §4with a time of §b" + timeInSeconds + "§4!");
+            } else if (mazeName.equalsIgnoreCase("null")) {
                 Bukkit.broadcastMessage("§a" + playerName + " §4finished the maze §6" + mazeName + " §4with a time of §b" + timeInSeconds + "§4!");
             }
 
+
             sendTitle(player, "§x§B§E§6§C§0§9Y§x§B§8§6§4§1§Do§x§B§2§5§C§3§1u §x§A§C§5§4§4§5c§x§A§6§4§C§5§9o§x§9§F§4§5§6§Cm§x§9§9§3§D§8§0p§x§9§3§3§5§9§4l§x§8§D§2§D§A§8e§x§8§7§2§5§B§Ct§x§8§2§2§3§C§9e§x§7§D§2§7§C§Fd §x§7§8§2§B§D§5t§x§7§3§2§F§D§Bh§x§6§E§3§3§E§1e §x§6§9§3§7§E§7m§x§6§4§3§B§E§Da§x§5§F§3§F§F§3z§x§5§A§4§3§F§9e§x§5§5§4§7§F§F!", "§x§B§E§6§C§0§9N§x§A§D§5§7§3§Fi§x§9§D§4§1§7§5c§x§8§C§2§C§A§Be §x§7§D§2§6§C§EJ§x§7§0§3§1§D§Eo§x§6§2§3§C§E§Fb§x§5§5§4§7§F§F!");
-            postGame(playerName, mazeName, timeInSeconds, player);
-            plugin.stopStopwatch(player);
+            postGame(playerName, mazeName, timeInSeconds, player, difficulty);
             scheduleReconnect(player, mazeName);
             playNote(player, Sound.BLOCK_NOTE_BLOCK_BASS);
             playNote(player, Sound.BLOCK_NOTE_BLOCK_BASEDRUM);
@@ -57,7 +62,6 @@ public class GameEndings {
             sendTitle(player, "§x§B§E§6§C§0§9Y§x§B§7§6§3§2§1o§x§B§0§5§9§3§8u §x§A§8§5§0§5§0l§x§A§1§4§7§6§8e§x§9§A§3§D§7§Ff§x§9§3§3§4§9§7t §x§8§B§2§A§A§Et§x§8§4§2§1§C§6h§x§7§E§2§6§C§De §x§7§8§2§B§D§4g§x§7§2§2§F§D§Ba§x§6§D§3§4§E§3m§x§6§7§3§9§E§Ae§x§6§1§3§E§F§1.§x§5§B§4§2§F§8.§x§5§5§4§7§F§F.", "§x§B§E§6§C§0§9N§x§B§6§6§2§2§2o §x§A§F§5§8§3§Bx§x§A§7§4§E§5§5p §x§9§F§4§4§6§Ew§x§9§7§3§A§8§7a§x§9§0§3§0§A§0s §x§8§8§2§6§B§9e§x§8§1§2§4§C§Aa§x§7§B§2§9§D§1r§x§7§4§2§E§D§9n§x§6§E§3§3§E§1e§x§6§8§3§8§E§8d§x§6§2§3§D§F§0.§x§5§B§4§2§F§7.§x§5§5§4§7§F§F.");
             plugin.teleportPlayer(player, "Lobby", 21.526, 156, 107.594, -1.3f, -90f);
             // Stop the stopwatch
-            plugin.stopStopwatch(player);
         }
     }
 
@@ -77,7 +81,7 @@ public class GameEndings {
         }
     }
 
-    public void postGame(String playerName, String mazeName, double gameTimeInSeconds, Player player) {
+    public void postGame(String playerName, String mazeName, double gameTimeInSeconds, Player player, String difficulty) {
 
         int playerLevel = player.getLevel();
 
@@ -100,9 +104,9 @@ public class GameEndings {
         // You can use Spigot's TextComponent for clickable text
 
         // Send the clickable summary message to the player
-        sendClickableText(player, "§c§nReturn To Lobby", "/tplobby");
-        sendClickableText(player, "§a§nPlay Again", "/mazegame");
-        sendClickableText(player, "§e§nView The Leaderboard", "/leaderboard " + plugin.maze + " " + plugin.difficulty);
+        sendClickableText(player, "§c§nReturn To Lobby§f§7 (/spawn)", "/spawn");
+        sendClickableText(player, "§a§nPlay Again§f§7 (/mazegame)", "/mazegame");
+        sendClickableText(player, "§e§nView The Leaderboard§f§7 (/leaderboard <mazeName> <difficulty>)", "/leaderboard " + mazeName + " " + difficulty);
     }
 
     // Helper method to format time as "00:00.00"

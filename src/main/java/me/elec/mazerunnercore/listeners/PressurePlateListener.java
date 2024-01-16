@@ -3,6 +3,7 @@ package me.elec.mazerunnercore.listeners;
 import me.elec.mazerunnercore.DataManager;
 import me.elec.mazerunnercore.GameEndings;
 import me.elec.mazerunnercore.MazeRunnerCore;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,12 +25,10 @@ public class PressurePlateListener implements Listener {
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
 
-        // Assuming you have access to mazeName here
-
         if (event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.OAK_PRESSURE_PLATE) {
-            if (plugin.isPlayerInGame(player.getUniqueId())) {
-                // Player has won and is in the game, reward with XP
-                dataManager.givePlayerXP(player, plugin.difficulty);
+            if(plugin.isPlayerInGame(player.getUniqueId())) {
+                // Player has stepped on a wooden pressure plate and is in the game, do something
+                dataManager.givePlayerXP(player, plugin.getDifficulty(player));
 
                 plugin.playerIsWinner();
                 plugin.stopStopwatch(player);

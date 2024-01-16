@@ -4,6 +4,7 @@ import me.elec.mazerunnercore.CustomScoreboardManager;
 import me.elec.mazerunnercore.DataManager;
 import me.elec.mazerunnercore.GameBarrier;
 import me.elec.mazerunnercore.MazeRunnerCore;
+import me.elec.mazerunnercore.MazeRunnerCore.PlayerData;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -51,5 +52,8 @@ public class OnPlayerJoin implements Listener {
         // Customize the prefix format as needed
         String prefix = ChatColor.GREEN + "[" + xpLevel + "] " + ChatColor.WHITE;
         player.setPlayerListName(player.getName() + prefix);
+
+        MazeRunnerCore.PlayerData playerData = new MazeRunnerCore.PlayerData();
+        plugin.addPlayerToDataMap(player.getUniqueId(), playerData);
     }
 }
