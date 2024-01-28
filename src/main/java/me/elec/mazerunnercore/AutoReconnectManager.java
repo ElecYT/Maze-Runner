@@ -35,7 +35,7 @@ public class AutoReconnectManager {
         return reconnectEnabled;
     }
 
-    public void scheduleReconnect(Player player, String mazeName) {
+    public void scheduleReconnect(Player player, String mazeName, String difficulty) {
         if (reconnectEnabled) {
             new BukkitRunnable() {
                 @Override
@@ -44,7 +44,7 @@ public class AutoReconnectManager {
                         player.sendMessage(plugin.getGradientPrefix() + "§x§B§B§E§6§5§ET§x§A§8§E§9§5§Eo§x§9§6§E§B§5§Eg§x§8§3§E§E§5§Eg§x§7§0§F§0§5§El§x§5§E§F§3§5§Fe §x§4§B§F§5§5§Fu§x§3§8§F§8§5§Fs§x§2§5§F§A§5§Fi§x§1§3§F§D§5§Fn§x§0§0§F§F§5§Fg §x§1§3§F§D§5§F/§x§2§5§F§A§5§Fr§x§3§8§F§8§5§Fe§x§4§B§F§5§5§Fc§x§5§E§F§3§5§Fo§x§7§0§F§0§5§En§x§8§3§E§E§5§En§x§9§6§E§B§5§Ee§x§A§8§E§9§5§Ec§x§B§B§E§6§5§Et");
                         player.playSound(player.getLocation(), Sound.valueOf("BLOCK_NOTE_BLOCK_BELL"), 1.0f, 0.4f);
                         // Implement logic to teleport the player to a new game on the same map
-                        plugin.pregameProcess(player, mazeName);
+                        plugin.pregameProcess(player, mazeName + difficulty);
                     }
                 }
             }.runTaskLater(plugin, 100); // 100 ticks = 5 seconds

@@ -75,7 +75,7 @@ public class GameEndings {
 
     public void scheduleReconnect(Player player, String mazeName) {
         if (reconnectManager.isReconnectEnabled()) {
-            reconnectManager.scheduleReconnect(player, mazeName);
+            reconnectManager.scheduleReconnect(player, mazeName, plugin.getDifficulty(player));
             player.sendMessage(plugin.getGradientPrefix() + "§x§2§6§B§E§1§AY§x§2§3§C§4§2§0o§x§1§F§C§9§2§6u §x§1§C§C§F§2§Ch§x§1§9§D§5§3§2a§x§1§5§D§A§3§8v§x§1§2§E§0§3§Ee §x§0§F§E§6§4§4r§x§0§C§E§B§4§Ae§x§0§8§F§1§5§0c§x§0§5§F§7§5§6o§x§0§2§F§C§5§Cn§x§0§8§F§E§5§Fn§x§1§8§F§C§5§Fe§x§2§9§F§A§5§Fc§x§3§9§F§7§5§Ft §x§4§9§F§5§5§Fe§x§5§9§F§3§5§Fn§x§6§A§F§1§5§Ea§x§7§A§E§F§5§Eb§x§8§A§E§D§5§El§x§9§A§E§A§5§Ee§x§A§B§E§8§5§Ed§x§B§B§E§6§5§E. §x§B§B§E§6§5§ER§x§A§B§E§8§5§Ee§x§9§A§E§A§5§Ec§x§8§A§E§D§5§Eo§x§7§A§E§F§5§En§x§6§A§F§1§5§En§x§5§9§F§3§5§Fe§x§4§9§F§5§5§Fc§x§3§9§F§7§5§Ft§x§2§9§F§A§5§Fi§x§1§8§F§C§5§Fn§x§0§8§F§E§5§Fg §x§0§8§F§E§5§Ft§x§1§8§F§C§5§Fo §x§2§9§F§A§5§Fa §x§3§9§F§7§5§Fn§x§4§9§F§5§5§Fe§x§5§9§F§3§5§Fw §x§6§A§F§1§5§Eg§x§7§A§E§F§5§Ea§x§8§A§E§D§5§Em§x§9§A§E§A§5§Ee §x§A§B§E§8§5§Eo§x§B§B§E§6§5§En " + mazeName + "...");
             player.playSound(player.getLocation(), Sound.valueOf("BLOCK_NOTE_BLOCK_BELL"), 1.0f, 1.0f);
         }

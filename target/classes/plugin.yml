@@ -8,9 +8,9 @@ commands:
     description: Opens the Maze Game GUI.
     usage: /mazegame
     aliases: game
-  tplobby:
+  spawn:
     description: Teleports you to the lobby.
-    usage: /tplobby
+    usage: /spawn
     aliases: lby
   leave:
     description: Teleports you to the lobby.

@@ -4,45 +4,15 @@ import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.scheduler.BukkitRunnable;
-import me.elec.mazerunnercore.MazeRunnerCore.PlayerData;
 import org.bukkit.scoreboard.*;
 
-import java.util.*;
-
 public class CustomScoreboardManager implements Listener {
-
     private final MazeRunnerCore plugin;
-    private Scoreboard gameScoreboard;
-    private Scoreboard lobbyScoreboard;
-    private Objective gameObjective;
-    private Objective lobbyObjective;
-    private boolean initialized = false;
-    private boolean isInGame = false;
-    private final Map<UUID, MazeRunnerCore.PlayerData> playerDataMap = new HashMap<>();
 
     public CustomScoreboardManager(MazeRunnerCore plugin) {
         this.plugin = plugin;
-        this.initialized = false;
-    }
-
-    private void initializeScoreboards() {
-        gameScoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-        lobbyScoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-
-        // Set up objectives for Game scoreboard
-        gameObjective = gameScoreboard.registerNewObjective("Game", "dummy", ChatColor.GOLD + "Maze Runner Game");
-        gameObjective.setDisplaySlot(DisplaySlot.SIDEBAR);
-
-        // Set up objectives for Lobby scoreboard
-        lobbyObjective = lobbyScoreboard.registerNewObjective("Lobby", "dummy", ChatColor.BLUE + "Maze Runner Lobby");
-        lobbyObjective.setDisplaySlot(DisplaySlot.SIDEBAR);
-
-        initialized = true;
 
         // Schedule a task to update the scoreboard every 20 ticks
         int delay = 0; // Delay before the first update
@@ -56,114 +26,105 @@ public class CustomScoreboardManager implements Listener {
         }.runTaskTimer(plugin, delay, period);
     }
 
-    public void setGameScoreboard(Player player) {
-        if (!initialized) {
-            initializeScoreboards();
-        }
-        player.setScoreboard(gameScoreboard);
-        isInGame = true;
-    }
-
-    public void setLobbyScoreboard(Player player) {
-        if (!initialized) {
-            initializeScoreboards();
-        }
-        player.setScoreboard(lobbyScoreboard);
-        isInGame = false;
-    }
-
-    @EventHandler
-    public void onPluginEnable(PluginEnableEvent event) {
-        if (event.getPlugin() == plugin && !initialized) {
-            initializeScoreboards();
-        }
-    }
-
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        if (initialized) {
-            // Update lobby scoreboard information on player join
-            Player player = event.getPlayer();
-            updateLobbyScoreboard(player, playerDataMap.get(player.getUniqueId()));
-        }
-    }
-
     private void updateScoreboards() {
         // Update both lobby and game scoreboards for all online players
         for (Player player : Bukkit.getOnlinePlayers()) {
-            MazeRunnerCore.PlayerData playerData = playerDataMap.get(player.getUniqueId());
-                if (plugin.isStopwatchRunning(player)) {
-                    updateGameScoreboard(player, playerData);
-                } else {
-                    updateLobbyScoreboard(player, playerData);
+            if (plugin.isStopwatchRunning(player)) {
+                setGameScoreboard(player);
+            } else {
+                setLobbyScoreboard(player);
             }
         }
     }
 
-    private void updateLobbyScoreboard(Player player, PlayerData playerData) {
-        // ... existing code
+    public void switchLobbyScoreboard(Player player) {
+        ScoreboardManager manager = Bukkit.getScoreboardManager();
+        Scoreboard board = manager.getNewScoreboard();
+        Objective objective = board.registerNewObjective("lobby", "dummy", ChatColor.translateAlternateColorCodes('&', "&6&lMaze &9&lRunner"));
+        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
-        // Example: Set player name, level, and XP on the lobby scoreboard
-        List<String> lobbyLines = Arrays.asList(
-                "§f\uE010 §9ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ",
-                "§f",
-                "   §f\uE007 §9ᴘʟᴀʏᴇʀ " + ChatColor.GRAY + player.getName(),
-                "   §f\uE009 §9ᴏɴʟɪɴᴇ " + ChatColor.GRAY + Bukkit.getOnlinePlayers().size(),
-                " §9§l  ● ꜱᴇʀᴠᴇʀ ɪɴꜰᴏ",
-                "   §f\uE008 §6ʟᴇᴠᴇʟ " + ChatColor.GRAY + getPlayerLevel(player),
-                "   §f\uE003 §6xᴘ " + ChatColor.GRAY + getPlayerXP(player),
-                " §6§l  ● ᴇxᴘᴇʀɪᴇɴᴄᴇ",
-                "",
-                "§7⌚ " + PlaceholderAPI.setPlaceholders(player, "%localtime_time%")
-        );
+        // Set the game scoreboard
+        Score date = objective.getScore("§7⌚ " + PlaceholderAPI.setPlaceholders(player, "%localtime_time_MMM d, yyy%"));
+        Score xpFiller = objective.getScore("§6§l  ● ᴇxᴘᴇʀɪᴇɴᴄᴇ");
+        Score xp = objective.getScore("   §6xᴘ " + ChatColor.GRAY + getPlayerXP(player));
+        Score level = objective.getScore("   §6ʟᴇᴠᴇʟ " + ChatColor.GRAY + getPlayerLevel(player));
+        Score infoFiller = objective.getScore("§9§l  ● ꜱᴇʀᴠᴇʀ ɪɴꜰᴏ");
+        Score name = objective.getScore("   §9ᴘʟᴀʏᴇʀ " + ChatColor.GRAY + player.getName());
+        Score online = objective.getScore("   §9ᴏɴʟɪɴᴇ " + ChatColor.GRAY + Bukkit.getOnlinePlayers().size());
+        Score ip = objective.getScore("§7ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ");
+        Score blank = objective.getScore("§f");
+        Score blankTwo = objective.getScore("§6");
 
-        updateObjective(lobbyScoreboard, lobbyObjective, "Lobby", mazeRunner(), lobbyLines);
-        player.setScoreboard(lobbyScoreboard);
+        date.setScore(9);
+        blankTwo.setScore(8);
+        xpFiller.setScore(7);
+        xp.setScore(6);
+        level.setScore(5);
+        infoFiller.setScore(4);
+        name.setScore(3);
+        online.setScore(2);
+        blank.setScore(1);
+        ip.setScore(0);
+
+        player.setScoreboard(board);
     }
 
-    private void updateGameScoreboard(Player player, PlayerData playerData) {
-        // ... existing code
+    public void switchGameScoreboard(Player player) {
+        ScoreboardManager manager = Bukkit.getScoreboardManager();
+        Scoreboard board = manager.getNewScoreboard();
+        Objective objective = board.registerNewObjective("game", "dummy", ChatColor.translateAlternateColorCodes('&', "&6&lMaze &9&lRunner"));
+        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
-        // Example: Set player name, level, and XP on the game scoreboard
-        List<String> gameLines = Arrays.asList(
-                "§f\uE010 §9ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ",
-                "§f",
-                "   §f\uE007 §9ᴘʟᴀʏᴇʀ " + ChatColor.GRAY + player.getName(),
-                "   §f\uE009 §9ᴏɴʟɪɴᴇ " + ChatColor.GRAY + Bukkit.getOnlinePlayers().size(),
-                " §9§l  ● ꜱᴇʀᴠᴇʀ ɪɴꜰᴏ",
-                "   §f\uE008 §6ʟᴇᴠᴇʟ " + ChatColor.GRAY + getPlayerLevel(player),
-                "   §f\uE003 §6xᴘ " + ChatColor.GRAY + getPlayerXP(player),
-                " §6§l  ● ᴇxᴘᴇʀɪᴇɴᴄᴇ",
-                "   §f\uE021 §bᴛɪᴍᴇ " + ChatColor.GRAY + formatTime(getTimer(player)),
-                "   §f\uE022 §bᴍᴀᴘ " + ChatColor.GRAY + player.getWorld().getName(),
-                " §b§l  ● ɢᴀᴍᴇ",
-                "",
-                "§7⌚ " + PlaceholderAPI.setPlaceholders(player, "%localtime_time%"));
+        // Set the game scoreboard
+        Score date = objective.getScore("§7⌚ " + PlaceholderAPI.setPlaceholders(player, "%localtime_time_MMM d, yyy%"));
+        Score gameFiller = objective.getScore("§b§l  ● ɢᴀᴍᴇ");
+        Score map = objective.getScore("   §bᴍᴀᴘ " + ChatColor.GRAY + player.getWorld().getName());
+        Score time = objective.getScore("   §bᴛɪᴍᴇ " + ChatColor.GRAY + formatTime(getTimer(player)));
+        Score xpFiller = objective.getScore("§6§l  ● ᴇxᴘᴇʀɪᴇɴᴄᴇ");
+        Score xp = objective.getScore("   §6xᴘ " + ChatColor.GRAY + getPlayerXP(player));
+        Score level = objective.getScore("   §6ʟᴇᴠᴇʟ " + ChatColor.GRAY + getPlayerLevel(player));
+        Score infoFiller = objective.getScore("§9§l  ● ꜱᴇʀᴠᴇʀ ɪɴꜰᴏ");
+        Score name = objective.getScore("   §9ᴘʟᴀʏᴇʀ " + ChatColor.GRAY + player.getName());
+        Score online = objective.getScore("   §9ᴏɴʟɪɴᴇ " + ChatColor.GRAY + Bukkit.getOnlinePlayers().size());
+        Score ip = objective.getScore("§7ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ");
+        Score blank = objective.getScore("§f");
+        Score blankTwo = objective.getScore("§6");
 
-        updateObjective(gameScoreboard, gameObjective, "Game", mazeRunner(), gameLines);
-        player.setScoreboard(gameScoreboard);
+        date.setScore(12);
+        blankTwo.setScore(11);
+        gameFiller.setScore(10);
+        map.setScore(9);
+        time.setScore(8);
+        xpFiller.setScore(7);
+        xp.setScore(6);
+        level.setScore(5);
+        infoFiller.setScore(4);
+        name.setScore(3);
+        online.setScore(2);
+        blank.setScore(1);
+        ip.setScore(0);
+
+        player.setScoreboard(board);
     }
 
-    public String mazeRunner() {
-        return "  §f\uE001";
+    public void setLobbyScoreboard(Player player) {
+        switchLobbyScoreboard(player);
     }
 
-    private void updateObjective(Scoreboard scoreboard, Objective oldObjective, String newObjectiveName, String displayName, List<String> lines) {
-        if (oldObjective != null) {
-            // Remove the existing objective
-            oldObjective.unregister();
-        }
+    public void setGameScoreboard(Player player) {
+        switchGameScoreboard(player);
+    }
 
-        // Set up the new objective
-        Objective newObjective = scoreboard.registerNewObjective(newObjectiveName, "dummy", displayName);
-        newObjective.setDisplaySlot(DisplaySlot.SIDEBAR);
+    private String formatTime(long seconds) {
+        // Example method, replace with your logic to format time
+        long minutes = seconds / 60;
+        long remainingSeconds = seconds % 60;
+        return String.format("%02d:%02d", minutes, remainingSeconds);
+    }
 
-        // Set the new scores
-        int scoreValue = 0;
-        for (String line : lines) {
-            Score score = newObjective.getScore(line);
-            score.setScore(scoreValue++);
-        }
+    private long getTimer(Player player) {
+        // Example method, replace with your logic to get time in seconds
+        return (long) ((long) plugin.getElapsedTimeSeconds(player) + .5);
     }
 
     // Replace these methods with your actual methods to get player level and XP
@@ -176,17 +137,4 @@ public class CustomScoreboardManager implements Listener {
         // Example method, replace with your logic
         return String.valueOf(player.getTotalExperience());
     }
-
-    private String formatTime(long seconds) {
-        // Example method, replace with your logic to format time
-        long minutes = seconds / 60;
-        long remainingSeconds = seconds % 60;
-        return String.format("%02d:%02d", minutes, remainingSeconds);
-    }
-
-    private long getTimer(Player player) {
-        // Example method, replace with your logic to get time in seconds
-        return (long) ((long) plugin.getElapsedTimeSeconds(player) + 0.5);
-    }
 }
-
