@@ -55,5 +55,9 @@ public class OnPlayerJoin implements Listener {
 
         MazeRunnerCore.PlayerData playerData = new MazeRunnerCore.PlayerData();
         plugin.addPlayerToDataMap(player.getUniqueId(), playerData);
+
+        if (!player.hasPlayedBefore()) {
+            plugin.teleportPlayer(player, "Lobby", 21.520, 156, 107.512, 0.215f, 270.163f);
+        }
     }
 }

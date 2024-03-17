@@ -51,7 +51,7 @@ public class CustomScoreboardManager implements Listener {
         Score infoFiller = objective.getScore("§9§l  ● ꜱᴇʀᴠᴇʀ ɪɴꜰᴏ");
         Score name = objective.getScore("   §9ᴘʟᴀʏᴇʀ " + ChatColor.GRAY + player.getName());
         Score online = objective.getScore("   §9ᴏɴʟɪɴᴇ " + ChatColor.GRAY + Bukkit.getOnlinePlayers().size());
-        Score ip = objective.getScore("§7ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ");
+        Score ip = objective.getScore("§7ᴘʟᴀʏ.ʙɪᴏᴍᴇꜱᴍᴄ.ɴᴇᴛ");
         Score blank = objective.getScore("§f");
         Score blankTwo = objective.getScore("§6");
 
@@ -86,7 +86,7 @@ public class CustomScoreboardManager implements Listener {
         Score infoFiller = objective.getScore("§9§l  ● ꜱᴇʀᴠᴇʀ ɪɴꜰᴏ");
         Score name = objective.getScore("   §9ᴘʟᴀʏᴇʀ " + ChatColor.GRAY + player.getName());
         Score online = objective.getScore("   §9ᴏɴʟɪɴᴇ " + ChatColor.GRAY + Bukkit.getOnlinePlayers().size());
-        Score ip = objective.getScore("§7ᴘʟᴀʏ.ɴᴀᴜᴛɪᴄᴀʟᴍᴄ.ɴᴇᴛ");
+        Score ip = objective.getScore("§7ᴘʟᴀʏ.ʙɪᴏᴍᴇꜱᴍᴄ.ɴᴇᴛ");
         Score blank = objective.getScore("§f");
         Score blankTwo = objective.getScore("§6");
 

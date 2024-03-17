@@ -56,10 +56,13 @@ public class LeaderboardCommand implements CommandExecutor, TabCompleter {
                 player.sendMessage( "§eNo data available.");
             } else {
                 int rank = 1;
+
                 for (Map<?, ?> entry : leaderboard) {
-                    String playerName = (String) entry.get("player");
-                    double time = (double) entry.get("time");
-                    player.sendMessage(ChatColor.GRAY + "#" + rank + ": " + ChatColor.GREEN + playerName + ChatColor.GRAY + " - " + formatTime(time));
+                    if (rank <= 100) {
+                        String playerName = (String) entry.get("player");
+                        double time = (double) entry.get("time");
+                        player.sendMessage(ChatColor.GRAY + "#" + rank + ": " + ChatColor.GREEN + playerName + ChatColor.GRAY + " - " + formatTime(time));
+                    }
                     rank++;
                 }
             }

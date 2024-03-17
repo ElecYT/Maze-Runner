@@ -93,7 +93,7 @@ public class GameEndings {
         player.sendMessage("§x§0§0§2§B§F§F§o§nM§x§0§0§4§A§F§F§o§na§x§0§0§6§9§F§F§o§nz§x§0§0§8§8§F§F§o§ne§x§0§0§A§7§F§F§o§n: " + mazeName);
         player.sendMessage("§x§0§0§0§2§F§F§o§nL§x§0§0§2§D§F§F§o§ne§x§0§0§5§9§F§F§o§nv§x§0§0§8§4§F§F§o§ne§x§0§0§B§0§F§F§o§nl§x§0§0§A§7§F§F§o§n: " + playerLevel);
         player.sendMessage("");
-        player.sendMessage("§x§0§0§4§A§F§F§oP§x§0§D§4§4§F§F§ol§x§1§B§3§D§F§F§oa§x§2§8§3§7§F§F§oy§x§3§5§3§0§F§F§oi§x§4§3§2§A§F§F§on§x§5§0§2§3§F§F§og §x§5§D§1§D§F§F§oo§x§6§A§1§7§F§F§on §x§7§8§1§0§F§F§oN§x§8§5§0§A§F§F§oa§x§9§2§0§3§F§F§ou§x§9§A§0§6§F§5§ot§x§9§B§1§2§E§1§oi§x§9§D§1§F§C§D§oc§x§9§F§2§B§B§9§oa§x§A§0§3§7§A§5§ol §x§A§2§4§3§9§1§oN§x§A§4§5§0§7§E§oe§x§A§5§5§C§6§A§ot§x§A§7§6§8§5§6§ow§x§A§9§7§4§4§2§oo§x§A§A§8§1§2§E§or§x§A§C§8§D§1§A§ok");
+        player.sendMessage("&#1B18E9ᴘ&#2620DCʟ&#3028CEᴀ&#3B2FC1ʏ&#4537B4ɪ&#503FA6ɴ&#5A4799ɢ &#654F8Cᴏ&#70577Fɴ &#7A5E71ʙ&#856664ɪ&#8F6E57ᴏ&#9A7649ᴍ&#A47E3Cᴇ&#AF852Fꜱ&#B98D21ᴍ&#C49514ᴄ");
         player.sendMessage("§x§B§E§6§C§0§9-§x§B§9§6§5§1§A-§x§B§3§5§E§2§B-§x§A§E§5§8§3§D-§x§A§9§5§1§4§E-§x§A§4§4§A§5§F-§x§9§E§4§3§7§0-§x§9§9§3§C§8§1-§x§9§4§3§5§9§2-§x§8§F§2§F§A§4-§x§8§9§2§8§B§5-§x§8§4§2§1§C§6-§x§8§0§2§4§C§B-§x§7§B§2§8§D§0-§x§7§7§2§B§D§6-§x§7§3§2§F§D§B-§x§6§F§3§2§E§0-§x§6§A§3§6§E§5-§x§6§6§3§9§E§A-§x§6§2§3§D§E§F-§x§5§E§4§0§F§5-§x§5§9§4§4§F§A-§x§5§5§4§7§F§F-");
         mapName = mazeName;
         player.setGameMode(GameMode.SPECTATOR);
